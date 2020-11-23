@@ -1,11 +1,21 @@
 package com.example.demo.resource;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import java.util.Objects;
+@Entity
 public class CareGiver {
+    @Id
+    @GeneratedValue
+    private Long Id;
     private int runId;
     private int careGiverId1;
     private int careGiverId2;
     private int careGiverId3;
     private String dateAndTime;
+    protected CareGiver(){
+    }
 
     public CareGiver(int runId, int careGiverId1, int careGiverId2, int careGiverId3, String dateAndTime) {
         this.runId = runId;
@@ -33,5 +43,27 @@ public class CareGiver {
 
     public String getDateAndTime() {
         return dateAndTime;
+    }
+
+    public Long getId() {
+        return Id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CareGiver careGiver = (CareGiver) o;
+        return runId == careGiver.runId &&
+                careGiverId1 == careGiver.careGiverId1 &&
+                careGiverId2 == careGiver.careGiverId2 &&
+                careGiverId3 == careGiver.careGiverId3 &&
+                Objects.equals(Id, careGiver.Id) &&
+                Objects.equals(dateAndTime, careGiver.dateAndTime);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(Id, runId, careGiverId1, careGiverId2, careGiverId3, dateAndTime);
     }
 }
