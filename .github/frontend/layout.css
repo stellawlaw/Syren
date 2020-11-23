@@ -1,0 +1,33 @@
+h1 {
+    display: grid;
+    justify-self: center;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: auto;
+}
+
+.patient-card {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1rem;
+}
+
+.priority {
+    justify-self: end;
+    grid-column-start: -1;
+    grid-column-end: -2;
+    grid-row-start: 1;
+    grid-row-end: -1;
+    width: 100px;
+}
+
+.eta {
+    justify-self: center;
+}
+
+.clear-pt-button {
+    justify-self: center;
+}

@@ -1,0 +1,45 @@
+:root {
+    --light-gray: #f0f7ee;
+    --yellow: #fff07c;
+    --dark-blue: #5d737e;
+    --green: #87bba2;
+    --black: #000000;
+}
+
+html {
+    background-color: var(--dark-blue);
+}
+
+h1 {
+    color: var(--light-gray);
+}
+
+.container {
+    font-family: PT Sans;
+    padding: 1rem;
+    max-height: 100vh;
+}
+
+.patient-intake-list {
+    margin: 1rem;
+    overflow-y: scroll;
+}
+
+.patient-card {
+    background-color: var(--light-gray);
+    border: solid;
+    border-radius: 7px;
+    font-size: x-large;
+    padding: 1rem;
+    margin-top: 10px;
+}
+
+.clear-pt-button button {
+    border: none;
+    background-color: var(--yellow);
+    border-radius: 7px;
+    width: 150px;
+    height: 50px;
+    font-family: PT Sans;
+    font-size: x-large;
+}
