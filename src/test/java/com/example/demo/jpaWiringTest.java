@@ -46,17 +46,17 @@ public class jpaWiringTest {
     public void patientHasOneVitalAndOneCareGiver(){
         Vitals testVital = new Vitals(53,65,25,"1654164964","good","awesome","perfect");
         vitalRepo.save(testVital);
-        CareGiver testcareGiver = new CareGiver(1654, 65, 85, 35, "November 25 2020");
-        careGiverRepo.save(testcareGiver);
-        Patient testPatient1 = new Patient(01234,25,"male",testVital,"","","","","", testcareGiver);
+        CareGiver testCareGiver = new CareGiver(1654, 65, 85, 35, "November 25 2020");
+        careGiverRepo.save(testCareGiver);
+        Patient testPatient1 = new Patient(01234,25,"male",testVital,"","","","","", testCareGiver);
         patientRepo.save(testPatient1);
         flushAndClear();
         Patient retrievedPatient1 = patientRepo.findById(testPatient1.getId()).get();
         assertThat(retrievedPatient1.getVitals()).isEqualTo(testVital);
         Patient retrievedpatient2 = patientRepo.findById(testPatient1.getId()).get();
-        assertThat(retrievedpatient2.getCareGiver()).isEqualTo(testcareGiver);
+        assertThat(retrievedpatient2.getCareGiver()).isEqualTo(testCareGiver);
     }
-    
+
 
 }
 
