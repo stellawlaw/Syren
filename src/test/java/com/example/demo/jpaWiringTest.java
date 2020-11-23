@@ -15,23 +15,24 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class jpaWiringTest {
     @Autowired
     private PatientRepository patientRepo;
-    @Autowired
-    private TestEntityManager entityManager;
-    private void flushAndClear(){
-        entityManager.flush();
-        entityManager.clear();
-    }
+//    @Autowired
+//    private TestEntityManager entityManager;
+//    private void flushAndClear(){
+//        entityManager.flush();
+//        entityManager.clear();
+//    }
 
 
     @Test
     public void patientRepoShouldSaveAndRetrieveVitalObjects(){
         Patient testPatient1 = new Patient(01234,25,"male",new Vitals(53,65,25,"1654164964","good","awesome","perfect"),"","","","","",new CareGiver(1654,65,85,35,"November 25 2020"));
         patientRepo.save(testPatient1);
-        flushAndClear();
+//        flushAndClear();
         Patient retrievedPatient = patientRepo.findById(testPatient1.getId()).get();
         assertThat(retrievedPatient).isEqualTo(testPatient1);
-
     }
+    
+
 
 }
 

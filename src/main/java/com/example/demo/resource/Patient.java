@@ -1,9 +1,6 @@
 package com.example.demo.resource;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
@@ -11,6 +8,7 @@ public class Patient {
     @Id
     @GeneratedValue
     private Long Id;
+
     private int patientId;
     private int age;
     private String sex;

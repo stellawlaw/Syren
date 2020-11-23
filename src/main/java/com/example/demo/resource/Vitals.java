@@ -3,12 +3,14 @@ package com.example.demo.resource;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import java.util.Objects;
 @Entity
 public class Vitals {
     @Id
     @GeneratedValue
     private Long Id;
+
     private int BP;
     private int HR;
     private String location;
