@@ -10,8 +10,8 @@ public class PatientStorage {
     public PatientStorage(PatientRepository patientRepo) {
         this.patientRepo = patientRepo;
     }
-    public Patient retrievedPatientById(Long Id){
-        return patientRepo.findById(Id).get();
+    public Patient retrievedPatientById(Long id){
+        return patientRepo.findById(id).get();
     }
     public Iterable<Patient> retrieveAllPatients(){
         return patientRepo.findAll();
@@ -19,8 +19,8 @@ public class PatientStorage {
     public void savePatient(Patient patientToSave){
         patientRepo.save(patientToSave);
     }
-    public void deletePatientById(Long Id){
-        patientRepo.deleteById(Id);
+    public void deletePatientById(Long id){
+        patientRepo.deleteById(id);
     }
 
 }

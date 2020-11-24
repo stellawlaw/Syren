@@ -9,7 +9,7 @@ import java.util.Objects;
 public class CareGiver {
     @Id
     @GeneratedValue
-    private Long Id;
+    private Long id;
 
     private int runId;
     private int careGiverId1;
@@ -48,7 +48,7 @@ public class CareGiver {
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     @Override
@@ -60,12 +60,12 @@ public class CareGiver {
                 careGiverId1 == careGiver.careGiverId1 &&
                 careGiverId2 == careGiver.careGiverId2 &&
                 careGiverId3 == careGiver.careGiverId3 &&
-                Objects.equals(Id, careGiver.Id) &&
+                Objects.equals(id, careGiver.id) &&
                 Objects.equals(dateAndTime, careGiver.dateAndTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(Id, runId, careGiverId1, careGiverId2, careGiverId3, dateAndTime);
+        return Objects.hash(id, runId, careGiverId1, careGiverId2, careGiverId3, dateAndTime);
     }
 }
