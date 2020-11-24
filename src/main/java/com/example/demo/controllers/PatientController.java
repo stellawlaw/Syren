@@ -20,13 +20,13 @@ public class PatientController {
         this.careGiverRepo = careGiverRepo;
     }
 
-    @GetMapping("/patients")
+    @GetMapping("/api/patients")
     public Iterable<Patient> retrieveAllPatients(){
         return patientStorage.retrieveAllPatients();
     }
-    @GetMapping("/patients/{Id}")
-    public Patient retrievePatientById(@PathVariable Long Id){
-        return patientStorage.retrievedPatientById(Id);
+    @GetMapping("/api/patients/{id}")
+    public Patient retrievePatientById(@PathVariable Long id){
+        return patientStorage.retrievedPatientById(id);
     }
     @PostMapping("/patients")
     public  Iterable<Patient> addPatient(@RequestBody Patient patientToAdd){

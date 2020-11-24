@@ -7,7 +7,7 @@ import java.util.Objects;
 public class Patient {
     @Id
     @GeneratedValue
-    private Long Id;
+    private Long id;
 
     private int patientId;
     private int age;
@@ -79,7 +79,7 @@ public class Patient {
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     @Override
@@ -97,11 +97,11 @@ public class Patient {
                 Objects.equals(levelOfEmergency, patient.levelOfEmergency) &&
                 Objects.equals(drugAndAlcoholHistory, patient.drugAndAlcoholHistory) &&
                 Objects.equals(careGiver, patient.careGiver) &&
-                Objects.equals(Id, patient.Id);
+                Objects.equals(id, patient.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(patientId, age, sex, vitals, medicalHistory, allergies, medication, levelOfEmergency, drugAndAlcoholHistory, careGiver, Id);
+        return Objects.hash(patientId, age, sex, vitals, medicalHistory, allergies, medication, levelOfEmergency, drugAndAlcoholHistory, careGiver, id);
     }
 }
