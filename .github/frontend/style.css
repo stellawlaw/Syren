@@ -34,6 +34,35 @@ h1 {
     margin-top: 10px;
 }
 
+.priority-green {
+    border: solid;
+    border-radius: 7px;
+    border-width: 6px;
+    border-color: rgb(4, 156, 4);
+}
+.priority-yellow {
+    opacity: 50%;
+}
+.priority-red {
+    opacity: 50%;
+}
+.priority-red:hover {
+    border: solid;
+    border-radius: 7px;
+    border-width: 6px;
+    border-color: #bc544b;
+    box-shadow: 5px 5px 50px 5px #bc544b;
+    opacity: 100%;
+}
+.priority-yellow:hover {
+    border: solid;
+    border-radius: 7px;
+    border-width: 6px;
+    border-color: #fcf4a3;
+    box-shadow: 5px 5px 50px 5px #fcf4a3;
+    opacity: 100%;
+}
+
 .clear-pt-button button {
     border: none;
     background-color: var(--yellow);
