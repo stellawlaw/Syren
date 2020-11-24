@@ -3,7 +3,6 @@ package com.example.demo.resource;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import java.util.Objects;
 @Entity
 public class Vitals {
@@ -11,50 +10,50 @@ public class Vitals {
     @GeneratedValue
     private Long id;
 
-    private int BP;
-    private int HR;
+    private int bp;
+    private int hr;
     private String location;
-    private int RR;
+    private int rr;
     private String pupils;
-    private String EKG;
+    private String ekg;
     private String lungSounds;
 
     protected Vitals(){
 
     }
 
-    public Vitals(int BP, int HR, int RR, String location, String pupils, String EKG, String lungSounds) {
-        this.BP = BP;
-        this.HR = HR;
+    public Vitals(int bp, int hr, int rr, String location, String pupils, String ekg, String lungSounds) {
+        this.bp = bp;
+        this.hr = hr;
         this.location = location;
-        this.RR = RR;
+        this.rr = rr;
         this.pupils = pupils;
-        this.EKG = EKG;
+        this.ekg = ekg;
         this.lungSounds = lungSounds;
     }
 
-    public int getBP() {
-        return BP;
+    public int getBp() {
+        return bp;
     }
 
-    public int getHR() {
-        return HR;
+    public int getHr() {
+        return hr;
     }
 
     public String getLocation() {
         return location;
     }
 
-    public int getRR() {
-        return RR;
+    public int getRr() {
+        return rr;
     }
 
     public String getPupils() {
         return pupils;
     }
 
-    public String getEKG() {
-        return EKG;
+    public String getEkg() {
+        return ekg;
     }
 
     public String getLungSounds() {
@@ -66,22 +65,36 @@ public class Vitals {
     }
 
     @Override
+    public String toString() {
+        return "Vitals{" +
+                "id=" + id +
+                ", BP=" + bp +
+                ", HR=" + hr +
+                ", location='" + location + '\'' +
+                ", RR=" + rr +
+                ", pupils='" + pupils + '\'' +
+                ", EKG='" + ekg + '\'' +
+                ", lungSounds='" + lungSounds + '\'' +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Vitals vitals = (Vitals) o;
-        return BP == vitals.BP &&
-                HR == vitals.HR &&
-                RR == vitals.RR &&
+        return bp == vitals.bp &&
+                hr == vitals.hr &&
+                rr == vitals.rr &&
                 Objects.equals(id, vitals.id) &&
                 Objects.equals(location, vitals.location) &&
                 Objects.equals(pupils, vitals.pupils) &&
-                Objects.equals(EKG, vitals.EKG) &&
+                Objects.equals(ekg, vitals.ekg) &&
                 Objects.equals(lungSounds, vitals.lungSounds);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, BP, HR, location, RR, pupils, EKG, lungSounds);
+        return Objects.hash(id, bp, hr, location, rr, pupils, ekg, lungSounds);
     }
 }

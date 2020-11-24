@@ -13,6 +13,6 @@ POST http://localhost:8080/api/patients
 Content-Type: application/json
 
 {"patientId":200, "age":25, "sex": "female",
-  "vitals": {"BP": 23, "HR": 25, "RR": 24, "location":  "campus", "pupils":  "meh", "EKG": "ok", "lungSounds":"great"},
+  "vitals": {"bp": 23, "hr": 25, "rr": 24, "location":  "campus", "pupils":  "meh", "ekg": "ok", "lungSounds":"great"},
   "medicalHistory":"ok", "allergies":  "none", "medication": "none", "levelOfEmergency": "bad", "drugAndAlcoholHistory": "none",
   "careGiver":{"runId": 25, "careGiverId1": 66, "careGiverId2": 67, "careGiverId3": 68, "dateAndTime": "ok"  }}

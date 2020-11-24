@@ -32,6 +32,9 @@ public class PatientController {
 
     @PostMapping("/api/patients")
     public  Iterable<Patient> addPatient(@RequestBody Patient patientToAdd){
+        careGiverRepo.save(patientToAdd.getCareGiver());
+        System.out.println(patientToAdd.getVitals());
+        vitalRepo.save(patientToAdd.getVitals());
         patientStorage.savePatient(patientToAdd);
         return patientStorage.retrieveAllPatients();
     }
@@ -44,7 +47,7 @@ public class PatientController {
     }
     @PatchMapping("/api/patients/{Id}/vitals")
     public Patient addVitalToPatient(@RequestBody Vitals vitalToAdd, @PathVariable long Id){
-        Vitals vital = new Vitals(vitalToAdd.getBP(),vitalToAdd.getHR(),vitalToAdd.getRR(),vitalToAdd.getLocation(),vitalToAdd.getPupils(),vitalToAdd.getEKG(),vitalToAdd.getLungSounds());
+        Vitals vital = new Vitals(vitalToAdd.getBp(),vitalToAdd.getHr(),vitalToAdd.getRr(),vitalToAdd.getLocation(),vitalToAdd.getPupils(),vitalToAdd.getEkg(),vitalToAdd.getLungSounds());
         vitalRepo.save(vital);
         return patientStorage.retrievedPatientById(Id);
     }

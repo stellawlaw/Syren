@@ -52,6 +52,18 @@ public class CareGiver {
     }
 
     @Override
+    public String toString() {
+        return "CareGiver{" +
+                "id=" + id +
+                ", runId=" + runId +
+                ", careGiverId1=" + careGiverId1 +
+                ", careGiverId2=" + careGiverId2 +
+                ", careGiverId3=" + careGiverId3 +
+                ", dateAndTime='" + dateAndTime + '\'' +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
