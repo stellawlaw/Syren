@@ -33,33 +33,38 @@ public class PatientController {
     @PostMapping("/api/patients")
     public  Iterable<Patient> addPatient(@RequestBody Patient patientToAdd){
         careGiverRepo.save(patientToAdd.getCareGiver());
-        System.out.println(patientToAdd.getVitals());
         vitalRepo.save(patientToAdd.getVitals());
         patientStorage.savePatient(patientToAdd);
         return patientStorage.retrieveAllPatients();
     }
     @PutMapping("/api/patients")
     public Iterable<Patient> editPatient(@RequestBody Patient patientToEdit){
-        if(patientToEdit.getId()!=null){
+        if(patientToEdit.getId()!= null){
+            careGiverRepo.save(patientToEdit.getCareGiver());
+            vitalRepo.save(patientToEdit.getVitals());
             patientStorage.savePatient((patientToEdit));
         }
         return patientStorage.retrieveAllPatients();
     }
-    @PatchMapping("/api/patients/{Id}/vitals")
-    public Patient addVitalToPatient(@RequestBody Vitals vitalToAdd, @PathVariable long Id){
-        Vitals vital = new Vitals(vitalToAdd.getBp(),vitalToAdd.getHr(),vitalToAdd.getRr(),vitalToAdd.getLocation(),vitalToAdd.getPupils(),vitalToAdd.getEkg(),vitalToAdd.getLungSounds());
-        vitalRepo.save(vital);
-        return patientStorage.retrievedPatientById(Id);
+    @PatchMapping("/api/patients/{id}/vitals")
+    public Patient changePatientsVitals(@RequestBody Vitals newVital, @PathVariable long id){
+        Patient vitalToChange = patientStorage.retrievedPatientById(id);
+        vitalToChange.changeVital(newVital);
+        vitalRepo.save(newVital);
+        patientStorage.savePatient(vitalToChange);
+        return vitalToChange;
     }
-    @PatchMapping("/api/patients/{Id}/careGiver")
-    public Patient addCareGiverToPatient(@RequestBody CareGiver careGiverToAdd, @PathVariable long Id){
-        CareGiver careGiver = new CareGiver(careGiverToAdd.getRunId(),careGiverToAdd.getCareGiverId1(),careGiverToAdd.getCareGiverId2(),careGiverToAdd.getCareGiverId3(),careGiverToAdd.getDateAndTime());
-        careGiverRepo.save(careGiver);
-        return patientStorage.retrievedPatientById(Id);
+    @PatchMapping("/api/patients/{id}/careGiver")
+    public Patient changePatientsCareGiver(@RequestBody CareGiver newCareGiver, @PathVariable long id){
+        Patient careGiverToChange = patientStorage.retrievedPatientById(id);
+        careGiverToChange.changeCareGiver(newCareGiver);
+        careGiverRepo.save(newCareGiver);
+        patientStorage.savePatient(careGiverToChange);
+        return careGiverToChange;
     }
-    @DeleteMapping("/api/patients/{Id}")
-    public Iterable<Patient> deletePatientById(@PathVariable Long Id){
-        patientStorage.deletePatientById(Id);
+    @DeleteMapping("/api/patients/{id}")
+    public Iterable<Patient> deletePatientById(@PathVariable Long id){
+        patientStorage.deletePatientById(id);
         return patientStorage.retrieveAllPatients();
     }
 }

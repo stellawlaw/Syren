@@ -16,3 +16,25 @@ Content-Type: application/json
   "vitals": {"bp": 23, "hr": 25, "rr": 24, "location":  "campus", "pupils":  "meh", "ekg": "ok", "lungSounds":"great"},
   "medicalHistory":"ok", "allergies":  "none", "medication": "none", "levelOfEmergency": "bad", "drugAndAlcoholHistory": "none",
   "careGiver":{"runId": 25, "careGiverId1": 66, "careGiverId2": 67, "careGiverId3": 68, "dateAndTime": "ok"  }}
+
+### Update a patients resource.
+PUT http://localhost:8080/api/patients
+Content-Type: application/json
+
+{"id": 13 , "patientId":300, "age":25, "sex": "female",
+  "vitals": {"bp": 23, "hr": 25, "rr": 24, "location":  "campus", "pupils":  "meh", "ekg": "ok", "lungSounds":"great"},
+  "medicalHistory":"ok", "allergies":  "none", "medication": "none", "levelOfEmergency": "bad", "drugAndAlcoholHistory": "none",
+  "careGiver":{"runId": 22, "careGiverId1": 55, "careGiverId2": 25, "careGiverId3": 4, "dateAndTime": "November 10 2020"  }}
+
+### updating a patients vitals property.
+PATCH  http://localhost:8080/api/patients/13/vitals
+Content-Type: application/json
+
+{"bp":25, "hr":26,"rr": 27,"location": "grandview","pupils": "good","ekg": "bad","lungSounds": "worse"}
+
+### updating a patients careGiver property.
+PATCH  http://localhost:8080/api/patients/13/careGiver
+Content-Type: application/json
+
+{"runId": 215, "careGiverId1": 1000, "careGiverId2": 2525, "careGiverId3": 1004, "dateAndTime": "November 24 2020" }
+

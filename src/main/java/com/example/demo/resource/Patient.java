@@ -104,4 +104,12 @@ public class Patient {
     public int hashCode() {
         return Objects.hash(patientId, age, sex, vitals, medicalHistory, allergies, medication, levelOfEmergency, drugAndAlcoholHistory, careGiver, id);
     }
+
+    public void changeVital(Vitals newVital) {
+        vitals = newVital;
+    }
+
+    public void changeCareGiver(CareGiver newCareGiver) {
+        careGiver = newCareGiver;
+    }
 }
