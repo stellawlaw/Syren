@@ -97,13 +97,14 @@
 }
 
 input[type=text] {
+    width: 80%;
     border: none;
     background-color: var(--light-gray);
     border-bottom: 2px solid var(--dark-blue);
 }
 
 input[type=text]:focus {
-    background-color: var(--yellow);
+    background-color: lightgray;
 }
 
 input[type=text]::placeholder {
