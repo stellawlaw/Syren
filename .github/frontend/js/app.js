@@ -1,3 +1,17 @@
+import {
+  allPatients
+} from "./sampleAllPatientsjs.js"
+import{
+  displayHospitalView
+} from "./displayHospitalView.js"
+import {
+  createHeader
+} from "./header.js"
+const container = document.querySelector('.container');
+
+container.prepend(createHeader());
+
+
 const modal = document.querySelector(".patient-modal");
 
 const allCards = document.querySelectorAll(".patient-card");
