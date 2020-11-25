@@ -10,6 +10,7 @@ import {
 const container = document.querySelector('.container');
 
 container.prepend(createHeader());
+container.appendChild(displayHospitalView())
 
 
 const modal = document.querySelector(".patient-modal");
