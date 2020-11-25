@@ -9,3 +9,79 @@
 html {
     background-color: var(--dark-blue);
 }
+
+input[type=text] {
+    width: 80%;
+    border: none;
+    background-color: var(--light-gray);
+    border-bottom: 2px solid var(--dark-blue);
+}
+
+input[type=text]:focus {
+    background-color: lightgray;
+}
+
+input[type=text]::placeholder {
+    color: var(--dark-blue);
+    font-family: PT Sans;
+    font-size: large;
+}
+
+.logout-button {
+    background-color: lightcoral;
+    width: 50%;
+    padding: 10px;
+    margin: 10px;
+    border: solid var(--dark-blue);
+    border-radius: 5px;
+    font-family: PT Sans;
+    font-size: large;
+}
+
+.close:hover,
+.close:focus {
+    color: lightcoral;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.login-button {
+    background-color: var(--green);
+    width: 50%;
+    padding: 10px;
+    margin: 10px;
+    border: solid var(--dark-blue);
+    border-radius: 5px;
+    font-family: PT Sans;
+    font-size: large;
+}
+
+.login-button:hover {
+    cursor: pointer;
+    background-color: green;
+}
+
+.logout-button:hover {
+    cursor: pointer;
+    background-color: crimson;
+}
+
+.close {
+    color: var(--dark-blue);
+    float: right;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.modal-content {
+    background-color: var(--light-gray);
+    margin: 15% auto;
+    padding: 20px;
+    border: 6px solid var(--dark-blue);
+    border-radius: 7px;
+    width: 25%;
+}
+
+.login-icon-button :hover {
+    cursor: pointer;
+}
