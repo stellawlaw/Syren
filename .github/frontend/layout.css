@@ -14,14 +14,99 @@
 }
 
 .icons img {
-    width: 500px;
+    width: 300px;
 }
 
 .login-icon-button {
-    grid-column-start: 0;
-    grid-column-end: 2;
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    justify-items: center;
+}
+
+.login-icon-button :hover {
+    cursor: pointer;
 }
 
 .login-icon-button img {
     width: 200px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    background-color: var(--light-gray);
+    margin: 15% auto;
+    padding: 20px;
+    border: 6px solid var(--dark-blue);
+    border-radius: 7px;
+    width: 25%;
+}
+
+.close {
+    color: var(--dark-blue);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--black);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.login-button {
+    background-color: var(--green);
+    width: 50%;
+    padding: 10px;
+    margin: 10px;
+    border: solid var(--dark-blue);
+    border-radius: 5px;
+}
+
+.logout-button {
+    background-color: lightcoral;
+    width: 50%;
+    padding: 10px;
+    margin: 10px;
+    border: solid var(--dark-blue);
+    border-radius: 5px;
+}
+
+.username {
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.password {
+    padding: 1rem;
+    margin: 1rem;
+}
+
+input[type=text] {
+    border: none;
+    background-color: var(--light-gray);
+    border-bottom: 2px solid var(--dark-blue);
+}
+
+input[type=text]:focus {
+    background-color: var(--yellow);
+}
+
+input[type=text]::placeholder {
+    color: var(--dark-blue;
+    font-family: PT Sans;
 }
