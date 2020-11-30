@@ -1,12 +1,7 @@
-import {
-    displayHospitalView
-} from "./displayHospitalView.js"
-
 const displaySinglePatient = function(patient) {
-    const containerElement = document.querySelector(".container");
+    console.log(patient);
     const patientModalElement =document.createElement("div");
     patientModalElement.classList.add("patient-modal");
-    containerElement.appendChild(patientModalElement);
 
     const div1Element = document.createElement("div");
     div1Element.classList.add("div1")
@@ -85,7 +80,7 @@ const displaySinglePatient = function(patient) {
     patientPriorityElement.classList.add("patient-priority")
 
 
-   return containerElement;
+   return patientModalElement;
 }
 
 const clearChildren = function (element) {

@@ -18,8 +18,16 @@ const displayHospitalView = function (patients) {
         let patientCardElement = document.createElement("div");
         patientCardElement.classList.add("patient-card");
 
-        patientCardElement.addEventListener('click',()=>{displaySinglePatient})
+        patientCardElement.addEventListener('click',()=> {
+            alert('hello');
+            let patientModal = displaySinglePatient(patient);
+            console.log(patientModal);
+            patientListElement.appendChild(patientModal);
+            patientCardElement.addEventListener('click', () => {
+                patientModal.style.display = "block";
+            });
 
+        })
         let patientAgeSexElement = document.createElement("div");
         patientAgeSexElement.classList.add("patient-age-sex");
         patientAgeSexElement.innerText = patient.age + " y/o " + patient.sex
@@ -36,15 +44,12 @@ const displayHospitalView = function (patients) {
         priorityElement.classList.add("priority");
         priorityElement.innerHTML = `<img src="./imgs/priority-icon-green.png" alt="unavailable" class="priority">`
 
-
-
         let clearPtButtonElement = document.createElement("div");
         clearPtButtonElement.classList.add("clear-pt-button");
         const ptButton = document.createElement("button");
         ptButton.innerText = "Clear PT";
         ptButton.addEventListener('click', () => deletePatient(patient));
 
-        
         patientCardElement.appendChild(patientAgeSexElement);
         patientCardElement.appendChild(etaElement);
         patientCardElement.appendChild(chiefComplaintElement);
@@ -52,13 +57,10 @@ const displayHospitalView = function (patients) {
         clearPtButtonElement.appendChild(ptButton);
         patientCardElement.appendChild(clearPtButtonElement);
         patientListElement.appendChild(patientCardElement);
-        
-
+    
     });
 
     return patientListElement;
-
-
 }
 export {
     displayHospitalView
