@@ -37,7 +37,6 @@ const displayHospitalView = function (patients) {
         clearPtButtonElement.classList.add("clear-pt-button");
         const ptButton = document.createElement("button");
         ptButton.innerText = "Clear PT";
-        clearPtButtonElement.innerText = `${patient.patientCardElement}`
         ptButton.addEventListener('click', () => deletePatient(patient));
 
         
