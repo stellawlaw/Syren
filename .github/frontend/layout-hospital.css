@@ -1,0 +1,86 @@
+:root {
+    --light-gray: #f0f7ee;
+    --yellow: #fff07c;
+    --dark-blue: #5d737e;
+    --green: #87bba2;
+    --black: #000000;
+}
+
+h1 {
+    display: grid;
+    justify-self: center;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: auto;
+}
+
+.patient-intake-list {
+    height: 800px;
+    overflow-y: auto;
+}
+
+.patient-card {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1rem;
+}
+
+.priority {
+    justify-self: end;
+    grid-column-start: -1;
+    grid-column-end: -2;
+    grid-row-start: 1;
+    grid-row-end: -1;
+    width: 100px;
+}
+
+.eta {
+    justify-self: center;
+}
+
+.clear-pt-button {
+    justify-self: center;
+}
+
+.patient-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.patient-modal-info {
+    position: fixed;
+    left: 6%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 200px);
+    background-color: var(--light-gray);
+    margin: 15% auto;
+    padding: 80px;
+    border: 5px solid var(--black);
+    border-radius: 7px;
+    width: 80%;
+    height: 50%;
+}
+
+.patient-priority {
+    justify-self: center;
+    grid-column-start: 0;
+    grid-column-end: 3;
+}
+
+.priority-green,
+.priority-yellow,
+.priority-red {
+    width: 100px;
+}
