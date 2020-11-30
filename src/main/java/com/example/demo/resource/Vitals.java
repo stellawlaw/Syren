@@ -40,7 +40,7 @@ public class Vitals {
         return hr;
     }
 
-    public String getLocation() {
+    public String getLoc() {
         return loc;
     }
 
