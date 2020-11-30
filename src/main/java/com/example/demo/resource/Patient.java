@@ -19,13 +19,15 @@ public class Patient {
     private String medication;
     private String levelOfEmergency;
     private String drugAndAlcoholHistory;
+    private String chiefComplaint;
+    private String summary;
     @OneToOne
     private CareGiver careGiver;
 
-    protected Patient(){
+    protected Patient() {
     }
 
-    public Patient(int patientId, int age, String sex, Vitals vitals, String medicalHistory, String allergies, String medication, String levelOfEmergency, String drugAndAlcoholHistory,CareGiver careGiver) {
+    public Patient(int patientId, int age, String sex, Vitals vitals, String medicalHistory, String allergies, String medication, String levelOfEmergency, String drugAndAlcoholHistory, String chiefComplaint, String summary, CareGiver careGiver) {
         this.patientId = patientId;
         this.age = age;
         this.sex = sex;
@@ -35,7 +37,17 @@ public class Patient {
         this.medication = medication;
         this.levelOfEmergency = levelOfEmergency;
         this.drugAndAlcoholHistory = drugAndAlcoholHistory;
+        this.chiefComplaint = chiefComplaint;
+        this.summary = summary;
         this.careGiver = careGiver;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public String getChiefComplaint() {
+        return chiefComplaint;
     }
 
     public CareGiver getCareGiver() {
@@ -82,6 +94,14 @@ public class Patient {
         return id;
     }
 
+    public void changeVital(Vitals newVital) {
+        vitals = newVital;
+    }
+
+    public void changeCareGiver(CareGiver newCareGiver) {
+        careGiver = newCareGiver;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -89,6 +109,7 @@ public class Patient {
         Patient patient = (Patient) o;
         return patientId == patient.patientId &&
                 age == patient.age &&
+                Objects.equals(id, patient.id) &&
                 Objects.equals(sex, patient.sex) &&
                 Objects.equals(vitals, patient.vitals) &&
                 Objects.equals(medicalHistory, patient.medicalHistory) &&
@@ -96,20 +117,13 @@ public class Patient {
                 Objects.equals(medication, patient.medication) &&
                 Objects.equals(levelOfEmergency, patient.levelOfEmergency) &&
                 Objects.equals(drugAndAlcoholHistory, patient.drugAndAlcoholHistory) &&
-                Objects.equals(careGiver, patient.careGiver) &&
-                Objects.equals(id, patient.id);
+                Objects.equals(chiefComplaint, patient.chiefComplaint) &&
+                Objects.equals(summary, patient.summary) &&
+                Objects.equals(careGiver, patient.careGiver);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(patientId, age, sex, vitals, medicalHistory, allergies, medication, levelOfEmergency, drugAndAlcoholHistory, careGiver, id);
-    }
-
-    public void changeVital(Vitals newVital) {
-        vitals = newVital;
-    }
-
-    public void changeCareGiver(CareGiver newCareGiver) {
-        careGiver = newCareGiver;
+        return Objects.hash(id, patientId, age, sex, vitals, medicalHistory, allergies, medication, levelOfEmergency, drugAndAlcoholHistory, chiefComplaint, summary, careGiver);
     }
 }
