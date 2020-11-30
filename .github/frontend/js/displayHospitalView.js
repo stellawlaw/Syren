@@ -4,26 +4,30 @@ import {
 
 
 const displayHospitalView = function (patients) {
-
+    const containerElement = document.createElement("div");
+    containerElement.classList.add("container");
     const patientListElement = document.createElement("div");
     patientListElement.classList.add("patient-intake-list");
-    const patientCardElement = document.createElement("div");
-    patientCardElement.classList.add("patient-card");
+    containerElement.appendChild(patientListElement);
 
+    
     patients.forEach(patient => {
-        const patientAgeSexElement = document.createElement("div");
-        patientAgeSexElement.classList.add("patient-age-sex");
-        patientAgeSexElement.innerText = patient.age + "y/o" + patient.sex
+        let patientCardElement = document.createElement("div");
+        patientCardElement.classList.add("patient-card");
 
-        const etaElement = document.createElement("div");
+        let patientAgeSexElement = document.createElement("div");
+        patientAgeSexElement.classList.add("patient-age-sex");
+        patientAgeSexElement.innerText = patient.age + " y/o " + patient.sex
+
+        let etaElement = document.createElement("div");
         etaElement.classList.add("eta");
         etaElement.innerText = "ETA:" + "filler"
 
-        const chiefComplaintElement = document.createElement("div");
+        let chiefComplaintElement = document.createElement("div");
         chiefComplaintElement.classList.add("chief-complaint");
         chiefComplaintElement.innerText = patient.chiefComplaint
 
-        const priorityElement = document.createElement("div");
+        let priorityElement = document.createElement("div");
         priorityElement.classList.add("priority");
         priorityElement.innerHTML = `<img src="./imgs/priority-icon-green.png" alt="unavailable" class="priority">`
 
@@ -36,15 +40,18 @@ const displayHospitalView = function (patients) {
         clearPtButtonElement.innerText = `${patient.patientCardElement}`
         ptButton.addEventListener('click', () => deletePatient(patient));
 
-        patientListElement.appendChild(patientCardElement);
+        
         patientCardElement.appendChild(patientAgeSexElement);
         patientCardElement.appendChild(etaElement);
         patientCardElement.appendChild(chiefComplaintElement);
         patientCardElement.appendChild(priorityElement);
         clearPtButtonElement.appendChild(ptButton);
         patientCardElement.appendChild(clearPtButtonElement);
+        patientListElement.appendChild(patientCardElement);
         
     });
+
+    return patientListElement;
 
 
 }
