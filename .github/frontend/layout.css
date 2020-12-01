@@ -11,6 +11,8 @@
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     justify-items: center;
+    margin: 2rem;
+    padding: 2rem;
 }
 
 .icons img {

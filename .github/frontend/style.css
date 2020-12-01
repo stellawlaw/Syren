@@ -79,7 +79,7 @@ input[type=text]::placeholder {
     padding: 20px;
     border: 6px solid var(--dark-blue);
     border-radius: 7px;
-    width: 25%;
+    width: 15%;
 }
 
 .login-icon-button :hover {

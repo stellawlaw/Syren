@@ -10,9 +10,9 @@ public class Vitals {
     @GeneratedValue
     private Long id;
 
-    private int bp;
+    private String bp;
     private int hr;
-    private String location;
+    private String loc;
     private int rr;
     private String pupils;
     private String ekg;
@@ -22,17 +22,17 @@ public class Vitals {
 
     }
 
-    public Vitals(int bp, int hr, int rr, String location, String pupils, String ekg, String lungSounds) {
+    public Vitals(String bp, int hr, int rr, String loc, String pupils, String ekg, String lungSounds) {
         this.bp = bp;
         this.hr = hr;
-        this.location = location;
+        this.loc = loc;
         this.rr = rr;
         this.pupils = pupils;
         this.ekg = ekg;
         this.lungSounds = lungSounds;
     }
 
-    public int getBp() {
+    public String getBp() {
         return bp;
     }
 
@@ -40,8 +40,8 @@ public class Vitals {
         return hr;
     }
 
-    public String getLocation() {
-        return location;
+    public String getLoc() {
+        return loc;
     }
 
     public int getRr() {
@@ -68,12 +68,12 @@ public class Vitals {
     public String toString() {
         return "Vitals{" +
                 "id=" + id +
-                ", BP=" + bp +
-                ", HR=" + hr +
-                ", location='" + location + '\'' +
-                ", RR=" + rr +
+                ", bp='" + bp + '\'' +
+                ", hr=" + hr +
+                ", loc='" + loc + '\'' +
+                ", rr=" + rr +
                 ", pupils='" + pupils + '\'' +
-                ", EKG='" + ekg + '\'' +
+                ", ekg='" + ekg + '\'' +
                 ", lungSounds='" + lungSounds + '\'' +
                 '}';
     }
@@ -83,11 +83,11 @@ public class Vitals {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Vitals vitals = (Vitals) o;
-        return bp == vitals.bp &&
-                hr == vitals.hr &&
+        return hr == vitals.hr &&
                 rr == vitals.rr &&
                 Objects.equals(id, vitals.id) &&
-                Objects.equals(location, vitals.location) &&
+                Objects.equals(bp, vitals.bp) &&
+                Objects.equals(loc, vitals.loc) &&
                 Objects.equals(pupils, vitals.pupils) &&
                 Objects.equals(ekg, vitals.ekg) &&
                 Objects.equals(lungSounds, vitals.lungSounds);
@@ -95,6 +95,6 @@ public class Vitals {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, bp, hr, location, rr, pupils, ekg, lungSounds);
+        return Objects.hash(id, bp, hr, loc, rr, pupils, ekg, lungSounds);
     }
 }
