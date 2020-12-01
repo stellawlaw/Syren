@@ -8,24 +8,5 @@
 
 html {
     background-color: var(--dark-blue);
-}
-
-input[type=number] {
-    border: none;
-    background-color: var(--dark-blue);
-    border-bottom: 2px solid var(--light-gray);
-}
-
-input[type=number]:focus {
-    background-color: lightgray;
-}
-
-input[type=number]::placeholder {
-    color: var(--light-gray);
-    font-family: PT Sans;
-    font-size: medium;
-}
-
-input[type=radio] {
     font-family: PT Sans;
 }
