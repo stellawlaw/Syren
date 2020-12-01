@@ -80,3 +80,7 @@ h1 {
     font-family: PT Sans;
     font-size: x-large;
 }
+.patient-title{
+    color: #000000;
+    text-decoration: underline;
+}

@@ -6,8 +6,14 @@ const displaySinglePatient = function(patient) {
     patientModalInfoElement.classList.add("patient-modal-info");
     patientModalElement.appendChild(patientModalInfoElement);
 
+   
+    // patientModalInfoElement.appendChild(patientTitle);
+
     const div1Element = document.createElement("div");
     div1Element.classList.add("div1")
+    const patientTitle = document.createElement("h1");
+    patientTitle.classList.add("patient-title")
+    patientTitle.innerText = "Patient Details"
     const patientAgeElement = document.createElement("p");
     patientAgeElement.classList.add("patient-age")
     patientAgeElement.innerText = "Age: " + patient.age;
@@ -17,6 +23,7 @@ const displaySinglePatient = function(patient) {
     const patientCCElement = document.createElement("p");
     patientCCElement.classList.add("patient-cc");
     patientCCElement.innerText = "Chief Complaint: " + patient.chiefComplaint;
+    div1Element.appendChild(patientTitle);
     div1Element.appendChild(patientAgeElement);
     div1Element.appendChild(patientSexElement);
     div1Element.appendChild(patientCCElement);
@@ -86,6 +93,7 @@ const displaySinglePatient = function(patient) {
     <img src="./imgs/priority-icon-yellow.png" alt="unavailable" class="priority-yellow">
     <img src="./imgs/priority-icon-red.png" alt="unavailable" class="priority-red">`;
     patientModalInfoElement.appendChild(patientPriorityElement);
+
 
 
    return patientModalElement;
