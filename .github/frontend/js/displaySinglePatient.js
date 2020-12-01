@@ -2,6 +2,9 @@ const displaySinglePatient = function(patient) {
     console.log(patient);
     const patientModalElement =document.createElement("div");
     patientModalElement.classList.add("patient-modal");
+    const patientModalInfoElement = document.createElement("div");
+    patientModalInfoElement.classList.add("patient-modal-info");
+    patientModalElement.appendChild(patientModalInfoElement);
 
     const div1Element = document.createElement("div");
     div1Element.classList.add("div1")
@@ -17,7 +20,7 @@ const displaySinglePatient = function(patient) {
     div1Element.appendChild(patientAgeElement);
     div1Element.appendChild(patientSexElement);
     div1Element.appendChild(patientCCElement);
-    patientModalElement.appendChild(div1Element);
+    patientModalInfoElement.appendChild(div1Element);
 
 
     const div2Element = document.createElement("div");
@@ -34,31 +37,31 @@ const displaySinglePatient = function(patient) {
     div2Element.appendChild(patientMedicalHistoryElement);
     div2Element.appendChild(patientAllergiesElement);
     div2Element.appendChild(patientMedicationsElement);
-    patientModalElement.appendChild(div2Element);
+    patientModalInfoElement.appendChild(div2Element);
 
     const patientVitalsElement = document.createElement("div");
     patientVitalsElement.classList.add("patient-vitals")
     const patientHeartRateElement =document.createElement("p");
     patientHeartRateElement.classList.add("patient-hr");
-    patientHeartRateElement.innerText = "HR: " + patient.hr;
+    patientHeartRateElement.innerText = "HR: " + patient.vitals.hr;
     const patientRRElement =document.createElement("p");
     patientRRElement.classList.add("patient-rr");
-    patientRRElement.innerText = "RR: " + patient.rr;
+    patientRRElement.innerText = "RR: " + patient.vitals.rr;
     const patientBPElement =document.createElement("p");
     patientBPElement.classList.add("patient-bp");
-    patientBPElement.innerText = "BP: " + patient.bp;
+    patientBPElement.innerText = "BP: " + patient.vitals.bp;
     const patientLOCElement =document.createElement("p");
     patientLOCElement.classList.add("patient-loc");
-    patientLOCElement.innerText = "LOC: " + patient.loc;
+    patientLOCElement.innerText = "LOC: " + patient.vitals.loc;
     const patientPupilsElement =document.createElement("p");
     patientPupilsElement.classList.add("patient-pupils");
-    patientPupilsElement.innerText = "Pupils: " + patient.pupils;
+    patientPupilsElement.innerText = "Pupils: " + patient.vitals.pupils;
     const patientLungSoundsElement =document.createElement("p");
     patientLungSoundsElement.classList.add("patient-lung-sounds");
-    patientLungSoundsElement.innerText = "Lung Sounds: " + patient.lungSounds;
+    patientLungSoundsElement.innerText = "Lung Sounds: " + patient.vitals.lungSounds;
     const patientEKGElement =document.createElement("p");
     patientEKGElement.classList.add("patient-ekg");
-    patientEKGElement.innerText = "EKG: " + patient.ekg;
+    patientEKGElement.innerText = "EKG: " + patient.vitals.ekg;
     patientVitalsElement.appendChild(patientHeartRateElement);
     patientVitalsElement.appendChild(patientRRElement);
     patientVitalsElement.appendChild(patientBPElement);
@@ -66,7 +69,7 @@ const displaySinglePatient = function(patient) {
     patientVitalsElement.appendChild(patientPupilsElement);
     patientVitalsElement.appendChild(patientLungSoundsElement);
     patientVitalsElement.appendChild(patientEKGElement);
-    patientModalElement.appendChild(patientVitalsElement);
+    patientModalInfoElement.appendChild(patientVitalsElement);
     
     const patientWriteUpElement = document.createElement("div");
     patientWriteUpElement.classList.add("patient-writeup")
@@ -74,7 +77,7 @@ const displaySinglePatient = function(patient) {
     patientWriteUpContentElement.classList.add("patient-writeup-content");
     patientWriteUpContentElement.innerText = "Summary: " + patient.summary;
     patientWriteUpElement.appendChild(patientWriteUpContentElement);
-    patientModalElement.appendChild(patientWriteUpElement);
+    patientModalInfoElement.appendChild(patientWriteUpElement);
 
     const patientPriorityElement = document.createElement("div");
     patientPriorityElement.classList.add("patient-priority")

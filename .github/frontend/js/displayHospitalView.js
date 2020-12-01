@@ -18,16 +18,12 @@ const displayHospitalView = function (patients) {
         let patientCardElement = document.createElement("div");
         patientCardElement.classList.add("patient-card");
 
-        patientCardElement.addEventListener('click',()=> {
-            alert('hello');
             let patientModal = displaySinglePatient(patient);
-            console.log(patientModal);
             patientListElement.appendChild(patientModal);
             patientCardElement.addEventListener('click', () => {
                 patientModal.style.display = "block";
             });
 
-        })
         let patientAgeSexElement = document.createElement("div");
         patientAgeSexElement.classList.add("patient-age-sex");
         patientAgeSexElement.innerText = patient.age + " y/o " + patient.sex
