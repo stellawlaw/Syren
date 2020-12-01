@@ -1,7 +1,7 @@
 import {
     deletePatient
 } from "./deletePatient.js"
-import{
+import {
     displaySinglePatient
 } from "./displaySinglePatient.js"
 
@@ -12,17 +12,22 @@ const displayHospitalView = function (patients) {
     patientListElement.classList.add("patient-intake-list");
     containerElement.appendChild(patientListElement);
 
-    
+
     patients.forEach(patient => {
 
         let patientCardElement = document.createElement("div");
         patientCardElement.classList.add("patient-card");
 
-            let patientModal = displaySinglePatient(patient);
-            patientListElement.appendChild(patientModal);
-            patientCardElement.addEventListener('click', () => {
-                patientModal.style.display = "block";
-            });
+        let patientModal = displaySinglePatient(patient);
+        patientListElement.appendChild(patientModal);
+        patientCardElement.addEventListener('click', () => {
+            patientModal.style.display = "block";
+        });
+
+        function closeModal() {
+            patientModal.style.display = "none";
+        }
+        patientModal.addEventListener('click', closeModal);
 
         let patientAgeSexElement = document.createElement("div");
         patientAgeSexElement.classList.add("patient-age-sex");
@@ -53,7 +58,7 @@ const displayHospitalView = function (patients) {
         clearPtButtonElement.appendChild(ptButton);
         patientCardElement.appendChild(clearPtButtonElement);
         patientListElement.appendChild(patientCardElement);
-    
+
     });
 
     return patientListElement;
