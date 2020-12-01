@@ -62,6 +62,13 @@ public class PatientController {
         patientStorage.savePatient(careGiverToChange);
         return careGiverToChange;
     }
+    @PatchMapping("/api/patients/{id}/levelOfEmergency")
+    public Patient changeTheLevelOfEmergency(@RequestBody String newLevelOfEmergency, @PathVariable Long id){
+        Patient levelOfEmergencyToChange = patientStorage.retrievedPatientById(id);
+        levelOfEmergencyToChange.changeLevelOfEmergency(newLevelOfEmergency);
+        patientStorage.savePatient(levelOfEmergencyToChange);
+        return levelOfEmergencyToChange;
+    }
     @DeleteMapping("/api/patients/{id}")
     public Iterable<Patient> deletePatientById(@PathVariable Long id){
         patientStorage.deletePatientById(id);

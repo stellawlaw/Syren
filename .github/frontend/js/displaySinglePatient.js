@@ -94,8 +94,6 @@ const displaySinglePatient = function(patient) {
     <img src="./imgs/priority-icon-red.png" alt="unavailable" class="priority-red">`;
     patientModalInfoElement.appendChild(patientPriorityElement);
 
-
-
    return patientModalElement;
 }
 

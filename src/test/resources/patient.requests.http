@@ -38,3 +38,7 @@ Content-Type: application/json
 
 {"runId": 215, "careGiverId1": 1000, "careGiverId2": 2525, "careGiverId3": 1004, "dateAndTime": "November 24 2020" }
 
+### updating a levelOfEmergency for a single patient.
+PATCH http://localhost:8080/api/patients/13/levelOfEmergency
+
+red

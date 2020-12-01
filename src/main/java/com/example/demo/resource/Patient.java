@@ -126,4 +126,8 @@ public class Patient {
     public int hashCode() {
         return Objects.hash(id, patientId, age, sex, vitals, medicalHistory, allergies, medication, levelOfEmergency, drugAndAlcoholHistory, chiefComplaint, summary, careGiver);
     }
+
+    public void changeLevelOfEmergency(String newLevelOfEmergency) {
+        levelOfEmergency = newLevelOfEmergency;
+    }
 }
