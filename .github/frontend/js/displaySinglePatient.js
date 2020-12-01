@@ -81,6 +81,11 @@ const displaySinglePatient = function(patient) {
 
     const patientPriorityElement = document.createElement("div");
     patientPriorityElement.classList.add("patient-priority")
+    patientPriorityElement.innerHTML = ` 
+    <img src="./imgs/priority-icon-green.png" alt="unavailable" class="priority-green">
+    <img src="./imgs/priority-icon-yellow.png" alt="unavailable" class="priority-yellow">
+    <img src="./imgs/priority-icon-red.png" alt="unavailable" class="priority-red">`;
+    patientModalInfoElement.appendChild(patientPriorityElement);
 
 
    return patientModalElement;
