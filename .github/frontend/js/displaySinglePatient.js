@@ -88,10 +88,40 @@ const displaySinglePatient = function(patient) {
 
     const patientPriorityElement = document.createElement("div");
     patientPriorityElement.classList.add("patient-priority")
-    patientPriorityElement.innerHTML = ` 
-    <img src="./imgs/priority-icon-green.png" alt="unavailable" class="priority-green">
-    <img src="./imgs/priority-icon-yellow.png" alt="unavailable" class="priority-yellow">
-    <img src="./imgs/priority-icon-red.png" alt="unavailable" class="priority-red">`;
+
+    
+
+    const patientPriorityElementGreen = document.createElement("img");
+    patientPriorityElementGreen.classList.add("priority-green")
+    patientPriorityElementGreen.setAttribute("src", "./imgs/priority-icon-green.png")
+    patientPriorityElementGreen.setAttribute("alt", "unavailable")
+    patientPriorityElement.appendChild(patientPriorityElementGreen);
+
+    const patientPriorityElementYellow = document.createElement("img");
+    patientPriorityElementYellow.classList.add("priority-yellow")
+    patientPriorityElementYellow.setAttribute("src", "./imgs/priority-icon-yellow.png")
+    patientPriorityElementYellow.setAttribute("alt", "unavailable")
+    patientPriorityElement.appendChild(patientPriorityElementYellow);
+
+    const patientPriorityElementRed = document.createElement("img");
+    patientPriorityElementRed.classList.add("priority-red")
+    patientPriorityElementRed.setAttribute("src", "./imgs/priority-icon-red.png")
+    patientPriorityElementRed.setAttribute("alt", "unavailable")
+    patientPriorityElement.appendChild(patientPriorityElementRed);
+
+    if(patient.levelOfEmergency == 'green'){
+        patientPriorityElementGreen.style.opacity = 100
+
+    }else if(patient.levelOfEmergency =='yellow'){
+        patientPriorityElementYellow.style.opacity = 100
+        patientPriorityElementGreen.style.opacity = 50
+        patientPriorityElementRed.style.opacity = 50
+    }else{
+        patientPriorityElementRed.style.opacity = 100
+        patientPriorityElementYellow.style.opacity = 50
+        patientPriorityElementGreen.style.opacity = 50
+    }
+
     patientModalInfoElement.appendChild(patientPriorityElement);
 
    return patientModalElement;

@@ -24,6 +24,11 @@ const displayHospitalView = function (patients) {
             patientModal.style.display = "block";
         });
 
+        // function clickPriorityIcon(){
+        //     patientPriorityElementGreen.addEventListener('click',
+        // }
+
+
         function closeModal() {
             patientModal.style.display = "none";
         }
@@ -43,7 +48,7 @@ const displayHospitalView = function (patients) {
 
         let priorityElement = document.createElement("div");
         priorityElement.classList.add("priority");
-        priorityElement.innerHTML = `<img src="./imgs/priority-icon-green.png" alt="unavailable" class="priority">`
+        priorityElement.innerHTML = `<img src="./imgs/priority-icon-${patient.levelOfEmergency}.png" alt="unavailable" class="priority">`
 
         let clearPtButtonElement = document.createElement("div");
         clearPtButtonElement.classList.add("clear-pt-button");
