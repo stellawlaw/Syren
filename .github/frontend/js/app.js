@@ -19,7 +19,6 @@ const modal = document.querySelector(".patient-modal");
 
 const allCards = document.querySelectorAll(".patient-card");
 console.log(allCards);
-// const span = document.querySelector(".close");
 
 allCards.forEach(card => { 
     card.addEventListener('click', () => {
