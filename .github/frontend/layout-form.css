@@ -5,3 +5,61 @@
     --green: #87bba2;
     --black: #000000;
 }
+
+form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1rem;
+    justify-items: center;
+}
+
+input[type=number] {
+    border: none;
+    background-color: var(--dark-blue);
+    border-bottom: 2px solid var(--light-gray);
+    width: 25%
+}
+
+input[type=number]:focus {
+    background-color: lightgray;
+}
+
+input[type=number]::placeholder {
+    color: var(--light-gray);
+    font-size: medium;
+}
+
+input[type=text] {
+    border: none;
+    background-color: var(--dark-blue);
+    border-bottom: 2px solid var(--light-gray);
+    width: 25%;
+}
+
+input[type=text]:focus {
+    background-color: lightgray;
+}
+
+input[type=text]::placeholder {
+    color: var(--light-gray);
+    font-size: medium;
+}
+
+.radio-buttons {
+    padding: 1rem;
+}
+
+.select-boxes {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+}
+
+.submit-button {
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    width: 10%;
+    justify-self: center;
+    padding: 1rem;
+}

@@ -14,13 +14,48 @@
 <body>
     <div class="pt-submit-form">
         <form action="post" class="submit-form">
-            <input type="radio" id="male" name="gender" value="male">
-            <label for="male">Male</label><br>
-            <input type="radio" id="female" name="gender" value="female">
-            <label for="female">Female</label><br>
-            <input type="radio" id="other" name="gender" value="other">
-            <label for="other">Other</label>
+            <div class="radio-buttons">
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label><br>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label><br>
+                <input type="radio" id="other" name="gender" value="other">
+                <label for="other">Other</label>
+            </div>
             <input type="number" id="pt-age" placeholder="Patient Age">
+            <input type="text" id="chief-complaint" placeholder="Chief Complaint">
+            <input type="text" id="medical-history" placeholder="Medical History">
+            <input type="text" id="allergies" placeholder="Allergies">
+            <input type="text" id="medications" placeholder="Medications">
+            <input type="number" id="heart-rate" placeholder="Heart Rate">
+            <input type="number" id="respiratory-rate" placeholder="Respiratory Rate">
+            <input type="text" id="blood-pressure" placeholder="Blood Pressure">
+            <div class="select-boxes">
+                <label for="loc">LOC:</label>
+                <select name="loc" id="loc">
+                <option value="alert">Alert</option>
+                <option value="lethargic">Lethargic</option>
+                <option value="unresponsive">Unresponsive</option>
+            </select>
+                <label for="pupils">Pupils:</label>
+                <select name="pupils" id="pupils">
+                <option value="responsive">Responsive</option>
+                <option value="slow">Slow</option>
+                <option value="unresponsive">Unresponsive</option>
+                <option value="dilated">Dilated</option>
+            </select>
+                <label for="lung-sounds">Lung Sounds:</label>
+                <select name="lung-sounds" id="lung-sounds">
+                <option value="clear">Clear</option>
+                <option value="rhonchi">Rhonchi</option>
+                <option value="rales">Rales</option>
+                <option value="stridor">Stridor</option>
+                <option value="wheezing">Wheezing</option>
+            </select>
+            </div>
+            <input type="text" id="ekg" placeholder="EKG">
+            <input type="text" id="write-up" placeholder="Write Up">
+            <button type="submit" class="submit-button">Submit</button>
         </form>
     </div>
     <script src=" ./js/ems.js "></script>
