@@ -1,12 +1,12 @@
-const displaySinglePatient = function(patient) {
+const displaySinglePatient = function (patient) {
     console.log(patient);
-    const patientModalElement =document.createElement("div");
+    const patientModalElement = document.createElement("div");
     patientModalElement.classList.add("patient-modal");
     const patientModalInfoElement = document.createElement("div");
     patientModalInfoElement.classList.add("patient-modal-info");
     patientModalElement.appendChild(patientModalInfoElement);
 
-   
+
     // patientModalInfoElement.appendChild(patientTitle);
 
     const div1Element = document.createElement("div");
@@ -48,25 +48,25 @@ const displaySinglePatient = function(patient) {
 
     const patientVitalsElement = document.createElement("div");
     patientVitalsElement.classList.add("patient-vitals")
-    const patientHeartRateElement =document.createElement("p");
+    const patientHeartRateElement = document.createElement("p");
     patientHeartRateElement.classList.add("patient-hr");
     patientHeartRateElement.innerText = "HR: " + patient.vitals.hr;
-    const patientRRElement =document.createElement("p");
+    const patientRRElement = document.createElement("p");
     patientRRElement.classList.add("patient-rr");
     patientRRElement.innerText = "RR: " + patient.vitals.rr;
-    const patientBPElement =document.createElement("p");
+    const patientBPElement = document.createElement("p");
     patientBPElement.classList.add("patient-bp");
     patientBPElement.innerText = "BP: " + patient.vitals.bp;
-    const patientLOCElement =document.createElement("p");
+    const patientLOCElement = document.createElement("p");
     patientLOCElement.classList.add("patient-loc");
     patientLOCElement.innerText = "LOC: " + patient.vitals.loc;
-    const patientPupilsElement =document.createElement("p");
+    const patientPupilsElement = document.createElement("p");
     patientPupilsElement.classList.add("patient-pupils");
     patientPupilsElement.innerText = "Pupils: " + patient.vitals.pupils;
-    const patientLungSoundsElement =document.createElement("p");
+    const patientLungSoundsElement = document.createElement("p");
     patientLungSoundsElement.classList.add("patient-lung-sounds");
     patientLungSoundsElement.innerText = "Lung Sounds: " + patient.vitals.lungSounds;
-    const patientEKGElement =document.createElement("p");
+    const patientEKGElement = document.createElement("p");
     patientEKGElement.classList.add("patient-ekg");
     patientEKGElement.innerText = "EKG: " + patient.vitals.ekg;
     patientVitalsElement.appendChild(patientHeartRateElement);
@@ -77,7 +77,7 @@ const displaySinglePatient = function(patient) {
     patientVitalsElement.appendChild(patientLungSoundsElement);
     patientVitalsElement.appendChild(patientEKGElement);
     patientModalInfoElement.appendChild(patientVitalsElement);
-    
+
     const patientWriteUpElement = document.createElement("div");
     patientWriteUpElement.classList.add("patient-writeup")
     const patientWriteUpContentElement = document.createElement("p");
@@ -107,35 +107,43 @@ const displaySinglePatient = function(patient) {
     patientPriorityElementRed.setAttribute("alt", "unavailable")
     patientPriorityElement.appendChild(patientPriorityElementRed);
 
-    if(patient.levelOfEmergency == 'green'){
+    if (patient.levelOfEmergency == 'green') {
 
-        const greenElement = document.querySelector(".priority-green:hover");
-        greenElement.replaceWith
-            // patientPriorityElementGreen.style.opacity = 1;
-            // patientPriorityElementGreen.style.border = 'solid';
-            // patientPriorityElementGreen.style.borderRadius = 7 + "px";
-            // patientPriorityElementGreen.style.borderWidth = 6 + "px";
-            // patientPriorityElementGreen.style.borderColor = "#bc544b"
+        // const greenElement1 = document.querySelector(".priority-green");
+        // greenElement1.classList.remove("priority-green", "priority-green2");
+        // greenElement1.classList.add("priority-green2");
 
+        patientPriorityElementGreen.style.opacity = 1;
+        patientPriorityElementGreen.style.border = 'solid';
+        patientPriorityElementGreen.style.borderRadius = 7 + "px";
+        patientPriorityElementGreen.style.borderWidth = 6 + "px";
+        patientPriorityElementGreen.style.borderColor = "#049c04"
 
-        }
+    }
 
-    else if(patient.levelOfEmergency =='yellow'){
+    else if (patient.levelOfEmergency == 'yellow') {
         patientPriorityElementYellow.style.opacity = 1;
         patientPriorityElementYellow.style.border = 'solid';
+        patientPriorityElementYellow.style.borderRadius = 7 + "px";
+        patientPriorityElementYellow.style.borderWidth = 6 + "px";
+        patientPriorityElementYellow.style.borderColor = "#fcf4a3"
         patientPriorityElementGreen.style.opacity = .5;
         patientPriorityElementRed.style.opacity = .5;
     }
 
-    // }else{
-    //     patientPriorityElementRed.style.opacity = 100
-    //     patientPriorityElementYellow.style.opacity = 50
-    //     patientPriorityElementGreen.style.opacity = 50
-    // }
+    else{
+        patientPriorityElementRed.style.opacity = 1
+        patientPriorityElementRed.style.border = 'solid';
+        patientPriorityElementRed.style.borderRadius = 7 + "px";
+        patientPriorityElementRed.style.borderWidth = 6 + "px";
+        patientPriorityElementRed.style.borderColor = "#bc544b"
+        patientPriorityElementYellow.style.opacity = .5
+        patientPriorityElementGreen.style.opacity = .5
+    }
 
     patientModalInfoElement.appendChild(patientPriorityElement);
 
-   return patientModalElement;
+    return patientModalElement;
 }
 
 const clearChildren = function (element) {
@@ -143,7 +151,7 @@ const clearChildren = function (element) {
         element.removeChild(element.lastChild);
     }
 }
-export{
+export {
     displaySinglePatient,
     clearChildren
 }

@@ -56,10 +56,12 @@ h1 {
     border: solid;
     border-radius: 7px;
     border-width: 6px;
-    border-color: rgb(4, 156, 4);
+    border-color: #049c04;
     box-shadow: 5px 5px 50px 5px rgb(4, 156, 4);
     opacity: 100%;
 }
+
+
 .priority-red:hover {
     border: solid;
     border-radius: 7px;
