@@ -7,7 +7,7 @@ import{
 }from "./displaySinglePatient.js";
 
 const deletePatient = function(patient){
-    const patientIntakeList = document.querySelector(".container");
+    const patientIntakeList = document.querySelector(".patient-intake-list");
     
     clearChildren(patientIntakeList);
     

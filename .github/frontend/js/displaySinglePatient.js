@@ -89,8 +89,6 @@ const displaySinglePatient = function(patient) {
     const patientPriorityElement = document.createElement("div");
     patientPriorityElement.classList.add("patient-priority")
 
-    
-
     const patientPriorityElementGreen = document.createElement("img");
     patientPriorityElementGreen.classList.add("priority-green")
     patientPriorityElementGreen.setAttribute("src", "./imgs/priority-icon-green.png")
@@ -110,17 +108,30 @@ const displaySinglePatient = function(patient) {
     patientPriorityElement.appendChild(patientPriorityElementRed);
 
     if(patient.levelOfEmergency == 'green'){
-        patientPriorityElementGreen.style.opacity = 100
 
-    }else if(patient.levelOfEmergency =='yellow'){
-        patientPriorityElementYellow.style.opacity = 100
-        patientPriorityElementGreen.style.opacity = 50
-        patientPriorityElementRed.style.opacity = 50
-    }else{
-        patientPriorityElementRed.style.opacity = 100
-        patientPriorityElementYellow.style.opacity = 50
-        patientPriorityElementGreen.style.opacity = 50
+        const greenElement = document.querySelector(".priority-green:hover");
+        greenElement.replaceWith
+            // patientPriorityElementGreen.style.opacity = 1;
+            // patientPriorityElementGreen.style.border = 'solid';
+            // patientPriorityElementGreen.style.borderRadius = 7 + "px";
+            // patientPriorityElementGreen.style.borderWidth = 6 + "px";
+            // patientPriorityElementGreen.style.borderColor = "#bc544b"
+
+
+        }
+
+    else if(patient.levelOfEmergency =='yellow'){
+        patientPriorityElementYellow.style.opacity = 1;
+        patientPriorityElementYellow.style.border = 'solid';
+        patientPriorityElementGreen.style.opacity = .5;
+        patientPriorityElementRed.style.opacity = .5;
     }
+
+    // }else{
+    //     patientPriorityElementRed.style.opacity = 100
+    //     patientPriorityElementYellow.style.opacity = 50
+    //     patientPriorityElementGreen.style.opacity = 50
+    // }
 
     patientModalInfoElement.appendChild(patientPriorityElement);
 
