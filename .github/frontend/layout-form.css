@@ -117,3 +117,11 @@ label {
     color: var(--light-gray);
     font-size: medium;
 }
+
+.hospital-label {
+    padding: 1rem;
+}
+
+.hospitals {
+    padding: 1rem;
+}
