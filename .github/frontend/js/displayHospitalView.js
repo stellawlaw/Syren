@@ -5,6 +5,12 @@ import {
     displaySinglePatient
 } from "./displaySinglePatient.js"
 
+import{
+    editPatientPriority
+}from "./displaySinglePatient.js"
+
+
+
 const displayHospitalView = function (patients) {
     const containerElement = document.createElement("div");
     containerElement.classList.add("container");

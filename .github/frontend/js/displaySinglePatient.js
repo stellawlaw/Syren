@@ -95,6 +95,7 @@ const displaySinglePatient = function (patient) {
     patientPriorityElementGreen.setAttribute("alt", "unavailable")
     patientPriorityElement.appendChild(patientPriorityElementGreen);
     patientPriorityElementGreen.addEventListener('click',() => {
+        
         patientPriorityElementGreen.style.opacity = 1;
         patientPriorityElementGreen.style.border = 'solid';
         patientPriorityElementGreen.style.borderRadius = 7 + "px";
@@ -102,12 +103,14 @@ const displaySinglePatient = function (patient) {
         patientPriorityElementGreen.style.borderColor = "#049c04"
     });
 
+
     const patientPriorityElementYellow = document.createElement("img");
     patientPriorityElementYellow.classList.add("priority-yellow")
     patientPriorityElementYellow.setAttribute("src", "./imgs/priority-icon-yellow.png")
     patientPriorityElementYellow.setAttribute("alt", "unavailable")
     patientPriorityElement.appendChild(patientPriorityElementYellow);
     patientPriorityElementYellow.addEventListener('click', ()=>{
+      
         patientPriorityElementYellow.style.opacity = 1;
         patientPriorityElementYellow.style.border = 'solid';
         patientPriorityElementYellow.style.borderRadius = 7 + "px";
@@ -120,6 +123,14 @@ const displaySinglePatient = function (patient) {
     patientPriorityElementRed.setAttribute("src", "./imgs/priority-icon-red.png")
     patientPriorityElementRed.setAttribute("alt", "unavailable")
     patientPriorityElement.appendChild(patientPriorityElementRed);
+    patientPriorityElementRed.addEventListener('click', ()=>{
+  
+        patientPriorityElementRed.style.opacity = 1;
+        patientPriorityElementRed.style.border = 'solid';
+        patientPriorityElementRed.style.borderRadius = 7 + "px";
+        patientPriorityElementRed.style.borderWidth = 6 + "px";
+        patientPriorityElementRed.style.borderColor = "#bc544b"
+    });
 
     
     if (patient.levelOfEmergency == 'green') {
@@ -160,7 +171,22 @@ const clearChildren = function (element) {
         element.removeChild(element.lastChild);
     }
 }
+
+const editPatientPriority = function(patient){
+    const patientPriorityElement = document.querySelector(".patient-priority");
+    
+    clearChildren(patientPriorityElement);
+    
+    fetch(`http://localhost:8080/api/patients/${patient.id}/${patient.levelOfEmergency}`, {
+        method: 'PATCH'
+    })
+    .then(response => response.json())
+    .then(patient => displaySinglePatient(patient))
+    .then(patientsElement => patientPriorityElement.appendChild(patientsElement));
+
+}
 export {
     displaySinglePatient,
-    clearChildren
+    clearChildren, 
+    editPatientPriority
 }
