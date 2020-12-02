@@ -109,14 +109,14 @@ const displaySinglePatient = function (patient) {
     patientPriorityElementYellow.setAttribute("src", "./imgs/priority-icon-yellow.png")
     patientPriorityElementYellow.setAttribute("alt", "unavailable")
     patientPriorityElement.appendChild(patientPriorityElementYellow);
-    patientPriorityElementYellow.addEventListener('click', ()=>{
+    patientPriorityElementYellow.addEventListener('click', ()=> editPatientPriority(patient));
       
-        patientPriorityElementYellow.style.opacity = 1;
-        patientPriorityElementYellow.style.border = 'solid';
-        patientPriorityElementYellow.style.borderRadius = 7 + "px";
-        patientPriorityElementYellow.style.borderWidth = 6 + "px";
-        patientPriorityElementYellow.style.borderColor = "#fcf4a3"
-    });
+        // patientPriorityElementYellow.style.opacity = 1;
+        // patientPriorityElementYellow.style.border = 'solid';
+        // patientPriorityElementYellow.style.borderRadius = 7 + "px";
+        // patientPriorityElementYellow.style.borderWidth = 6 + "px";
+        // patientPriorityElementYellow.style.borderColor = "#fcf4a3"
+    
 
     const patientPriorityElementRed = document.createElement("img");
     patientPriorityElementRed.classList.add("priority-red")

@@ -41,4 +41,4 @@ Content-Type: application/json
 ### updating a levelOfEmergency for a single patient.
 PATCH http://localhost:8080/api/patients/13/levelOfEmergency
 
-red
+green
