@@ -38,11 +38,10 @@ h1 {
     cursor: pointer;
 }
 
-.priority-green {
-    border: solid;
-    border-radius: 7px;
-    border-width: 6px;
-    border-color: rgb(4, 156, 4);
+
+
+.priority-green{
+    opacity: 50%;
 }
 
 .priority-yellow {
@@ -52,6 +51,16 @@ h1 {
 .priority-red {
     opacity: 50%;
 }
+
+.priority-green:hover {
+    border: solid;
+    border-radius: 7px;
+    border-width: 6px;
+    border-color: #049c04;
+    box-shadow: 5px 5px 50px 5px rgb(4, 156, 4);
+    opacity: 100%;
+}
+
 
 .priority-red:hover {
     border: solid;
@@ -79,4 +88,8 @@ h1 {
     height: 50px;
     font-family: PT Sans;
     font-size: x-large;
+}
+.patient-title{
+    color: #000000;
+    text-decoration: underline;
 }

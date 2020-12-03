@@ -59,7 +59,7 @@ h1 {
 }
 
 .patient-modal-info {
-    position: fixed;
+    position: static;
     left: 6%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);

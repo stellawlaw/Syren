@@ -126,4 +126,27 @@ public class Patient {
     public int hashCode() {
         return Objects.hash(id, patientId, age, sex, vitals, medicalHistory, allergies, medication, levelOfEmergency, drugAndAlcoholHistory, chiefComplaint, summary, careGiver);
     }
+
+    public void changeLevelOfEmergency(String newLevelOfEmergency) {
+        levelOfEmergency = newLevelOfEmergency;
+    }
+
+    @Override
+    public String toString() {
+        return "Patient{" +
+                "id=" + id +
+                ", patientId=" + patientId +
+                ", age=" + age +
+                ", sex='" + sex + '\'' +
+                ", vitals=" + vitals +
+                ", medicalHistory='" + medicalHistory + '\'' +
+                ", allergies='" + allergies + '\'' +
+                ", medication='" + medication + '\'' +
+                ", levelOfEmergency='" + levelOfEmergency + '\'' +
+                ", drugAndAlcoholHistory='" + drugAndAlcoholHistory + '\'' +
+                ", chiefComplaint='" + chiefComplaint + '\'' +
+                ", summary='" + summary + '\'' +
+                ", careGiver=" + careGiver +
+                '}';
+    }
 }
