@@ -15,12 +15,9 @@ import{
 
 
 const displayHospitalView = function (patients) {
-    const containerElement = document.createElement("div");
-    containerElement.classList.add("container");
     const patientListElement = document.createElement("div");
     patientListElement.classList.add("patient-intake-list");
-    containerElement.appendChild(patientListElement);
-
+    const container = document.querySelector('.container');
 
     patients.forEach(patient => {
 
@@ -34,13 +31,14 @@ const displayHospitalView = function (patients) {
         });
 
         function closeModal() {
-            clearChildren(containerElement)
+            clearChildren(container)
+            container.prepend(createHeader());
             fetch("http://localhost:8080/api/patients")
                 .then(response => response.json())
                 .then(patients => displayHospitalView(patients))
-                .then(patientsElement => containerElement.appendChild(patientsElement))
+                .then(patientsElement => container.appendChild(patientsElement))
                 .catch(error => console.log(error));
-            location.reload(true);
+            
 
             patientModal.style.display = "none";
         }
