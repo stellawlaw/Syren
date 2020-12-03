@@ -108,12 +108,14 @@ const displaySinglePatient = function (patient) {
         patientPriorityElementYellow.style.borderRadius = 5 + "px";
         patientPriorityElementYellow.style.borderWidth = 4 + "px";
         patientPriorityElementYellow.style.borderColor = "#f0f7ee"
+        patientPriorityElementYellow.style.boxShadow = "none"
 
         patientPriorityElementRed.style.opacity = .5;
         patientPriorityElementRed.style.border = 'solid';
         patientPriorityElementRed.style.borderRadius = 5 + "px";
         patientPriorityElementRed.style.borderWidth = 4 + "px";
         patientPriorityElementRed.style.borderColor = "#f0f7ee"
+        patientPriorityElementRed.style.boxShadow = "none"
 
     });
 
@@ -137,12 +139,14 @@ const displaySinglePatient = function (patient) {
         patientPriorityElementGreen.style.borderRadius = 5 + "px";
         patientPriorityElementGreen.style.borderWidth = 4 + "px";
         patientPriorityElementGreen.style.borderColor = "f0f7ee"
+        patientPriorityElementGreen.style.boxShadow = "none"
 
         patientPriorityElementRed.style.opacity = .5;
         patientPriorityElementRed.style.border = 'solid';
         patientPriorityElementRed.style.borderRadius = 5 + "px";
         patientPriorityElementRed.style.borderWidth = 4 + "px";
         patientPriorityElementRed.style.borderColor = "#f0f7ee"
+        patientPriorityElementRed.style.boxShadow = "none"
     });
       
     
@@ -210,17 +214,10 @@ const displaySinglePatient = function (patient) {
     return patientModalElement;
 }
 
-const clearChildren = function (element) {
-    while (element.firstChild) {
-        element.removeChild(element.lastChild);
-    }
-}
-
 const editPatientPriority = function(patient, color){
     
     const patientPriorityElement = document.querySelector(".patient-priority");
     
-    clearChildren(patientPriorityElement);
     
     fetch(`http://localhost:8080/api/patients/${patient.id}/levelOfEmergency/${color}`, {
         method: 'PATCH'
@@ -233,6 +230,12 @@ const editPatientPriority = function(patient, color){
     });
 
 }
+const clearChildren = function (element) {
+    while (element.firstChild) {
+        element.removeChild(element.lastChild);
+    }
+}
+
 export {
     displaySinglePatient,
     clearChildren, 
