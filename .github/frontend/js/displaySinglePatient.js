@@ -166,12 +166,14 @@ const displaySinglePatient = function (patient) {
         patientPriorityElementGreen.style.borderRadius = 5 + "px";
         patientPriorityElementGreen.style.borderWidth = 4 + "px";
         patientPriorityElementGreen.style.borderColor = "#f0f7ee"
+        patientPriorityElementGreen.style.boxShadow = "none"
 
         patientPriorityElementYellow.style.opacity = .5;
         patientPriorityElementYellow.style.border = 'solid';
         patientPriorityElementYellow.style.borderRadius = 5 + "px";
         patientPriorityElementYellow.style.borderWidth = 4 + "px";
         patientPriorityElementYellow.style.borderColor = "#f0f7ee"
+        patientPriorityElementYellow.style.boxShadow = "none"
     });
 
     
