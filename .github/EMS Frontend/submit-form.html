@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT Sans">
+    <link rel="icon" href="./imgs/siren.png">
+    <title>EMS-Syren</title>
+</head>
+
+<body>
+    <h1 class="new-patient">Add a New Patient</h1>
+    <div class="pt-submit-form">
+        <form action="post" class="submit-form">
+            <div class="radio-buttons">
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label><br>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label><br>
+                <input type="radio" id="other" name="gender" value="other">
+                <label for="other">Other</label>
+            </div>
+            <div class="select-boxes">
+                <label for="loc">LOC:</label>
+                <select name="loc" id="loc">
+                <option value="alert">Alert</option>
+                <option value="lethargic">Lethargic</option>
+                <option value="unresponsive">Unresponsive</option>
+            </select>
+                <label for="pupils">Pupils:</label>
+                <select name="pupils" id="pupils">
+                <option value="responsive">Responsive</option>
+                <option value="slow">Slow</option>
+                <option value="unresponsive">Unresponsive</option>
+                <option value="dilated">Dilated</option>
+            </select>
+                <label for="lung-sounds">Lung Sounds:</label>
+                <select name="lung-sounds" id="lung-sounds">
+                <option value="clear">Clear</option>
+                <option value="rhonchi">Rhonchi</option>
+                <option value="rales">Rales</option>
+                <option value="stridor">Stridor</option>
+                <option value="wheezing">Wheezing</option>
+            </select>
+            </div>
+            <input type="number" id="pt-age" placeholder="Patient Age">
+            <input type="text" id="chief-complaint" placeholder="Chief Complaint">
+            <input type="text" id="medical-history" placeholder="Medical History">
+            <input type="text" id="allergies" placeholder="Allergies">
+            <input type="text" id="medications" placeholder="Medications">
+            <input type="number" id="heart-rate" placeholder="Heart Rate">
+            <input type="number" id="respiratory-rate" placeholder="Respiratory Rate">
+            <input type="text" id="blood-pressure" placeholder="Blood Pressure">
+            <input type="text" id="ekg" placeholder="EKG">
+            <input type="text" id="write-up" placeholder="Write Up">
+
+            <label for="hospitals" class="hospital-label">Select a Hospital</label>
+            <div class="hospitals">
+                <select name="hospitals" id="hospitals">
+            <option value="doctors">Doctors West</option>
+            <option value="dmh">Dublin Methodist Hospital</option>
+            <option value="gmc">Grant Medical Center</option>
+            <option value="mce">Mt. Carmel East</option>
+            <option value="mcw">Mt. Carmel West</option>
+            <option value="nch">Nationwide Children's Hospital</option>
+            <option value="nchlc">NCH Lewis Center</option>
+            <option value="osu">Ohio State University</option>
+            <option value="osue">Ohio State University East</option>
+            <option value="rmh">Riverside Methodist Hospital</option>
+            <option value="sah">St. Ann's Hospital</option>
+        </select>
+            </div>
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+    </div>
+    <script src=" ./js/ems.js "></script>
+</body>
+
+</html>
