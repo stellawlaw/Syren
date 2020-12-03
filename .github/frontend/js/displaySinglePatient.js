@@ -94,13 +94,27 @@ const displaySinglePatient = function (patient) {
     patientPriorityElementGreen.setAttribute("src", "./imgs/priority-icon-green.png")
     patientPriorityElementGreen.setAttribute("alt", "unavailable")
     patientPriorityElement.appendChild(patientPriorityElementGreen);
-    patientPriorityElementGreen.addEventListener('click',() => {
-        
+    patientPriorityElementGreen.addEventListener('click',(clickEvent) => {
+        clickEvent.stopPropagation()
+        editPatientPriority(patient, 'green')
         patientPriorityElementGreen.style.opacity = 1;
         patientPriorityElementGreen.style.border = 'solid';
         patientPriorityElementGreen.style.borderRadius = 7 + "px";
         patientPriorityElementGreen.style.borderWidth = 6 + "px";
         patientPriorityElementGreen.style.borderColor = "#049c04"
+
+        patientPriorityElementYellow.style.opacity = .5;
+        patientPriorityElementYellow.style.border = 'solid';
+        patientPriorityElementYellow.style.borderRadius = 5 + "px";
+        patientPriorityElementYellow.style.borderWidth = 4 + "px";
+        patientPriorityElementYellow.style.borderColor = "#f0f7ee"
+
+        patientPriorityElementRed.style.opacity = .5;
+        patientPriorityElementRed.style.border = 'solid';
+        patientPriorityElementRed.style.borderRadius = 5 + "px";
+        patientPriorityElementRed.style.borderWidth = 4 + "px";
+        patientPriorityElementRed.style.borderColor = "#f0f7ee"
+
     });
 
 
@@ -109,13 +123,28 @@ const displaySinglePatient = function (patient) {
     patientPriorityElementYellow.setAttribute("src", "./imgs/priority-icon-yellow.png")
     patientPriorityElementYellow.setAttribute("alt", "unavailable")
     patientPriorityElement.appendChild(patientPriorityElementYellow);
-    patientPriorityElementYellow.addEventListener('click', ()=> editPatientPriority(patient));
+    patientPriorityElementYellow.addEventListener('click', (clickEvent)=>{ 
+        clickEvent.stopPropagation()
+        editPatientPriority(patient, 'yellow')
+        patientPriorityElementYellow.style.opacity = 1;
+        patientPriorityElementYellow.style.border = 'solid';
+        patientPriorityElementYellow.style.borderRadius = 7 + "px";
+        patientPriorityElementYellow.style.borderWidth = 6 + "px";
+        patientPriorityElementYellow.style.borderColor = "#fcf4a3"
+
+        patientPriorityElementGreen.style.opacity = .5;
+        patientPriorityElementGreen.style.border = 'solid';
+        patientPriorityElementGreen.style.borderRadius = 5 + "px";
+        patientPriorityElementGreen.style.borderWidth = 4 + "px";
+        patientPriorityElementGreen.style.borderColor = "f0f7ee"
+
+        patientPriorityElementRed.style.opacity = .5;
+        patientPriorityElementRed.style.border = 'solid';
+        patientPriorityElementRed.style.borderRadius = 5 + "px";
+        patientPriorityElementRed.style.borderWidth = 4 + "px";
+        patientPriorityElementRed.style.borderColor = "#f0f7ee"
+    });
       
-        // patientPriorityElementYellow.style.opacity = 1;
-        // patientPriorityElementYellow.style.border = 'solid';
-        // patientPriorityElementYellow.style.borderRadius = 7 + "px";
-        // patientPriorityElementYellow.style.borderWidth = 6 + "px";
-        // patientPriorityElementYellow.style.borderColor = "#fcf4a3"
     
 
     const patientPriorityElementRed = document.createElement("img");
@@ -123,13 +152,26 @@ const displaySinglePatient = function (patient) {
     patientPriorityElementRed.setAttribute("src", "./imgs/priority-icon-red.png")
     patientPriorityElementRed.setAttribute("alt", "unavailable")
     patientPriorityElement.appendChild(patientPriorityElementRed);
-    patientPriorityElementRed.addEventListener('click', ()=>{
-  
+    patientPriorityElementRed.addEventListener('click', (clickEvent)=>{
+        clickEvent.stopPropagation()
+        editPatientPriority(patient, 'red')
         patientPriorityElementRed.style.opacity = 1;
         patientPriorityElementRed.style.border = 'solid';
         patientPriorityElementRed.style.borderRadius = 7 + "px";
         patientPriorityElementRed.style.borderWidth = 6 + "px";
         patientPriorityElementRed.style.borderColor = "#bc544b"
+
+        patientPriorityElementGreen.style.opacity = .5;
+        patientPriorityElementGreen.style.border = 'solid';
+        patientPriorityElementGreen.style.borderRadius = 5 + "px";
+        patientPriorityElementGreen.style.borderWidth = 4 + "px";
+        patientPriorityElementGreen.style.borderColor = "#f0f7ee"
+
+        patientPriorityElementYellow.style.opacity = .5;
+        patientPriorityElementYellow.style.border = 'solid';
+        patientPriorityElementYellow.style.borderRadius = 5 + "px";
+        patientPriorityElementYellow.style.borderWidth = 4 + "px";
+        patientPriorityElementYellow.style.borderColor = "#f0f7ee"
     });
 
     
@@ -172,17 +214,21 @@ const clearChildren = function (element) {
     }
 }
 
-const editPatientPriority = function(patient){
+const editPatientPriority = function(patient, color){
+    
     const patientPriorityElement = document.querySelector(".patient-priority");
     
     clearChildren(patientPriorityElement);
     
-    fetch(`http://localhost:8080/api/patients/${patient.id}/${patient.levelOfEmergency}`, {
+    fetch(`http://localhost:8080/api/patients/${patient.id}/levelOfEmergency/${color}`, {
         method: 'PATCH'
     })
     .then(response => response.json())
     .then(patient => displaySinglePatient(patient))
-    .then(patientsElement => patientPriorityElement.appendChild(patientsElement));
+    .then(patientsElement =>{
+        const patientListElement = document.querySelector(".patient-intake-list")
+        patientListElement.appendChild(patientsElement)
+    });
 
 }
 export {

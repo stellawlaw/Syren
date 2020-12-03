@@ -130,4 +130,23 @@ public class Patient {
     public void changeLevelOfEmergency(String newLevelOfEmergency) {
         levelOfEmergency = newLevelOfEmergency;
     }
+
+    @Override
+    public String toString() {
+        return "Patient{" +
+                "id=" + id +
+                ", patientId=" + patientId +
+                ", age=" + age +
+                ", sex='" + sex + '\'' +
+                ", vitals=" + vitals +
+                ", medicalHistory='" + medicalHistory + '\'' +
+                ", allergies='" + allergies + '\'' +
+                ", medication='" + medication + '\'' +
+                ", levelOfEmergency='" + levelOfEmergency + '\'' +
+                ", drugAndAlcoholHistory='" + drugAndAlcoholHistory + '\'' +
+                ", chiefComplaint='" + chiefComplaint + '\'' +
+                ", summary='" + summary + '\'' +
+                ", careGiver=" + careGiver +
+                '}';
+    }
 }
