@@ -1,0 +1,127 @@
+:root {
+    --light-gray: #f0f7ee;
+    --yellow: #fff07c;
+    --dark-blue: #5d737e;
+    --green: #87bba2;
+    --black: #000000;
+}
+
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 800px;
+    justify-items: center;
+}
+
+input[type=number] {
+    border: none;
+    background-color: var(--dark-blue);
+    border-bottom: 2px solid var(--light-gray);
+    width: 75%;
+    margin-bottom: 3rem;
+}
+
+input[type=number]:focus {
+    background-color: lightgray;
+    height: 30px;
+}
+
+input[type=number]::placeholder {
+    color: var(--light-gray);
+    font-size: medium;
+}
+
+input[type=text] {
+    border: none;
+    background-color: var(--dark-blue);
+    border-bottom: 2px solid var(--light-gray);
+    width: 75%;
+    margin-bottom: 3rem;
+}
+
+input[type=text]:focus {
+    background-color: lightgray;
+    height: 30px;
+}
+
+input[type=text]::placeholder {
+    color: var(--light-gray);
+    font-size: medium;
+}
+
+input[type=radio] {
+    margin-bottom: 3rem;
+    background-color: var(--green);
+}
+
+.radio-buttons {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: var(--light-gray);
+}
+
+.select-boxes {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.submit-button {
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    width: 50%;
+    justify-self: center;
+    background-color: var(--light-gray);
+    border: solid;
+    border-radius: 7px;
+    border-color: var(--dark-blue);
+    font-family: PT Sans;
+    font-size: large;
+}
+
+.submit-button:hover {
+    background-color: var(--light-gray);
+    cursor: pointer;
+    box-shadow: 3px 5px 70px 3px var(--light-gray);
+}
+
+option {
+    background-color: var(--light-gray);
+    font-family: PT Sans;
+    font-size: medium;
+}
+
+select {
+    background-color: var(--light-gray);
+    font-family: PT Sans;
+    font-size: medium;
+}
+
+label {
+    font-family: PT Sans;
+    color: var(--light-gray);
+    font-size: medium;
+}
+
+.hospital-label {
+    padding: 1rem;
+}
+
+.hospitals {
+    padding: 1rem;
+}
