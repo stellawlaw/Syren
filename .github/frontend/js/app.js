@@ -1,13 +1,13 @@
 import{
   displayHospitalView
 } from "./displayHospitalView.js"
+import { clearChildren } from "./displaySinglePatient.js";
 import {
   createHeader
 } from "./header.js"
 const container = document.querySelector('.container');
 
 container.prepend(createHeader());
-
 fetch("http://localhost:8080/api/patients")
   .then(response => response.json())
   .then(patients => displayHospitalView(patients))

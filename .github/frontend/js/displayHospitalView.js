@@ -2,9 +2,12 @@ import {
     deletePatient
 } from "./deletePatient.js"
 import {
+    clearChildren,
     displaySinglePatient
 } from "./displaySinglePatient.js"
-
+import {
+    createHeader
+  } from "./header.js"
 import{
     editPatientPriority
 }from "./displaySinglePatient.js"
@@ -30,15 +33,21 @@ const displayHospitalView = function (patients) {
             patientModal.style.display = "block";
         });
 
-        // function clickPriorityIcon(){
-        //     patientPriorityElementGreen.addEventListener('click',
-        // }
-
-
         function closeModal() {
+            clearChildren(containerElement)
+            fetch("http://localhost:8080/api/patients")
+                .then(response => response.json())
+                .then(patients => displayHospitalView(patients))
+                .then(patientsElement => containerElement.appendChild(patientsElement))
+                .catch(error => console.log(error));
+            location.reload(true);
+
             patientModal.style.display = "none";
         }
         patientModal.addEventListener('click', closeModal);
+
+        
+        
 
         let patientAgeSexElement = document.createElement("div");
         patientAgeSexElement.classList.add("patient-age-sex");

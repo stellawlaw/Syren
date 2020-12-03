@@ -138,7 +138,7 @@ const displaySinglePatient = function (patient) {
         patientPriorityElementGreen.style.border = 'solid';
         patientPriorityElementGreen.style.borderRadius = 5 + "px";
         patientPriorityElementGreen.style.borderWidth = 4 + "px";
-        patientPriorityElementGreen.style.borderColor = "f0f7ee"
+        patientPriorityElementGreen.style.borderColor = "#f0f7ee"
         patientPriorityElementGreen.style.boxShadow = "none"
 
         patientPriorityElementRed.style.opacity = .5;
@@ -213,11 +213,9 @@ const displaySinglePatient = function (patient) {
 
     return patientModalElement;
 }
-
 const editPatientPriority = function(patient, color){
     
     const patientPriorityElement = document.querySelector(".patient-priority");
-    
     
     fetch(`http://localhost:8080/api/patients/${patient.id}/levelOfEmergency/${color}`, {
         method: 'PATCH'
