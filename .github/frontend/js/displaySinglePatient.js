@@ -14,6 +14,9 @@ const displaySinglePatient = function (patient) {
     const patientTitle = document.createElement("h1");
     patientTitle.classList.add("patient-title")
     patientTitle.innerText = "Patient Details"
+    const patientId = document.createElement('p');
+    patientId.classList.add("patient-id");
+    patientId.innerText = "Patient Id: " + patient.patientId;
     const patientAgeElement = document.createElement("p");
     patientAgeElement.classList.add("patient-age")
     patientAgeElement.innerText = "Age: " + patient.age;
@@ -24,6 +27,7 @@ const displaySinglePatient = function (patient) {
     patientCCElement.classList.add("patient-cc");
     patientCCElement.innerText = "Chief Complaint: " + patient.chiefComplaint;
     div1Element.appendChild(patientTitle);
+    div1Element.appendChild(patientId);
     div1Element.appendChild(patientAgeElement);
     div1Element.appendChild(patientSexElement);
     div1Element.appendChild(patientCCElement);
