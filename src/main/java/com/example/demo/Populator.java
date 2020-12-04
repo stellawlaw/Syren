@@ -20,20 +20,21 @@ public class Populator implements CommandLineRunner {
         this.patientStorage = patientStorage;
         this.vitalRepo = vitalRepo;
         this.careGiverRepo = careGiverRepo;
+        this.hospitalRepo = hospitalRepo;
     }
     @Override
     public void run(String... args) throws Exception{
         Hospital hospital1 = new Hospital("riverside", new Coordinates(12.1, 12.1));
         hospitalRepo.save(hospital1);
-        Hospital hospital2 = new Hospital("osu", new Coordinates(12.1, 12.1));
+        Hospital hospital2 = new Hospital("osu", new Coordinates(13.1, 13.1));
         hospitalRepo.save(hospital2);
-        Hospital hospital3 = new Hospital("mount carmel", new Coordinates(12.1, 12.1));
+        Hospital hospital3 = new Hospital("mount carmel", new Coordinates(14.1, 14.1));
         hospitalRepo.save(hospital3);
-        Hospital hospital4 = new Hospital("osu east", new Coordinates(12.1, 12.1));
+        Hospital hospital4 = new Hospital("osu east", new Coordinates(15.1, 15.1));
         hospitalRepo.save(hospital4);
-        Hospital hospital5 = new Hospital("st. marys", new Coordinates(12.1, 12.1));
+        Hospital hospital5 = new Hospital("st. marys", new Coordinates(16.1, 16.1));
         hospitalRepo.save(hospital5);
-        Hospital hospital6 = new Hospital("nationwide children's", new Coordinates(12.1, 12.1));
+        Hospital hospital6 = new Hospital("nationwide children's", new Coordinates(17.1, 17.1));
         hospitalRepo.save(hospital6);
 
         Vitals vital1 = new Vitals("10/120", 78, 12, "alert", "dilated", "120", "great");

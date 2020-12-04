@@ -21,6 +21,7 @@ public class Hospital {
     public Hospital(String name, Coordinates coordinates) {
         this.name = name;
         this.coordinates = coordinates;
+
     }
     public long getId() {
         return id;

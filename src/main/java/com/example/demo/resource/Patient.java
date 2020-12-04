@@ -112,6 +112,10 @@ public class Patient {
         careGiver = newCareGiver;
     }
 
+    public void changeLevelOfEmergency(String newLevelOfEmergency) {
+        levelOfEmergency = newLevelOfEmergency;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -120,6 +124,7 @@ public class Patient {
         return patientId == patient.patientId &&
                 age == patient.age &&
                 Objects.equals(id, patient.id) &&
+                Objects.equals(hospital, patient.hospital) &&
                 Objects.equals(sex, patient.sex) &&
                 Objects.equals(vitals, patient.vitals) &&
                 Objects.equals(medicalHistory, patient.medicalHistory) &&
@@ -134,17 +139,14 @@ public class Patient {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, patientId, age, sex, vitals, medicalHistory, allergies, medication, levelOfEmergency, drugAndAlcoholHistory, chiefComplaint, summary, careGiver);
-    }
-
-    public void changeLevelOfEmergency(String newLevelOfEmergency) {
-        levelOfEmergency = newLevelOfEmergency;
+        return Objects.hash(id, hospital, patientId, age, sex, vitals, medicalHistory, allergies, medication, levelOfEmergency, drugAndAlcoholHistory, chiefComplaint, summary, careGiver);
     }
 
     @Override
     public String toString() {
         return "Patient{" +
                 "id=" + id +
+                ", hospital=" + hospital +
                 ", patientId=" + patientId +
                 ", age=" + age +
                 ", sex='" + sex + '\'' +

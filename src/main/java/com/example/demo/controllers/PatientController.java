@@ -4,6 +4,7 @@ import com.example.demo.resource.CareGiver;
 import com.example.demo.resource.Patient;
 import com.example.demo.resource.Vitals;
 import com.example.demo.storage.CareGiverRepository;
+import com.example.demo.storage.HospitalRepository;
 import com.example.demo.storage.PatientStorage;
 import com.example.demo.storage.VitalRepository;
 import org.springframework.web.bind.annotation.*;
@@ -13,11 +14,13 @@ public class PatientController {
     private PatientStorage patientStorage;
     private VitalRepository vitalRepo;
     private CareGiverRepository careGiverRepo;
+    private HospitalRepository hospitalRepo;
 
-    public PatientController(PatientStorage patientStorage, VitalRepository vitalRepo, CareGiverRepository careGiverRepo) {
+    public PatientController(PatientStorage patientStorage, VitalRepository vitalRepo, CareGiverRepository careGiverRepo, HospitalRepository hospitalRepo) {
         this.patientStorage = patientStorage;
         this.vitalRepo = vitalRepo;
         this.careGiverRepo = careGiverRepo;
+        this.hospitalRepo = hospitalRepo;
     }
 
     @GetMapping("/api/patients")
