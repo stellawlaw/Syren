@@ -7,8 +7,6 @@ const displaySinglePatient = function (patient) {
     patientModalElement.appendChild(patientModalInfoElement);
 
 
-    // patientModalInfoElement.appendChild(patientTitle);
-
     const div1Element = document.createElement("div");
     div1Element.classList.add("div1")
     const patientTitle = document.createElement("h1");

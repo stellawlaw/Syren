@@ -13,7 +13,6 @@ import{
 }from "./displaySinglePatient.js"
 
 
-
 const displayHospitalView = function (patients) {
     const patientListElement = document.createElement("div");
     patientListElement.classList.add("patient-intake-list");
@@ -43,9 +42,6 @@ const displayHospitalView = function (patients) {
             patientModal.style.display = "none";
         }
         patientModal.addEventListener('click', closeModal);
-
-        
-        
 
         let patientAgeSexElement = document.createElement("div");
         patientAgeSexElement.classList.add("patient-age-sex");
