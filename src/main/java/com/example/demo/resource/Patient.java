@@ -10,9 +10,7 @@ public class Patient {
     @Id
     @GeneratedValue
     private Long id;
-
-@JsonIgnore
-@ManyToOne
+    @ManyToOne
     private Hospital hospital;
     private int patientId;
     private int age;

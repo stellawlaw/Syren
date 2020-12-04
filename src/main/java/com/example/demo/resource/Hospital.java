@@ -1,5 +1,7 @@
 package com.example.demo.resource;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Collections;
 import java.util.List;
@@ -10,6 +12,7 @@ public class Hospital {
     @Id
     @GeneratedValue
     private long id;
+    @JsonIgnore
     @OneToMany(mappedBy = "hospital", orphanRemoval = true)
     private List<Patient> patients = Collections.EMPTY_LIST;
     private String name;
