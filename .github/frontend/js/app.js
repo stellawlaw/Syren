@@ -1,28 +1,8 @@
-import{
-  displayHospitalView
-} from "./displayHospitalView.js"
-import { clearChildren } from "./displaySinglePatient.js";
 import {
-  createHeader
-} from "./header.js"
-const container = document.querySelector('.container');
+  createHospitalView
+} from "./displayHospitalView.js"
 
-container.prepend(createHeader());
-fetch("http://localhost:8080/api/patients")
+
+fetch(`http://localhost:8080/api/hospital/2`)
   .then(response => response.json())
-  .then(patients => displayHospitalView(patients))
-  .then(patientsElement => container.appendChild(patientsElement))
-  .catch(error => console.log(error));
-
-
-const modal = document.querySelector(".patient-modal");
-
-const allCards = document.querySelectorAll(".patient-card");
-console.log(allCards);
-
-allCards.forEach(card => { 
-    card.addEventListener('click', () => {
-        modal.style.display = "block";
-    });
-});
-
+  .then(hospital => createHospitalView(hospital))

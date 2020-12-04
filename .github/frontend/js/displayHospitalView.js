@@ -78,9 +78,31 @@ const displayHospitalView = function (patients) {
         patientListElement.appendChild(patientCardElement);
 
     });
-
     return patientListElement;
+
 }
+const createHospitalView = function (hospital) {
+    const container = document.querySelector('.container');
+  
+    container.prepend(createHeader(hospital));
+    fetch(`http://localhost:8080/api/patients/hospital/${hospital.id}`)
+      .then(response => response.json())
+      .then(patients => displayHospitalView(patients))
+      .then(patientsElement => container.appendChild(patientsElement))
+      .catch(error => console.log(error));
+  
+  
+    const modal = document.querySelector(".patient-modal");
+  
+    const allCards = document.querySelectorAll(".patient-card");
+    console.log(allCards);
+  
+    allCards.forEach(card => {
+      card.addEventListener('click', () => {
+        modal.style.display = "block";
+      });
+    });
+  }
 export {
-    displayHospitalView
+    displayHospitalView,createHospitalView
 }

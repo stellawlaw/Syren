@@ -87,4 +87,9 @@ public class PatientController {
         patientStorage.deletePatientById(id);
         return patientStorage.retrieveAllPatients();
     }
+
+    @GetMapping("/api/hospital/{id}")
+    public Hospital retrieveHospitalById(@PathVariable Long id){
+        return hospitalRepo.findById(id).get();
+    }
 }
