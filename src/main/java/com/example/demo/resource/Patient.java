@@ -1,5 +1,7 @@
 package com.example.demo.resource;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -9,6 +11,9 @@ public class Patient {
     @GeneratedValue
     private Long id;
 
+@JsonIgnore
+@ManyToOne
+    private Hospital hospital;
     private int patientId;
     private int age;
     private String sex;
@@ -27,7 +32,7 @@ public class Patient {
     protected Patient() {
     }
 
-    public Patient(int patientId, int age, String sex, Vitals vitals, String medicalHistory, String allergies, String medication, String levelOfEmergency, String drugAndAlcoholHistory, String chiefComplaint, String summary, CareGiver careGiver) {
+    public Patient(int patientId, int age, String sex, Vitals vitals, String medicalHistory, String allergies, String medication, String levelOfEmergency, String drugAndAlcoholHistory, String chiefComplaint, String summary, CareGiver careGiver, Hospital hospital) {
         this.patientId = patientId;
         this.age = age;
         this.sex = sex;
@@ -40,6 +45,11 @@ public class Patient {
         this.chiefComplaint = chiefComplaint;
         this.summary = summary;
         this.careGiver = careGiver;
+        this.hospital = hospital;
+    }
+
+    public Hospital getHospital() {
+        return hospital;
     }
 
     public String getSummary() {

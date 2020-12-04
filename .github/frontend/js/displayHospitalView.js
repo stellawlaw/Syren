@@ -49,15 +49,15 @@ const displayHospitalView = function (patients) {
 
         let patientAgeSexElement = document.createElement("div");
         patientAgeSexElement.classList.add("patient-age-sex");
-        patientAgeSexElement.innerText = patient.age + " y/o " + patient.sex
+        patientAgeSexElement.innerText = "Patient: " + patient.age + " y/o " + patient.sex
 
         let etaElement = document.createElement("div");
         etaElement.classList.add("eta");
-        etaElement.innerText = "ETA:" + "filler"
+        etaElement.innerText = "ETA: " + "filler"
 
         let chiefComplaintElement = document.createElement("div");
         chiefComplaintElement.classList.add("chief-complaint");
-        chiefComplaintElement.innerText = patient.chiefComplaint
+        chiefComplaintElement.innerText = "Chief Complaint: " + patient.chiefComplaint
 
         let priorityElement = document.createElement("div");
         priorityElement.classList.add("priority");
