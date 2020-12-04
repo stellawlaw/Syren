@@ -5,6 +5,9 @@ Accept: application/json
 ### Get a patient with a given id.
 GET http://localhost:8080/api/patients/24
 
+### Get patients with a hospital id.
+GET http://localhost:8080/api/patients/hospital/6
+
 ### Delete a patient with a given id,
 DELETE http://localhost:8080/api/patients/13
 

@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
 import com.example.demo.resource.CareGiver;
+import com.example.demo.resource.Hospital;
 import com.example.demo.resource.Patient;
 import com.example.demo.resource.Vitals;
 import com.example.demo.storage.CareGiverRepository;
@@ -24,7 +25,7 @@ public class PatientController {
     }
 
     @GetMapping("/api/patients")
-    public Iterable<Patient> retrieveAllPatients(){
+    public Iterable<Patient> retrieveAllPatients() {
         return patientStorage.retrieveAllPatients();
     }
     
@@ -33,8 +34,14 @@ public class PatientController {
         return patientStorage.retrievedPatientById(id);
     }
 
+    @GetMapping("/api/patients/hospital/{id}")
+    public Iterable<Patient> retrievePatientsByHospitalId(@PathVariable Long id){
+        return patientStorage.retrievePatientsFromHospitalById(id);
+    }
+
     @PostMapping("/api/patients")
     public  Iterable<Patient> addPatient(@RequestBody Patient patientToAdd){
+        hospitalRepo.save(patientToAdd.getHospital());
         careGiverRepo.save(patientToAdd.getCareGiver());
         vitalRepo.save(patientToAdd.getVitals());
         patientStorage.savePatient(patientToAdd);
@@ -43,6 +50,7 @@ public class PatientController {
     @PutMapping("/api/patients")
     public Iterable<Patient> editPatient(@RequestBody Patient patientToEdit){
         if(patientToEdit.getId()!= null){
+            hospitalRepo.save(patientToEdit.getHospital());
             careGiverRepo.save(patientToEdit.getCareGiver());
             vitalRepo.save(patientToEdit.getVitals());
             patientStorage.savePatient((patientToEdit));

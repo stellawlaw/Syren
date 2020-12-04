@@ -63,15 +63,15 @@ public class Populator implements CommandLineRunner {
         CareGiver caregiver6 = new CareGiver(15, 16, 17, 18, "Nov 10, 2020");
         careGiverRepo.save(caregiver6);
 
-        Patient patient1 = new Patient(12, 22, "male", vital1, "Not Available", "peanuts", "penicillin", "green", "bad","underInfluence","flipped a car while driving under the influence", caregiver1, hospital1 );
+        Patient patient1 = new Patient(12, 22, "male", vital1, "Not Available", "peanuts", "penicillin", "green", "bad","underInfluence","flipped a car while driving under the influence", caregiver1, hospital2 );
         patientStorage.savePatient(patient1);
         Patient patient2 = new Patient(13, 23, "female", vital2, "Not Available", "penicillin", "fluids", "yellow", "none","back hurts","fell over and couldn't get up", caregiver2, hospital2 );
         patientStorage.savePatient(patient2);
         Patient patient3 = new Patient(14, 24, "male", vital3, "Not Available", "latex", "insulin", "red", "none","gun shot","bar fight", caregiver3, hospital3 );
         patientStorage.savePatient(patient3);
-        Patient patient4 = new Patient(15, 25, "female", vital4, "Not Available", "ok", "prozac", "yellow", "a lot of drug use","broken knee","playing sports", caregiver4, hospital4 );
+        Patient patient4 = new Patient(15, 25, "female", vital4, "Not Available", "ok", "prozac", "yellow", "a lot of drug use","broken knee","playing sports", caregiver4, hospital3 );
         patientStorage.savePatient(patient4);
-        Patient patient5 = new Patient(16, 26, "male", vital5, "Not Available", "ok", "morphine", "green", "heavy drinker","can't breathe","mixed alcohol and morphine together ", caregiver5,hospital5 );
+        Patient patient5 = new Patient(16, 26, "male", vital5, "Not Available", "ok", "morphine", "green", "heavy drinker","can't breathe","mixed alcohol and morphine together ", caregiver5,hospital6 );
         patientStorage.savePatient(patient5);
         Patient patient6 = new Patient(17, 27, "female", vital6, "Not Available", "ok", "benazepril", "red", "not good", "heart problems","had a heart attack",caregiver6, hospital6);
         patientStorage.savePatient(patient6);
