@@ -1,13 +1,16 @@
 import {
     deletePatient
 } from "./deletePatient.js"
+
 import {
     clearChildren,
     displaySinglePatient
 } from "./displaySinglePatient.js"
+
 import {
     createHeader
   } from "./header.js"
+  
 import{
     editPatientPriority
 }from "./displaySinglePatient.js"

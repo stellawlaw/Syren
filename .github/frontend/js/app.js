@@ -6,6 +6,9 @@ import { clearChildren } from "./displaySinglePatient.js";
 import {
   createHeader
 } from "./header.js"
+import{
+  displayHomePageView
+}from "./displayHomePage.js"
 
 // fetch(`http://localhost:8080/api/hospital/2`)
 //   .then(response => response.json())
@@ -13,15 +16,5 @@ import {
 
 
 const container = document.querySelector(".container")
-const loginView = document.createElement("div");
-loginView.classList.add("login");
-const loginButton = document.createElement("button");
-loginButton.classList.add("login-button");
-loginButton.innerText = 'Login';
-loginButton.addEventListener('click', 
-fetch(`http://localhost:8080/api/hospital/6`)
-  .then(response => response.json())
-  .then(hospital => createHospitalView(hospital)))
-loginView.appendChild(loginButton);
-container.appendChild(loginView);
-// clearChildren(displayHospitalView(patients));
+container.appendChild(displayHomePageView(hospital));
+
