@@ -291,11 +291,18 @@ const displayPatientForm = function () {
 
     let gender = whichGender();
 
+    const storePosition = function (position) {
+        console.log(""+position.coords.latitude+", "+position.coords.longitude);
+        return ""+position.coords.latitude+", "+position.coords.longitude;
+    }
+
     submitButton.addEventListener('click', (clickEvent) =>{
         clickEvent.preventDefault();
+        let location = navigator.geolocation.getCurrentPosition(storePosition);
         const patient = {
             "age":patientAgeInput.value,
             "sex":gender,
+            "location":location,
             "vitals":{
                 "bp": bloodPressureInput.value,
                 "hr": heartRateInput.value,
