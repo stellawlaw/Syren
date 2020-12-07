@@ -16,5 +16,5 @@ import{
 
 
 const container = document.querySelector(".container")
-container.appendChild(displayHomePageView(hospital));
+container.appendChild(displayHomePageView());
 

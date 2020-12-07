@@ -2,9 +2,16 @@ import {
     clearChildren
 } from "./displaySinglePatient.js"
 
+import{
+    createHospitalView
+}from "./displayHospitalView.js"
+
 const displayHomePageView = function (hospitals) {
     const container = document.querySelector(".container");
     clearChildren(container);
+    const homePageContainer  = document.createElement("div");
+    homePageContainer.classList.add("home-page-container");
+
     const homepageHeader  = document.createElement("header");
     homepageHeader.classList.add("homepage-header");
     const homepageheaderh1 = document.createElement("h1");
@@ -18,11 +25,12 @@ const displayHomePageView = function (hospitals) {
     // const fetchHospital =  fetch(`http://localhost:8080/api/hospital/6`)
     // .then(response => response.json())
     // .then(hospital => createHospitalView(hospital))
-    // loginButton.addEventListener('click', fetchHospital);    
-    container.appendChild(homepageHeader);
+
+    homePageContainer.appendChild(homepageHeader);
     homepageHeader.appendChild(homepageheaderh1);
     loginView.appendChild(loginButton);
-    container.appendChild(loginView);
+    homePageContainer.appendChild(loginView);
+    container.appendChild(homePageContainer);
     
 
     const myModal = document.createElement("div");
@@ -67,7 +75,8 @@ const displayHomePageView = function (hospitals) {
     form.appendChild(inputPassword);
     form.appendChild(homeLoginButton);
     form.appendChild(homeLogoutButton);
-    homeLoginButton.addEventListener('click', modalContent );
+    loginButton.addEventListener('click', modalContent );
+    homeLoginButton.addEventListener('click', createHospitalView);    
 
 
 
@@ -76,7 +85,7 @@ const displayHomePageView = function (hospitals) {
 
     // clearChildren(displayHospitalView(patients));
 
-    return displayHomePageView
+    return homePageContainer
 }
 
 
