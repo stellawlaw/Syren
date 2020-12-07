@@ -83,6 +83,16 @@ const displayHomePageView = function (hospitals) {
         myModal.append(modalContent)
         myModal.style.display = "block";
     });
+    function closeModal() {
+        clearChildren(container)
+        container.appendChild(homepageHeader);
+        container.appendChild(loginView);
+        container.appendChild(myModal);
+
+        myModal.style.display = "none";
+
+    }
+    span.addEventListener('click', closeModal);
     homeLoginButton.addEventListener('click', ()=> {
         clearChildren(container)
         let hospitalId = 0
