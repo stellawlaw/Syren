@@ -9,40 +9,41 @@ import{
 const displayHomePageView = function (hospitals) {
     const container = document.querySelector(".container");
     clearChildren(container);
-    const homePageContainer  = document.createElement("div");
-    homePageContainer.classList.add("home-page-container");
+    // const homePageContainer  = document.createElement("div");
+    // homePageContainer.classList.add("home-page-container");
 
     const homepageHeader  = document.createElement("header");
     homepageHeader.classList.add("homepage-header");
+
     const homepageheaderh1 = document.createElement("h1");
     homepageheaderh1.classList.add("homepage-header-h1");
-    homepageheaderh1.innerText = "Syren"
+    homepageheaderh1.innerText = "Syren";
+
     const loginView = document.createElement("div");
     loginView.classList.add("login");
-    const loginButton = document.createElement("button");
-    loginButton.classList.add("login-button");
-    loginButton.innerText = 'Login';
-    // const fetchHospital =  fetch(`http://localhost:8080/api/hospital/6`)
-    // .then(response => response.json())
-    // .then(hospital => createHospitalView(hospital))
 
-    homePageContainer.appendChild(homepageHeader);
+    const loginButton = document.createElement("button");
+    loginButton.classList.add("home-login-button");
+    loginButton.innerText = 'Login';
+    
+
+    container.appendChild(homepageHeader);
     homepageHeader.appendChild(homepageheaderh1);
     loginView.appendChild(loginButton);
-    homePageContainer.appendChild(loginView);
-    container.appendChild(homePageContainer);
+    container.appendChild(loginView);
     
 
     const myModal = document.createElement("div");
     myModal.classList.add("modal");
     myModal.setAttribute("id", "myModal")
+    container.appendChild(myModal);
     
     const modalContent = document.createElement("div");
     modalContent.classList.add("modal-content");
     
     const span = document.createElement("span");
     span.classList.add("close");
-    span.innerText = "&times;"
+    span.innerHTML = "&times;"
 
     const form = document.createElement("form");
     form.classList.add("login-form");
@@ -53,7 +54,8 @@ const displayHomePageView = function (hospitals) {
     inputUserName.setAttribute("type", "text");
     inputUserName.setAttribute("placeholder", "UserName");
 
-    const breakBR = document.createElement("br");
+    const breakBR1 = document.createElement("br");
+    const breakBR2 = document.createElement("br");
     
     const inputPassword = document.createElement("input");
     inputPassword.classList.add("password");
@@ -66,17 +68,35 @@ const displayHomePageView = function (hospitals) {
 
     const homeLogoutButton = document.createElement("button");
     homeLogoutButton.classList.add("logout-button");
-    homeLoginButton.innerText = "Logout";
+    homeLogoutButton.innerText = "Logout";
 
-    
     modalContent.appendChild(span);
-    span.appendChild(form);
+    modalContent.appendChild(form);
     form.appendChild(inputUserName);
     form.appendChild(inputPassword);
     form.appendChild(homeLoginButton);
     form.appendChild(homeLogoutButton);
-    loginButton.addEventListener('click', modalContent );
-    homeLoginButton.addEventListener('click', createHospitalView);    
+    inputUserName.appendChild(breakBR1);
+    inputPassword.appendChild(breakBR2);
+
+    loginButton.addEventListener('click', ()=> {
+        myModal.append(modalContent)
+        myModal.style.display = "block";
+    });
+    homeLoginButton.addEventListener('click', ()=> {
+        clearChildren(container)
+        let hospitalId = 0
+        let input = inputUserName.value;
+        if (input === "Mt. Carmel West Hospital"){
+            hospitalId = 6;
+        }else if(input === "Grant Hospital"){
+            hospitalId = 2;
+        }
+
+        fetch(`http://localhost:8080/api/hospital/${hospitalId}`)
+            .then(response => response.json())
+            .then(hospital => createHospitalView(hospital))
+    });    
 
 
 
