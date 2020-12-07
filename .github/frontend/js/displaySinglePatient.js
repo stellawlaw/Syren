@@ -226,7 +226,7 @@ const editPatientPriority = function(patient, color){
     .then(patient => displaySinglePatient(patient))
     .then(patientsElement =>{
         const patientListElement = document.querySelector(".patient-intake-list")
-        patientListElement.appendChild(patientsElement)
+        patientListElement.appendChild(patientsElement);
     });
 
 }

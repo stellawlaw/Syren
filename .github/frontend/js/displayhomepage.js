@@ -6,11 +6,9 @@ import{
     createHospitalView
 }from "./displayHospitalView.js"
 
-const displayHomePageView = function (hospitals) {
+const displayHomePageView = function (hospital) {
     const container = document.querySelector(".container");
     clearChildren(container);
-    // const homePageContainer  = document.createElement("div");
-    // homePageContainer.classList.add("home-page-container");
 
     const homepageHeader  = document.createElement("header");
     homepageHeader.classList.add("homepage-header");
@@ -25,14 +23,12 @@ const displayHomePageView = function (hospitals) {
     const loginButton = document.createElement("button");
     loginButton.classList.add("home-login-button");
     loginButton.innerText = 'Login';
-    
 
     container.appendChild(homepageHeader);
     homepageHeader.appendChild(homepageheaderh1);
     loginView.appendChild(loginButton);
     container.appendChild(loginView);
     
-
     const myModal = document.createElement("div");
     myModal.classList.add("modal");
     myModal.setAttribute("id", "myModal")
@@ -95,8 +91,10 @@ const displayHomePageView = function (hospitals) {
     span.addEventListener('click', closeModal);
     homeLoginButton.addEventListener('click', ()=> {
         clearChildren(container)
-        let hospitalId = 0
+
+        let hospitalId = 0;
         let input = inputUserName.value;
+        
         if (input === "Mt. Carmel West Hospital"){
             hospitalId = 6;
         }else if(input === "Grant Hospital"){
@@ -108,32 +106,9 @@ const displayHomePageView = function (hospitals) {
             .then(hospital => createHospitalView(hospital))
     });    
 
-
-
-
-
-
-    // clearChildren(displayHospitalView(patients));
-
     return homePageContainer
 }
-
-
 
 export {
     displayHomePageView
 }
-
-{/* <div id="myModal " class="modal ">
-
-<div class="modal-content ">
-    <span class="close ">&times;</span>
-    <form action="post " class="login-form ">
-        <input type="text " class="username " placeholder="Username "><br>
-        <input type="text " class="password " placeholder="Password "><br>
-        <button class="login-button ">Login</button>
-        <button class="logout-button ">Logout</button>
-    </form>
-</div>
-
-</div> */}

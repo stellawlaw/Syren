@@ -40,8 +40,6 @@ const displayHospitalView = function (patients) {
                 .then(patients => displayHospitalView(patients))
                 .then(patientsElement => container.appendChild(patientsElement))
                 .catch(error => console.log(error));
-            
-
             patientModal.style.display = "none";
         }
         patientModal.addEventListener('click', closeModal);
@@ -63,7 +61,7 @@ const displayHospitalView = function (patients) {
         priorityElement.classList.add("priority");
         priorityElement.innerHTML = `<img src="./imgs/priority-icon-${patient.levelOfEmergency}.png" alt="unavailable" class="priority">`
 
-        let clearPtButtonElement = document.createElement("div");
+        const clearPtButtonElement = document.createElement("div");
         clearPtButtonElement.classList.add("clear-pt-button");
         const ptButton = document.createElement("button");
         ptButton.innerText = "Clear PT";
@@ -88,21 +86,13 @@ const createHospitalView = function (hospital) {
     fetch(`http://localhost:8080/api/patients/hospital/${hospital.id}`)
       .then(response => response.json())
       .then(patients => displayHospitalView(patients))
-      .then(patientsElement => container.appendChild(patientsElement))
+      .then(patientsElement => {
+        container.appendChild(patientsElement)
+      })
       .catch(error => console.log(error));
-  
-  
-    const modal = document.querySelector(".patient-modal");
-  
-    const allCards = document.querySelectorAll(".patient-card");
-    console.log(allCards);
-  
-    allCards.forEach(card => {
-      card.addEventListener('click', () => {
-        modal.style.display = "block";
-      });
-    });
   }
+
 export {
-    displayHospitalView,createHospitalView
+    displayHospitalView,
+    createHospitalView
 }
