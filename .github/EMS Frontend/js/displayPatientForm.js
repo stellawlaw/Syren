@@ -193,6 +193,21 @@ const createHospitalSelect = function () {
     return hospitalSelectDiv;
 }
 
+const whichGender = function () {
+    if (document.querySelector("#male").checked = true) 
+    {
+        return "male";
+    } 
+    else if(document.querySelector("#female").checked = true)
+    {
+        return "female";
+    }
+    else
+    {
+        return "other";
+    }
+}
+
 const displayPatientForm = function () {
     const body = document.querySelector("body");
     clearChildren(body);
@@ -273,6 +288,44 @@ const displayPatientForm = function () {
     patientForm.appendChild(submitButton);
     patientFormDiv.appendChild(patientForm);
     body.appendChild(patientFormDiv);
+
+    let gender = whichGender();
+
+    submitButton.addEventListener('click', (clickEvent) =>{
+        clickEvent.preventDefault();
+        const patient = {
+            "age":patientAgeInput.value,
+            "sex":gender,
+            "vitals":{
+                "bp": bloodPressureInput.value,
+                "hr": heartRateInput.value,
+                "loc": document.querySelector("#loc").value,
+                "rr": respiratoryRateInput.value,
+                "pupils": document.querySelector("#pupils").value,
+                "ekg": ekgInput.value,
+                "lungSounds": document.querySelector("#lung-sounds").value
+              },
+            "medicalHistory":medicalHistoryInput.value,
+            "allergies":allergiesInput.value,
+            "medication":medicationsInput.value,
+            "levelOfEmergency":"green",
+            "drugsAndAlcoholHistory":"",
+            "chiefComplaint":chiefComplaintInput.value,
+            "summary":summaryInput.value,
+            "careGiver": {
+                "dateAndTime": "Nov 25, 2020"
+              }
+        }
+        fetch("http://localhost:8080/api/patients/", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(patient)
+        })
+        .then(response => response.json())
+        .catch((err)=>console.log(err))
+    })
 }
 
 export {
