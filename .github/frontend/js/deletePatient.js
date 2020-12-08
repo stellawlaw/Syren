@@ -17,7 +17,7 @@ const deletePatient = function(patient){
     .then(response => response.json())
     .then(patient => displayHospitalView(patient))
     .then(patientsElement => patientIntakeList.appendChild(patientsElement));
-
+    
 }
 
 export{

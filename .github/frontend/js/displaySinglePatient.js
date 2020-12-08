@@ -7,8 +7,6 @@ const displaySinglePatient = function (patient) {
     patientModalElement.appendChild(patientModalInfoElement);
 
 
-    // patientModalInfoElement.appendChild(patientTitle);
-
     const div1Element = document.createElement("div");
     div1Element.classList.add("div1")
     const patientTitle = document.createElement("h1");
@@ -228,7 +226,7 @@ const editPatientPriority = function(patient, color){
     .then(patient => displaySinglePatient(patient))
     .then(patientsElement =>{
         const patientListElement = document.querySelector(".patient-intake-list")
-        patientListElement.appendChild(patientsElement)
+        patientListElement.appendChild(patientsElement);
     });
 
 }

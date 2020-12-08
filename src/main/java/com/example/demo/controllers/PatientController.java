@@ -1,9 +1,11 @@
 package com.example.demo.controllers;
 
 import com.example.demo.resource.CareGiver;
+import com.example.demo.resource.Hospital;
 import com.example.demo.resource.Patient;
 import com.example.demo.resource.Vitals;
 import com.example.demo.storage.CareGiverRepository;
+import com.example.demo.storage.HospitalRepository;
 import com.example.demo.storage.PatientStorage;
 import com.example.demo.storage.VitalRepository;
 import org.springframework.web.bind.annotation.*;
@@ -13,15 +15,17 @@ public class PatientController {
     private PatientStorage patientStorage;
     private VitalRepository vitalRepo;
     private CareGiverRepository careGiverRepo;
+    private HospitalRepository hospitalRepo;
 
-    public PatientController(PatientStorage patientStorage, VitalRepository vitalRepo, CareGiverRepository careGiverRepo) {
+    public PatientController(PatientStorage patientStorage, VitalRepository vitalRepo, CareGiverRepository careGiverRepo, HospitalRepository hospitalRepo) {
         this.patientStorage = patientStorage;
         this.vitalRepo = vitalRepo;
         this.careGiverRepo = careGiverRepo;
+        this.hospitalRepo = hospitalRepo;
     }
 
     @GetMapping("/api/patients")
-    public Iterable<Patient> retrieveAllPatients(){
+    public Iterable<Patient> retrieveAllPatients() {
         return patientStorage.retrieveAllPatients();
     }
     
@@ -30,8 +34,14 @@ public class PatientController {
         return patientStorage.retrievedPatientById(id);
     }
 
+    @GetMapping("/api/patients/hospital/{id}")
+    public Iterable<Patient> retrievePatientsByHospitalId(@PathVariable Long id){
+        return patientStorage.retrievePatientsFromHospitalById(id);
+    }
+
     @PostMapping("/api/patients")
     public  Iterable<Patient> addPatient(@RequestBody Patient patientToAdd){
+        hospitalRepo.save(patientToAdd.getHospital());
         careGiverRepo.save(patientToAdd.getCareGiver());
         vitalRepo.save(patientToAdd.getVitals());
         patientStorage.savePatient(patientToAdd);
@@ -40,6 +50,7 @@ public class PatientController {
     @PutMapping("/api/patients")
     public Iterable<Patient> editPatient(@RequestBody Patient patientToEdit){
         if(patientToEdit.getId()!= null){
+            hospitalRepo.save(patientToEdit.getHospital());
             careGiverRepo.save(patientToEdit.getCareGiver());
             vitalRepo.save(patientToEdit.getVitals());
             patientStorage.savePatient((patientToEdit));
@@ -73,7 +84,14 @@ public class PatientController {
     }
     @DeleteMapping("/api/patients/{id}")
     public Iterable<Patient> deletePatientById(@PathVariable Long id){
+        Patient patient = patientStorage.retrievedPatientById(id);
         patientStorage.deletePatientById(id);
-        return patientStorage.retrieveAllPatients();
+        Hospital hospital = hospitalRepo.findById(patient.getHospital().getId()).get();
+        return hospital.getPatients();
+    }
+
+    @GetMapping("/api/hospital/{id}")
+    public Hospital retrieveHospitalById(@PathVariable Long id){
+        return hospitalRepo.findById(id).get();
     }
 }

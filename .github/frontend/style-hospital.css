@@ -25,6 +25,10 @@ h1 {
     overflow-y: scroll;
 }
 
+.eta{
+    font-weight: bold;
+}
+
 .patient-card {
     background-color: var(--light-gray);
     border: solid;
