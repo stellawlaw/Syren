@@ -24,9 +24,9 @@ public class Populator implements CommandLineRunner {
     }
     @Override
     public void run(String... args) throws Exception{
-        Hospital hospital1 = new Hospital("Riverside Hospital", new Coordinates(12.1, 12.1));
+        Hospital hospital1 = new Hospital("Riverside Methodist Hospital", new Coordinates(12.1, 12.1));
         hospitalRepo.save(hospital1);
-        Hospital hospital2 = new Hospital("Grant Hospital", new Coordinates(13.1, 13.1));
+        Hospital hospital2 = new Hospital("Grant Medical Center", new Coordinates(13.1, 13.1));
         hospitalRepo.save(hospital2);
         Hospital hospital3 = new Hospital("Nationwide Children's Hospital", new Coordinates(14.1, 14.1));
         hospitalRepo.save(hospital3);
@@ -36,6 +36,16 @@ public class Populator implements CommandLineRunner {
         hospitalRepo.save(hospital5);
         Hospital hospital6 = new Hospital("Mt. Carmel West Hospital", new Coordinates(17.1, 17.1));
         hospitalRepo.save(hospital6);
+        Hospital hospital7 = new Hospital("Ohio State University", new Coordinates(12.1, 12.1));
+        hospitalRepo.save(hospital7);
+        Hospital hospital8 = new Hospital("Ohio State University East", new Coordinates(12.1, 12.1));
+        hospitalRepo.save(hospital8);
+        Hospital hospital9 = new Hospital("NCH Lewis Center", new Coordinates(12.1, 12.1));
+        hospitalRepo.save(hospital9);
+        Hospital hospital10 = new Hospital("Doctors West", new Coordinates(12.1, 12.1));
+        hospitalRepo.save(hospital10);
+        Hospital hospital11 = new Hospital("Dublin Methodist Hospital", new Coordinates(12.1, 12.1));
+        hospitalRepo.save(hospital11);
 
         Vitals vital1 = new Vitals("10/120", 78, 12, "Alert", "Dilated", "120", "Clear");
         vitalRepo.save(vital1);
@@ -49,6 +59,18 @@ public class Populator implements CommandLineRunner {
         vitalRepo.save(vital5);
         Vitals vital6 = new Vitals("15/120", 95, 17, "Unresponsive", "Dilated", "200", "Clear");
         vitalRepo.save(vital6);
+        Vitals vital7 = new Vitals("16/120", 78, 12, "Lethargic", "Dilated", "120", "Clear");
+        vitalRepo.save(vital7);
+        Vitals vital8 = new Vitals("17/120", 90, 13, "Alert", "Responsive", "130", "Rhonchi");
+        vitalRepo.save(vital8);
+        Vitals vital9 = new Vitals("18/120", 80, 14, "Unresponsive", "Unresponsive", "140", "Rales");
+        vitalRepo.save(vital9);
+        Vitals vital10 = new Vitals("19/120", 75, 15, "Unresponsive", "Unresponsive", "150", "Stridor");
+        vitalRepo.save(vital10);
+        Vitals vital11 = new Vitals("20/120", 72, 16, "Alert", "Dilated", "160", "Wheezing");
+        vitalRepo.save(vital11);
+        Vitals vital12 = new Vitals("21/120", 95, 17, "Lethargic", "Dilated", "200", "Clear");
+        vitalRepo.save(vital12);
 
         CareGiver caregiver1 = new CareGiver(10, 11, 12, 13, "Nov 25, 2020");
         careGiverRepo.save(caregiver1);
