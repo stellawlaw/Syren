@@ -84,8 +84,10 @@ public class PatientController {
     }
     @DeleteMapping("/api/patients/{id}")
     public Iterable<Patient> deletePatientById(@PathVariable Long id){
+        Patient patient = patientStorage.retrievedPatientById(id);
         patientStorage.deletePatientById(id);
-        return patientStorage.retrieveAllPatients();
+        Hospital hospital = hospitalRepo.findById(patient.getHospital().getId()).get();
+        return hospital.getPatients();
     }
 
     @GetMapping("/api/hospital/{id}")

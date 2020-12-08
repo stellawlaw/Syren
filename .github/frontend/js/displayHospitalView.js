@@ -15,7 +15,7 @@ import{
     editPatientPriority
 }from "./displaySinglePatient.js"
 
-
+let hospitalToRender;
 const displayHospitalView = function (patients) {
     const patientListElement = document.createElement("div");
     patientListElement.classList.add("patient-intake-list");
@@ -34,12 +34,14 @@ const displayHospitalView = function (patients) {
 
         function closeModal() {
             clearChildren(container)
-            container.prepend(createHeader());
-            fetch("http://localhost:8080/api/patients")
+            container.prepend(createHeader(hospitalToRender));
+            fetch(`http://localhost:8080/api/patients/hospital/${hospitalToRender.id}`)
                 .then(response => response.json())
                 .then(patients => displayHospitalView(patients))
                 .then(patientsElement => container.appendChild(patientsElement))
                 .catch(error => console.log(error));
+            
+
             patientModal.style.display = "none";
         }
         patientModal.addEventListener('click', closeModal);
@@ -81,14 +83,13 @@ const displayHospitalView = function (patients) {
 }
 const createHospitalView = function (hospital) {
     const container = document.querySelector('.container');
+    hospitalToRender = hospital;
   
     container.prepend(createHeader(hospital));
     fetch(`http://localhost:8080/api/patients/hospital/${hospital.id}`)
       .then(response => response.json())
       .then(patients => displayHospitalView(patients))
-      .then(patientsElement => {
-        container.appendChild(patientsElement)
-      })
+      .then(patientsElement => container.appendChild(patientsElement))
       .catch(error => console.log(error));
   }
 

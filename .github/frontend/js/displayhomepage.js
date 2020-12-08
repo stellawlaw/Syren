@@ -91,7 +91,7 @@ const displayHomePageView = function (hospital) {
     span.addEventListener('click', closeModal);
     homeLoginButton.addEventListener('click', ()=> {
         clearChildren(container)
-
+        
         let hospitalId = 0;
         let input = inputUserName.value;
         
@@ -106,7 +106,7 @@ const displayHomePageView = function (hospital) {
             .then(hospital => createHospitalView(hospital))
     });    
 
-    return homePageContainer
+    return myModal;
 }
 
 export {
