@@ -39,7 +39,7 @@ public class jpaWiringTest {
         vitalRepo.save(vitals1);
         CareGiver careGiver1 = new CareGiver(1654, 65, 85, 35, "November 25 2020");
         careGiverRepo.save(careGiver1);
-        Patient testPatient1 = new Patient(01234,25,"male", vitals1,"","","","","","","", careGiver1, hospital1);
+        Patient testPatient1 = new Patient(01234,25,"male", vitals1,"","","","","","","","", careGiver1, hospital1);
         patientRepo.save(testPatient1);
         flushAndClear();
         Patient retrievedPatient = patientRepo.findById(testPatient1.getId()).get();
@@ -54,7 +54,7 @@ public class jpaWiringTest {
         vitalRepo.save(testVital);
         CareGiver testCareGiver = new CareGiver(1654, 65, 85, 35, "November 25 2020");
         careGiverRepo.save(testCareGiver);
-        Patient testPatient1 = new Patient(01234,25,"male",testVital,"","","","","","","", testCareGiver,hospital1 );
+        Patient testPatient1 = new Patient(01234,25,"male",testVital,"","","","","","","","", testCareGiver,hospital1 );
         patientRepo.save(testPatient1);
         flushAndClear();
         Patient retrievedPatient1 = patientRepo.findById(testPatient1.getId()).get();

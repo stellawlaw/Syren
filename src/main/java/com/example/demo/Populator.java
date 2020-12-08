@@ -84,19 +84,44 @@ public class Populator implements CommandLineRunner {
         careGiverRepo.save(caregiver5);
         CareGiver caregiver6 = new CareGiver(15, 16, 17, 18, "Nov 10, 2020");
         careGiverRepo.save(caregiver6);
+        CareGiver caregiver7 = new CareGiver(10, 11, 12, 13, "Nov 25, 2020");
+        careGiverRepo.save(caregiver7);
+        CareGiver caregiver8 = new CareGiver(11, 12, 13, 14, "Nov 27, 2020");
+        careGiverRepo.save(caregiver8);
+        CareGiver caregiver9 = new CareGiver(12, 13, 14, 15, "Nov 26, 2020");
+        careGiverRepo.save(caregiver9);
+        CareGiver caregiver10 = new CareGiver(13, 14, 15, 16, "Nov 20, 2020");
+        careGiverRepo.save(caregiver10);
+        CareGiver caregiver11 = new CareGiver(14, 15, 16, 17, "Nov 18, 2020");
+        careGiverRepo.save(caregiver11);
+        CareGiver caregiver12 = new CareGiver(15, 16, 17, 18, "Nov 10, 2020");
+        careGiverRepo.save(caregiver12);
 
-        Patient patient1 = new Patient(12, 22, "Male", vital1, "Not Available", "Peanuts", "Penicillin", "green", "Heavy alcohol use","Under the influence","Flipped a car while driving under the influence", caregiver1, hospital2 );
+        Patient patient1 = new Patient(12, 22, "Male", vital1, "Not Available", "Peanuts", "Penicillin", "green", "Heavy alcohol use","Under the influence","Flipped a car while driving under the influence","", caregiver1, hospital5 );
         patientStorage.savePatient(patient1);
-        Patient patient2 = new Patient(13, 23, "Female", vital2, "Not Available", "Penicillin", "Fluids", "yellow", "None","Back is hurting","Fell over and couldn't get up", caregiver2, hospital2 );
+        Patient patient2 = new Patient(13, 23, "Female", vital2, "Not Available", "Penicillin", "Fluids", "yellow", "None","Back is hurting","Fell over and couldn't get up","", caregiver2, hospital6 );
         patientStorage.savePatient(patient2);
-        Patient patient3 = new Patient(14, 24, "Male", vital3, "Not Available", "Latex", "Insulin", "red", "none","Gun shot wound","Got in a bar fight", caregiver3, hospital6 );
+        Patient patient3 = new Patient(14, 24, "Male", vital3, "Not Available", "Latex", "Insulin", "red", "none","Gun shot wound","Got in a bar fight","", caregiver3, hospital6 );
         patientStorage.savePatient(patient3);
-        Patient patient4 = new Patient(15, 25, "Female", vital4, "Not Available", "None", "Prozac", "yellow", "Excessive drug use","Broken knee","Sports injury", caregiver4, hospital6 );
+        Patient patient4 = new Patient(15, 25, "Female", vital4, "Not Available", "None", "Prozac", "yellow", "Excessive drug use","Broken knee","Sports injury", "",caregiver4, hospital6 );
         patientStorage.savePatient(patient4);
-        Patient patient5 = new Patient(16, 26, "Male", vital5, "Not Available", "None", "Morphine", "green", "Heavy drinker","Can't breathe","Mixed alcohol and morphine together ", caregiver5,hospital6 );
+        Patient patient5 = new Patient(16, 26, "Male", vital5, "Not Available", "None", "Morphine", "green", "Heavy drinker","Can't breathe","Mixed alcohol and morphine together ","", caregiver5,hospital6 );
         patientStorage.savePatient(patient5);
-        Patient patient6 = new Patient(17, 27, "Female", vital6, "Not Available", "None", "Benazepril", "red", "None", "Chest pains","Had a heart attack",caregiver6, hospital6);
+        Patient patient6 = new Patient(17, 27, "Female", vital6, "Not Available", "None", "Benazepril", "red", "None", "Chest pains","Had a heart attack","",caregiver6, hospital9);
         patientStorage.savePatient(patient6);
+
+        Patient patient7 = new Patient(18, 45, "Male", vital7, "Not Available", "Peanuts", "Penicillin", "green", "Heavy alcohol use","Under the influence","Flipped a car while driving under the influence","", caregiver9, hospital2 );
+        patientStorage.savePatient(patient7);
+        Patient patient8 = new Patient(19, 46, "Female", vital8, "Not Available", "Penicillin", "Fluids", "yellow", "None","Back is hurting","Fell over and couldn't get up","", caregiver8, hospital11 );
+        patientStorage.savePatient(patient8);
+        Patient patient9 = new Patient(20, 47, "Male", vital9, "Not Available", "Latex", "Insulin", "red", "none","Gun shot wound","Got in a bar fight","", caregiver9, hospital2 );
+        patientStorage.savePatient(patient9);
+        Patient patient10 = new Patient(21, 48, "Female", vital10, "Not Available", "None", "Prozac", "yellow", "Excessive drug use","Broken knee","Sports injury", "",caregiver10, hospital8 );
+        patientStorage.savePatient(patient10);
+        Patient patient11 = new Patient(22, 49, "Male", vital11, "Not Available", "None", "Morphine", "green", "Heavy drinker","Can't breathe","Mixed alcohol and morphine together ","", caregiver11,hospital8 );
+        patientStorage.savePatient(patient11);
+        Patient patient12 = new Patient(23, 50, "Female", vital12, "Not Available", "None", "Benazepril", "red", "None", "Chest pains","Had a heart attack","",caregiver12, hospital2);
+        patientStorage.savePatient(patient12);
     }
 
     }

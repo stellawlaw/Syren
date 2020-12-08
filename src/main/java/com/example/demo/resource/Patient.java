@@ -15,6 +15,7 @@ public class Patient {
     private int patientId;
     private int age;
     private String sex;
+    private String location;
     @OneToOne
     private Vitals vitals;
     private String medicalHistory;
@@ -30,7 +31,7 @@ public class Patient {
     protected Patient() {
     }
 
-    public Patient(int patientId, int age, String sex, Vitals vitals, String medicalHistory, String allergies, String medication, String levelOfEmergency, String drugAndAlcoholHistory, String chiefComplaint, String summary, CareGiver careGiver, Hospital hospital) {
+    public Patient(int patientId, int age, String sex, Vitals vitals, String medicalHistory, String allergies, String medication, String levelOfEmergency, String drugAndAlcoholHistory, String chiefComplaint, String summary,String location, CareGiver careGiver, Hospital hospital) {
         this.patientId = patientId;
         this.age = age;
         this.sex = sex;
@@ -42,8 +43,13 @@ public class Patient {
         this.drugAndAlcoholHistory = drugAndAlcoholHistory;
         this.chiefComplaint = chiefComplaint;
         this.summary = summary;
+        this.location = location;
         this.careGiver = careGiver;
         this.hospital = hospital;
+    }
+
+    public String getLocation() {
+        return location;
     }
 
     public Hospital getHospital() {
@@ -124,6 +130,7 @@ public class Patient {
                 Objects.equals(id, patient.id) &&
                 Objects.equals(hospital, patient.hospital) &&
                 Objects.equals(sex, patient.sex) &&
+                Objects.equals(location, patient.location) &&
                 Objects.equals(vitals, patient.vitals) &&
                 Objects.equals(medicalHistory, patient.medicalHistory) &&
                 Objects.equals(allergies, patient.allergies) &&
@@ -137,7 +144,7 @@ public class Patient {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, hospital, patientId, age, sex, vitals, medicalHistory, allergies, medication, levelOfEmergency, drugAndAlcoholHistory, chiefComplaint, summary, careGiver);
+        return Objects.hash(id, hospital, patientId, age, sex, location, vitals, medicalHistory, allergies, medication, levelOfEmergency, drugAndAlcoholHistory, chiefComplaint, summary, careGiver);
     }
 
     @Override
@@ -148,6 +155,7 @@ public class Patient {
                 ", patientId=" + patientId +
                 ", age=" + age +
                 ", sex='" + sex + '\'' +
+                ", location='" + location + '\'' +
                 ", vitals=" + vitals +
                 ", medicalHistory='" + medicalHistory + '\'' +
                 ", allergies='" + allergies + '\'' +
