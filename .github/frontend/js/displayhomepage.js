@@ -15,7 +15,7 @@ const displayHomePageView = function (hospital) {
 
     const homepageheaderh1 = document.createElement("h1");
     homepageheaderh1.classList.add("homepage-header-h1");
-    homepageheaderh1.innerText = "Syren";
+    homepageheaderh1.innerText = "Welcome to Syren!";
 
     const loginView = document.createElement("div");
     loginView.classList.add("login");

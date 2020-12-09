@@ -71,8 +71,8 @@ h1 {
 }
 
 .patient-modal-info {
-    position: static;
-    left: 6%;
+    position: fixed;
+    left: 23%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 195px);
@@ -81,8 +81,8 @@ h1 {
     padding: 55px;
     border: 5px solid var(--black);
     border-radius: 7px;
-    width: 80%;
-    height: 65%;
+    width: 50%;
+    height: 50%;
 }
 
 .patient-priority {
@@ -97,10 +97,6 @@ h1 {
 .priority-red {
     width: 100px;
 }
-/* 
-* {
-    margin: 0 auto;
-} */
 
 .login{
     justify-self: center;

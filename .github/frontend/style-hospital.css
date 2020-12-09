@@ -8,6 +8,7 @@
 
 html {
     background-color: var(--dark-blue);
+    overflow: hidden;
 }
 
 h1 {
@@ -18,11 +19,13 @@ h1 {
     font-family: PT Sans;
     padding: 1rem;
     max-height: 100vh;
+
 }
 
 .patient-intake-list {
     margin: 1rem;
     overflow-y: scroll;
+    
 }
 
 .eta{
@@ -40,7 +43,10 @@ h1 {
 
 .patient-card:hover {
     cursor: pointer;
+    box-shadow: 4px 4px 10px 0px black;
 }
+
+
 
 .priority-green{
     opacity: 50%;
@@ -170,3 +176,129 @@ input[type=text]::placeholder {
 .login-icon-button :hover {
     cursor: pointer;
 }
+
+.home-login-button {
+    background-color: var(--green);
+    padding: 10px;
+    margin: 10px;
+    width: 250px;
+    border: solid var(--light-gray);
+    border-radius: 5px;
+    font-family: PT Sans;
+    font-size: large;
+}
+
+.home-login-button:hover {
+    cursor: pointer;
+    background-color: green;
+}
+
+.home-login-button, .homepage-header-h1{
+    animation: fadeIn ease 3s;
+    -webkit-animation: fadeIn ease 3s;
+    -moz-animation: fadeIn ease 3s;
+    -o-animation: fadeIn ease 3s;
+    -ms-animation: fadeIn ease 3s;
+    }
+    @keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+
+    .modal-content, .patient-modal-info{
+        animation: fadeIn ease 2s;
+        -webkit-animation: fadeIn ease 2s;
+        -moz-animation: fadeIn ease 2s;
+        -o-animation: fadeIn ease 2s;
+        -ms-animation: fadeIn ease 2s;
+        }
+        @keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+        }
+        
+        @-moz-keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+        }
+        
+        @-webkit-keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+        }
+        
+        @-o-keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+        }
+        
+        @-ms-keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+        }
+
+        .patient-card{
+            animation: leftSlide ease 1s;
+            -webkit-animation: leftSlide ease 1s;
+            -moz-animation: leftSlide ease 1s;
+            -o-animation: leftSlide ease 1s;
+            -ms-animation: leftSlide ease 1s;
+            }
+            @keyframes leftSlide {
+                0% {margin-left:100%;
+                    display: none;}
+                    100% {margin-left:0%;}
+                    }
+            
+            @-moz-keyframes leftSlide {
+                0% {margin-left:100%;
+                    display: none;}
+                    100% {margin-left:0%;}
+                    }
+            
+            @-webkit-keyframes leftSlide {
+                0% {margin-left:100%;
+                    display: none;}
+                    100% {margin-left:0%;}
+                    }
+            
+            @-o-keyframes leftSlide {
+                0% {margin-left:100%;
+                    display: none;}
+                    100% {margin-left:0%;}
+                    }
+            
+            @-ms-keyframes leftSlide {
+                0% {margin-left:100%;
+                    display: none;}
+                    100% {margin-left:0%;}
+                    }
+            
+
+
+
+          
+          
+    
+
+
