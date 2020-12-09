@@ -20,8 +20,40 @@ const displayHospitalView = function (patients) {
     const patientListElement = document.createElement("div");
     patientListElement.classList.add("patient-intake-list");
     const container = document.querySelector('.container');
+    
+    const directionService = new google.maps.DirectionsService();
+
+    const hospitalLocation = new google.maps.LatLng(hospitalToRender.coordinates.latitude, hospitalToRender.coordinates.longitude);
+    console.log(hospitalLocation);
 
     patients.forEach(patient => {
+        let etaElement = document.createElement("div");
+        etaElement.classList.add("eta");
+        etaElement.innerText = "ETA: " ;
+
+        let patientLocation = patient.location.split(',');
+        let patientLat = parseFloat(patientLocation[0]);
+        let patientLon = parseFloat(patientLocation[1]);
+        let patientOrigin = new google.maps.LatLng(patientLat, patientLon);
+        let patientEta;
+
+        directionService.route(
+            {
+                origin: patientOrigin,
+                destination: hospitalLocation,
+                travelMode: google.maps.TravelMode.DRIVING,
+            },
+            (response,status) => {
+                if(status === 'OK'){
+                    patientEta = response.routes[0].legs[0].duration.text;
+                    etaElement.innerText = "ETA: " + patientEta;
+                    console.log(patientEta);
+                }else{
+                    window.alert('direction request failed due to ' + status);
+    
+                }
+            }
+        );
 
         let patientCardElement = document.createElement("div");
         patientCardElement.classList.add("patient-card");
@@ -49,10 +81,10 @@ const displayHospitalView = function (patients) {
         let patientAgeSexElement = document.createElement("div");
         patientAgeSexElement.classList.add("patient-age-sex");
         patientAgeSexElement.innerHTML = `<strong>Patient: </strong> ${patient.age}  y/o  ${patient.sex}`
+        
 
-        let etaElement = document.createElement("div");
-        etaElement.classList.add("eta");
-        etaElement.innerText = "ETA: " + "2:00"
+
+        
 
         let chiefComplaintElement = document.createElement("div");
         chiefComplaintElement.classList.add("chief-complaint");
