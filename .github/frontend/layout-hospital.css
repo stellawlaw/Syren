@@ -12,16 +12,25 @@ h1 {
     padding: 2rem;
 }
 
-.hospital-header{
+.main-header {
+    align-items: center;
+}
+
+h3 {
     display: flex;
     justify-content: center;
 }
 
-.patient-intake-header{
+
+/* .hospital-header {
+    display: flex;
+    justify-content: center;
+} */
+
+.patient-intake-header {
     display: flex;
     justify-content: center;
 }
-
 
 .container {
     display: grid;
@@ -40,7 +49,7 @@ h1 {
     padding: 1rem;
 }
 
-.priority{
+.priority {
     justify-self: end;
     grid-column-start: -1;
     grid-column-end: -2;
@@ -98,10 +107,10 @@ h1 {
     width: 100px;
 }
 
-.login{
+.login {
     justify-self: center;
-
 }
+
 .modal {
     display: none;
     position: fixed;
@@ -123,7 +132,6 @@ h1 {
     padding: 1rem;
     margin: 1rem;
 }
-
 
 form {
     display: grid;
@@ -165,4 +173,4 @@ input[type=number]::placeholder {
 .pt-submit-form input[type=text]::placeholder {
     color: var(--light-gray);
     font-size: medium;
-} 
+}

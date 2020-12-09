@@ -19,16 +19,14 @@ h1 {
     font-family: PT Sans;
     padding: 1rem;
     max-height: 100vh;
-
 }
 
 .patient-intake-list {
     margin: 1rem;
     overflow-y: scroll;
-    
 }
 
-.eta{
+.eta {
     font-weight: bold;
 }
 
@@ -46,9 +44,7 @@ h1 {
     box-shadow: 4px 4px 10px 0px black;
 }
 
-
-
-.priority-green{
+.priority-green {
     opacity: 50%;
 }
 
@@ -67,6 +63,7 @@ h1 {
     border-color: #049c04;
     box-shadow: 5px 5px 50px 5px rgb(4, 156, 4);
     opacity: 100%;
+    transform: rotate(45deg);
 }
 
 .priority-red:hover {
@@ -96,7 +93,14 @@ h1 {
     font-family: PT Sans;
     font-size: x-large;
 }
-.patient-title{
+
+.clear-pt-button :hover {
+    border: solid black;
+    cursor: pointer;
+    box-shadow: 3px 3px 10px 3px gray;
+}
+
+.patient-title {
     color: #000000;
     text-decoration: underline;
 }
@@ -193,112 +197,168 @@ input[type=text]::placeholder {
     background-color: green;
 }
 
-.home-login-button, .homepage-header-h1{
+.home-login-button,
+.homepage-header-h1 {
     animation: fadeIn ease 3s;
     -webkit-animation: fadeIn ease 3s;
     -moz-animation: fadeIn ease 3s;
     -o-animation: fadeIn ease 3s;
     -ms-animation: fadeIn ease 3s;
-    }
-    @keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
-    }
-    
-    @-moz-keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
-    }
-    
-    @-webkit-keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
-    }
-    
-    @-o-keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
-    }
-    
-    @-ms-keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
-    }
+}
 
-.modal-content, .patient-modal-info{
-    animation: fadeIn ease 2s;
-    -webkit-animation: fadeIn ease 2s;
-    -moz-animation: fadeIn ease 2s;
-    -o-animation: fadeIn ease 2s;
-    -ms-animation: fadeIn ease 2s;
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
     }
-    @keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
+    100% {
+        opacity: 1;
     }
-        
-    @-moz-keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
-    }
-        
-    @-webkit-keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
-    }
-        
-    @-o-keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
-    }
-        
-    @-ms-keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
-    }
+}
 
-.patient-card{
+@-moz-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-ms-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.modal-content,
+.patient-modal-info {
+    animation: fadeIn ease 1.5s;
+    -webkit-animation: fadeIn ease 1.5s;
+    -moz-animation: fadeIn ease 1.5s;
+    -o-animation: fadeIn ease 1.5s;
+    -ms-animation: fadeIn ease 1.5s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-ms-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.patient-card {
     animation: leftSlide ease 1s;
     -webkit-animation: leftSlide ease 1s;
     -moz-animation: leftSlide ease 1s;
     -o-animation: leftSlide ease 1s;
     -ms-animation: leftSlide ease 1s;
-    }
-    @keyframes leftSlide {
-    0% {margin-left:100%;
-    display: none;}
-    100% {margin-left:0%;}
-    }
-            
-    @-moz-keyframes leftSlide {
-    0% {margin-left:100%;
-    display: none;}
-    100% {margin-left:0%;}
-    }
-            
-    @-webkit-keyframes leftSlide {
-    0% {margin-left:100%;
-    display: none;}
-    100% {margin-left:0%;}
-    }
-            
-    @-o-keyframes leftSlide {
-    0% {margin-left:100%;
-    display: none;}
-    100% {margin-left:0%;}
-    }
-            
-    @-ms-keyframes leftSlide {
-    0% {margin-left:100%;
-    display: none;}
-    100% {margin-left:0%;}
-    }
-            
+}
 
+@keyframes leftSlide {
+    0% {
+        margin-left: 100%;
+        display: none;
+    }
+    100% {
+        margin-left: 0%;
+    }
+}
 
+@-moz-keyframes leftSlide {
+    0% {
+        margin-left: 100%;
+        display: none;
+    }
+    100% {
+        margin-left: 0%;
+    }
+}
 
-          
-          
-    
+@-webkit-keyframes leftSlide {
+    0% {
+        margin-left: 100%;
+        display: none;
+    }
+    100% {
+        margin-left: 0%;
+    }
+}
 
+@-o-keyframes leftSlide {
+    0% {
+        margin-left: 100%;
+        display: none;
+    }
+    100% {
+        margin-left: 0%;
+    }
+}
 
+@-ms-keyframes leftSlide {
+    0% {
+        margin-left: 100%;
+        display: none;
+    }
+    100% {
+        margin-left: 0%;
+    }
+}
