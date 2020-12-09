@@ -11,9 +11,7 @@ import {
     createHeader
   } from "./header.js"
   
-import{
-    editPatientPriority
-}from "./displaySinglePatient.js"
+
 
 let hospitalToRender;
 const displayHospitalView = function (patients) {

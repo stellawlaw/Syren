@@ -9,12 +9,12 @@ const displaySinglePatient = function (patient) {
 
     const div1Element = document.createElement("div");
     div1Element.classList.add("div1")
-    const patientTitle = document.createElement("h1");
+    const patientTitle = document.createElement("h2");
     patientTitle.classList.add("patient-title")
     patientTitle.innerText = "Patient Details"
     const patientId = document.createElement('p');
     patientId.classList.add("patient-id");
-    patientId.innerText = "Patient Id: " + patient.patientId;
+    patientId.innerHTML = `<strong>Patient Id: </strong>  ${patient.patientId}`;
     const patientAgeElement = document.createElement("p");
     patientAgeElement.classList.add("patient-age")
     patientAgeElement.innerText = "Age: " + patient.age;
