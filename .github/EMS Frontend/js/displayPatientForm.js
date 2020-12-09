@@ -179,7 +179,16 @@ const createSubmitButton = function () {
     return submitButton;
 }
 
+let coordinates;
+
+const storePosition = function (position) {
+    console.log(""+position.coords.latitude+", "+position.coords.longitude);
+    coordinates = ""+position.coords.latitude+", "+position.coords.longitude;
+}
+
 const displayPatientForm = function (hospitals) {
+    navigator.geolocation.getCurrentPosition(storePosition);
+
     const body = document.querySelector("body");
     clearChildren(body);
     body.appendChild(createHeader());
@@ -266,13 +275,6 @@ const displayPatientForm = function (hospitals) {
 
     const hospitalSelect = document.querySelector("#hospitals");
 
-    let coordinates;
-
-    const storePosition = function (position) {
-        console.log(""+position.coords.latitude+", "+position.coords.longitude);
-        coordinates = ""+position.coords.latitude+", "+position.coords.longitude;
-    }
-
     document.querySelector(".submit-button").addEventListener('click', (clickEvent) =>{
         clickEvent.preventDefault();
 
@@ -287,7 +289,6 @@ const displayPatientForm = function (hospitals) {
     
 
         // let location = 
-        navigator.geolocation.getCurrentPosition(storePosition);
         console.log(coordinates);
         const hospital = document.querySelector("#hospitals").value;
         console.log(location);
@@ -319,7 +320,7 @@ const displayPatientForm = function (hospitals) {
             "drugsAndAlcoholHistory":"",
             "chiefComplaint":chiefComplaintInput.value,
             "summary":summaryInput.value,
-            "location":location,
+            "location":coordinates,
             "careGiver": {
                 "dateAndTime": "Nov 25, 2020"
               }
