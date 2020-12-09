@@ -15,6 +15,8 @@ import{
     editPatientPriority
 }from "./displaySinglePatient.js"
 
+
+
 let hospitalToRender;
 const displayHospitalView = function (patients) {
     const patientListElement = document.createElement("div");
@@ -22,10 +24,8 @@ const displayHospitalView = function (patients) {
     const container = document.querySelector('.container');
     
     const directionService = new google.maps.DirectionsService();
-
     const hospitalLocation = new google.maps.LatLng(hospitalToRender.coordinates.latitude, hospitalToRender.coordinates.longitude);
-    console.log(hospitalLocation);
-
+    
     patients.forEach(patient => {
         let etaElement = document.createElement("div");
         etaElement.classList.add("eta");
@@ -47,7 +47,6 @@ const displayHospitalView = function (patients) {
                 if(status === 'OK'){
                     patientEta = response.routes[0].legs[0].duration.text;
                     etaElement.innerText = "ETA: " + patientEta;
-                    console.log(patientEta);
                 }else{
                     window.alert('direction request failed due to ' + status);
     
@@ -81,15 +80,10 @@ const displayHospitalView = function (patients) {
         let patientAgeSexElement = document.createElement("div");
         patientAgeSexElement.classList.add("patient-age-sex");
         patientAgeSexElement.innerHTML = `<strong>Patient: </strong> ${patient.age}  y/o  ${patient.sex}`
-        
-
-
-        
-
+    
         let chiefComplaintElement = document.createElement("div");
         chiefComplaintElement.classList.add("chief-complaint");
         chiefComplaintElement.innerHTML = `<strong>Chief Complaint: </strong> ${patient.chiefComplaint}`
-  
 
         let priorityElement = document.createElement("div");
         priorityElement.classList.add("priority");
@@ -108,10 +102,20 @@ const displayHospitalView = function (patients) {
         clearPtButtonElement.appendChild(ptButton);
         patientCardElement.appendChild(clearPtButtonElement);
         patientListElement.appendChild(patientCardElement);
-
+        
     });
+    setInterval(reloadPatientList(patients), time);
     return patientListElement;
+    
+}
 
+let time = 300
+let reloadPatientList = function(patients){
+    let patientList = document.querySelector('.patient-intake-list')
+    clearChildren(patientList);
+    displayHospitalView(patients);
+    time = 300;
+    console.log(time)
 }
 const createHospitalView = function (hospital) {
     const container = document.querySelector('.container');
