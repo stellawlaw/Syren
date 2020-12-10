@@ -321,7 +321,7 @@ input[type=text]::placeholder {
         opacity: 1;
     }
 }
-
+/* 
 .patient-card {
     animation: leftSlide ease 1s;
     -webkit-animation: leftSlide ease 1s;
@@ -378,4 +378,5 @@ input[type=text]::placeholder {
     100% {
         margin-left: 0%;
     }
-}
+} */
+

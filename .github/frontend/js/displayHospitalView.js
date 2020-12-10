@@ -17,7 +17,7 @@ import {
   
 
 
-let time = 5000
+let time = 20000
 let hospitalToRender;
 const patientListElement = document.createElement("div");
 patientListElement.classList.add("patient-intake-list");
