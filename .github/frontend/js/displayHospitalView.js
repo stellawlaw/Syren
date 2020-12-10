@@ -10,10 +10,11 @@ import {
 import {
     createHeader
   } from "./header.js"
+
+import {
+    footer
+} from "./footer.js" 
   
-import{
-    editPatientPriority
-}from "./displaySinglePatient.js"
 
 
 let time = 5000
@@ -107,7 +108,11 @@ const displayHospitalView = function (patients) {
         clearPtButtonElement.appendChild(ptButton);
         patientCardElement.appendChild(clearPtButtonElement);
         patientListElement.appendChild(patientCardElement);
+        patientListElement.appendChild(footer);
+
+
         
+
     });
     return patientListElement;
 }

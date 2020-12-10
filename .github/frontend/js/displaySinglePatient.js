@@ -9,21 +9,21 @@ const displaySinglePatient = function (patient) {
 
     const div1Element = document.createElement("div");
     div1Element.classList.add("div1")
-    const patientTitle = document.createElement("h1");
+    const patientTitle = document.createElement("h2");
     patientTitle.classList.add("patient-title")
     patientTitle.innerText = "Patient Details"
     const patientId = document.createElement('p');
     patientId.classList.add("patient-id");
-    patientId.innerText = "Patient Id: " + patient.patientId;
+    patientId.innerHTML = `<strong>Patient Id: </strong>${patient.patientId}`;
     const patientAgeElement = document.createElement("p");
     patientAgeElement.classList.add("patient-age")
-    patientAgeElement.innerText = "Age: " + patient.age;
+    patientAgeElement.innerHTML = `<strong>Age: </strong> ${patient.age}`;
     const patientSexElement = document.createElement("p");
     patientSexElement.classList.add("patient-sex")
-    patientSexElement.innerText = "Sex: " + patient.sex;
+    patientSexElement.innerHTML = `<strong>Sex: </strong>${patient.sex}`;
     const patientCCElement = document.createElement("p");
     patientCCElement.classList.add("patient-cc");
-    patientCCElement.innerText = "Chief Complaint: " + patient.chiefComplaint;
+    patientCCElement.innerHTML = `<strong>Chief Complaint: </strong>${patient.chiefComplaint}`;
     div1Element.appendChild(patientTitle);
     div1Element.appendChild(patientId);
     div1Element.appendChild(patientAgeElement);
@@ -36,13 +36,13 @@ const displaySinglePatient = function (patient) {
     div2Element.classList.add("div2")
     const patientMedicalHistoryElement = document.createElement("p");
     patientMedicalHistoryElement.classList.add("patient-medical-history")
-    patientMedicalHistoryElement.innerText = "Medical History: " + patient.medicalHistory;
+    patientMedicalHistoryElement.innerHTML = `<strong>Medical History: </strong>${patient.medicalHistory}`;
     const patientAllergiesElement = document.createElement("p");
     patientAllergiesElement.classList.add("patient-allergies");
-    patientAllergiesElement.innerText = "Allergies: " + patient.allergies;
+    patientAllergiesElement.innerHTML = `<strong>Allergies: </strong>${patient.allergies}`;
     const patientMedicationsElement = document.createElement("p");
     patientMedicationsElement.classList.add("patient-medications");
-    patientMedicationsElement.innerText = "Medications: " + patient.medication;
+    patientMedicationsElement.innerHTML = `<strong>Medications: </strong>${patient.medication}`;
     div2Element.appendChild(patientMedicalHistoryElement);
     div2Element.appendChild(patientAllergiesElement);
     div2Element.appendChild(patientMedicationsElement);
@@ -52,25 +52,25 @@ const displaySinglePatient = function (patient) {
     patientVitalsElement.classList.add("patient-vitals")
     const patientHeartRateElement = document.createElement("p");
     patientHeartRateElement.classList.add("patient-hr");
-    patientHeartRateElement.innerText = "HR: " + patient.vitals.hr;
+    patientHeartRateElement.innerHTML = `<strong>HR: </strong>${patient.vitals.hr}`;
     const patientRRElement = document.createElement("p");
     patientRRElement.classList.add("patient-rr");
-    patientRRElement.innerText = "RR: " + patient.vitals.rr;
+    patientRRElement.innerHTML = `<strong>RR: </strong>${patient.vitals.rr}`;
     const patientBPElement = document.createElement("p");
     patientBPElement.classList.add("patient-bp");
-    patientBPElement.innerText = "BP: " + patient.vitals.bp;
+    patientBPElement.innerHTML = `<strong>BP: </strong>${patient.vitals.bp}`;
     const patientLOCElement = document.createElement("p");
     patientLOCElement.classList.add("patient-loc");
-    patientLOCElement.innerText = "LOC: " + patient.vitals.loc;
+    patientLOCElement.innerHTML = `<strong>LOC: </strong>${patient.vitals.loc}`;
     const patientPupilsElement = document.createElement("p");
     patientPupilsElement.classList.add("patient-pupils");
-    patientPupilsElement.innerText = "Pupils: " + patient.vitals.pupils;
+    patientPupilsElement.innerHTML = `<strong>Pupils: </strong>${patient.vitals.pupils}`;
     const patientLungSoundsElement = document.createElement("p");
     patientLungSoundsElement.classList.add("patient-lung-sounds");
-    patientLungSoundsElement.innerText = "Lung Sounds: " + patient.vitals.lungSounds;
+    patientLungSoundsElement.innerHTML = `<strong>Lung Sounds: </strong>${patient.vitals.lungSounds}`;
     const patientEKGElement = document.createElement("p");
     patientEKGElement.classList.add("patient-ekg");
-    patientEKGElement.innerText = "EKG: " + patient.vitals.ekg;
+    patientEKGElement.innerHTML = `<strong>EKG: </strong>${patient.vitals.ekg}`;
     patientVitalsElement.appendChild(patientHeartRateElement);
     patientVitalsElement.appendChild(patientRRElement);
     patientVitalsElement.appendChild(patientBPElement);
@@ -84,7 +84,7 @@ const displaySinglePatient = function (patient) {
     patientWriteUpElement.classList.add("patient-writeup")
     const patientWriteUpContentElement = document.createElement("p");
     patientWriteUpContentElement.classList.add("patient-writeup-content");
-    patientWriteUpContentElement.innerText = "Summary: " + patient.summary;
+    patientWriteUpContentElement.innerHTML = `<strong>Summary: </strong>${patient.summary}`;
     patientWriteUpElement.appendChild(patientWriteUpContentElement);
     patientModalInfoElement.appendChild(patientWriteUpElement);
 

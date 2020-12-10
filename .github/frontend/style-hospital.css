@@ -1,16 +1,25 @@
 :root {
     --light-gray: #f0f7ee;
     --yellow: #fff07c;
-    --dark-blue: #5d737e;
+    --dark-blue: #64471e;
     --green: #87bba2;
     --black: #000000;
 }
 
 html {
-    background-color: var(--dark-blue);
+    /* background: radial-gradient(circle, rgba(240,247,238,1) 0%, rgba(93,115,126,1) 35%, rgba(0,0,0,1) 100%); */
+    min-height: 100%;
+    background-image:url("./imgs/polygons.jpg"); 
+
+    overflow: hidden;
 }
 
 h1 {
+    color: var(--light-gray);
+   
+}
+
+.copyright{
     color: var(--light-gray);
 }
 
@@ -25,7 +34,7 @@ h1 {
     overflow-y: scroll;
 }
 
-.eta{
+.eta {
     font-weight: bold;
 }
 
@@ -40,11 +49,10 @@ h1 {
 
 .patient-card:hover {
     cursor: pointer;
+    box-shadow: 4px 4px 10px 0px black;
 }
 
-
-
-.priority-green{
+.priority-green {
     opacity: 50%;
 }
 
@@ -63,8 +71,8 @@ h1 {
     border-color: #049c04;
     box-shadow: 5px 5px 50px 5px rgb(4, 156, 4);
     opacity: 100%;
+    transform: rotate(45deg);
 }
-
 
 .priority-red:hover {
     border: solid;
@@ -87,13 +95,287 @@ h1 {
 .clear-pt-button button {
     border: none;
     background-color: var(--yellow);
-    border-radius: 7px;
+    border-radius: 25px;
     width: 150px;
     height: 50px;
     font-family: PT Sans;
     font-size: x-large;
 }
-.patient-title{
+
+.clear-pt-button :hover {
+    border: solid black;
+    cursor: pointer;
+    box-shadow: 3px 3px 10px 3px gray;
+}
+
+.patient-title {
     color: #000000;
     text-decoration: underline;
+}
+
+input[type=text] {
+    width: 80%;
+    border: none;
+    background-color: var(--light-gray);
+    border-bottom: 2px solid var(--dark-blue);
+}
+
+input[type=text]:focus {
+    background-color: lightgray;
+}
+
+input[type=text]::placeholder {
+    color: var(--dark-blue);
+    font-family: PT Sans;
+    font-size: large;
+}
+
+.logout-button {
+    background-color: lightcoral;
+    width: 50%;
+    padding: 10px;
+    margin: 10px;
+    border: solid var(--dark-blue);
+    border-radius: 25px;
+    font-family: PT Sans;
+    font-size: large;
+}
+
+.close:hover,
+.close:focus {
+    color: lightcoral;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.login-button {
+    background-color: var(--green);
+    width: 50%;
+    padding: 10px;
+    margin: 10px;
+    border: solid var(--dark-blue);
+    border-radius: 25px;
+    font-family: PT Sans;
+    font-size: large;
+}
+
+.login-button:hover {
+    cursor: pointer;
+    background-color: green;
+    border-radius: 25px;
+
+}
+
+.logout-button:hover {
+    cursor: pointer;
+    background-color: crimson;
+}
+
+.close {
+    color: var(--dark-blue);
+    float: right;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.modal-content {
+    background-color: var(--light-gray);
+    margin: 15% auto;
+    padding: 20px;
+    border: 6px solid var(--dark-blue);
+    border-radius: 7px;
+    width: 15%;
+}
+
+.login-icon-button :hover {
+    cursor: pointer;
+}
+
+.home-login-button {
+    background-color: none;
+    padding: 10px;
+    margin: 10px;
+    width: 250px;
+    border: solid var(--dark-blue);
+    border-width: 2px;
+    border-radius: 25px;
+    font-family: PT Sans;
+    font-size: x-large;
+    box-shadow: 2px 2px 3px 1px black;
+}
+
+.home-login-button:hover {
+    cursor: pointer;
+    background-color: var(--dark-blue);
+    box-shadow: 4px 4px 7px 3px black;
+}
+
+.homepage-header{
+    height: 1vh;
+}
+
+.home-login-button,
+.homepage-header-h1 {
+    animation: fadeIn ease 3s;
+    -webkit-animation: fadeIn ease 3s;
+    -moz-animation: fadeIn ease 3s;
+    -o-animation: fadeIn ease 3s;
+    -ms-animation: fadeIn ease 3s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-ms-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.modal-content,
+.patient-modal-info {
+    animation: fadeIn ease 1.5s;
+    -webkit-animation: fadeIn ease 1.5s;
+    -moz-animation: fadeIn ease 1.5s;
+    -o-animation: fadeIn ease 1.5s;
+    -ms-animation: fadeIn ease 1.5s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-ms-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.patient-card {
+    animation: leftSlide ease 1s;
+    -webkit-animation: leftSlide ease 1s;
+    -moz-animation: leftSlide ease 1s;
+    -o-animation: leftSlide ease 1s;
+    -ms-animation: leftSlide ease 1s;
+}
+
+@keyframes leftSlide {
+    0% {
+        margin-left: 100%;
+        display: none;
+    }
+    100% {
+        margin-left: 0%;
+    }
+}
+
+@-moz-keyframes leftSlide {
+    0% {
+        margin-left: 100%;
+        display: none;
+    }
+    100% {
+        margin-left: 0%;
+    }
+}
+
+@-webkit-keyframes leftSlide {
+    0% {
+        margin-left: 100%;
+        display: none;
+    }
+    100% {
+        margin-left: 0%;
+    }
+}
+
+@-o-keyframes leftSlide {
+    0% {
+        margin-left: 100%;
+        display: none;
+    }
+    100% {
+        margin-left: 0%;
+    }
+}
+
+@-ms-keyframes leftSlide {
+    0% {
+        margin-left: 100%;
+        display: none;
+    }
+    100% {
+        margin-left: 0%;
+    }
 }

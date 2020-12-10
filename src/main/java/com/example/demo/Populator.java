@@ -84,18 +84,19 @@ public class Populator implements CommandLineRunner {
         careGiverRepo.save(caregiver5);
         CareGiver caregiver6 = new CareGiver(15, 16, 17, 18, "Nov 10, 2020");
         careGiverRepo.save(caregiver6);
-        CareGiver caregiver7 = new CareGiver(10, 11, 12, 13, "Nov 25, 2020");
+        CareGiver caregiver7 = new CareGiver(17, 17, 18, 19, "Nov 25, 2020");
         careGiverRepo.save(caregiver7);
-        CareGiver caregiver8 = new CareGiver(11, 12, 13, 14, "Nov 27, 2020");
+        CareGiver caregiver8 = new CareGiver(18, 18, 19, 20, "Nov 27, 2020");
         careGiverRepo.save(caregiver8);
-        CareGiver caregiver9 = new CareGiver(12, 13, 14, 15, "Nov 26, 2020");
+        CareGiver caregiver9 = new CareGiver(19, 19, 20, 21, "Nov 26, 2020");
         careGiverRepo.save(caregiver9);
-        CareGiver caregiver10 = new CareGiver(13, 14, 15, 16, "Nov 20, 2020");
+        CareGiver caregiver10 = new CareGiver(20, 20, 21, 22, "Nov 20, 2020");
         careGiverRepo.save(caregiver10);
-        CareGiver caregiver11 = new CareGiver(14, 15, 16, 17, "Nov 18, 2020");
+        CareGiver caregiver11 = new CareGiver(21, 21, 22, 23, "Nov 18, 2020");
         careGiverRepo.save(caregiver11);
-        CareGiver caregiver12 = new CareGiver(15, 16, 17, 18, "Nov 10, 2020");
+        CareGiver caregiver12 = new CareGiver(22, 22, 23, 24, "Nov 10, 2020");
         careGiverRepo.save(caregiver12);
+
 
         Patient patient1 = new Patient(12, 22, "Male", vital1, "Not Available", "Peanuts", "Penicillin", "green", "Heavy alcohol use","Under the influence","Flipped a car while driving under the influence","43.022835199999996, -82.98496", caregiver1, hospital5 );
         patientStorage.savePatient(patient1);
