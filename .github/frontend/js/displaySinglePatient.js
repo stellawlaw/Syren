@@ -1,5 +1,5 @@
 const displaySinglePatient = function (patient) {
-    console.log(patient);
+    // console.log(patient);
     const patientModalElement = document.createElement("div");
     patientModalElement.classList.add("patient-modal");
     const patientModalInfoElement = document.createElement("div");

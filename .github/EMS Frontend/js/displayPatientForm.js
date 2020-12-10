@@ -135,7 +135,7 @@ const createSelectBoxes = function () {
     return selectBoxesDiv;
 }
 
-const createHospitalSelect = function () {
+const createHospitalSelect = function (hospitals) {
     const hospitalSelectDiv = document.createElement("div");
     hospitalSelectDiv.classList.add("hospitals");
 
@@ -143,50 +143,13 @@ const createHospitalSelect = function () {
     hospitalSelect.name = "hospitals";
     hospitalSelect.id = "hospitals";
 
-    const doctorsWest = document.createElement("option");
-    doctorsWest.value = "doctors";
-    doctorsWest.innerText = "Doctors West";
-    const dmh = document.createElement("option");
-    dmh.value = "dmh";
-    dmh.innerText = "Dublin Methodist Hospital";
-    const gmc = document.createElement("option");
-    gmc.value = "gmc";
-    gmc.innerText = "Grant Medical Center";
-    const mce = document.createElement("option");
-    mce.value = "mce";
-    mce.innerText = "Mt. Carmel East";
-    const mcw = document.createElement("option");
-    mcw.value = "mcw";
-    mcw.innerText = "Mt. Carmel West";
-    const nch = document.createElement("option");
-    nch.value = "nch";
-    nch.innerText = "Nationwide Children's Hospital";
-    const nchlc = document.createElement("option");
-    nchlc.value = "nchlc";
-    nchlc.innerText = "NCH Lewis Center";
-    const osu = document.createElement("option");
-    osu.value = "osu";
-    osu.innerText = "Ohio State University";
-    const osue = document.createElement("option");
-    osue.value = "osue";
-    osue.innerText = "Ohio State University East";
-    const rmh = document.createElement("option");
-    rmh.value = "rmh";
-    rmh.innerText = "Riverside Methodist Hospital";
-    const sah = document.createElement("option");
-    sah.value = "sah";
-    sah.innerText = "St. Ann's Hospital";
-    hospitalSelect.appendChild(doctorsWest);
-    hospitalSelect.appendChild(dmh);
-    hospitalSelect.appendChild(gmc);
-    hospitalSelect.appendChild(mce);
-    hospitalSelect.appendChild(mcw);
-    hospitalSelect.appendChild(nch);
-    hospitalSelect.appendChild(nchlc);
-    hospitalSelect.appendChild(osu);
-    hospitalSelect.appendChild(osue);
-    hospitalSelect.appendChild(rmh);
-    hospitalSelect.appendChild(sah);
+    hospitals.forEach(hospital => {
+        let option = document.createElement("option");
+        option.value = hospital.id;
+        option.innerText = hospital.name;
+        console.log(hospital.name);
+        hospitalSelect.appendChild(option);
+    });
 
     hospitalSelectDiv.appendChild(hospitalSelect);
 
@@ -208,7 +171,24 @@ const whichGender = function () {
     }
 }
 
-const displayPatientForm = function () {
+const createSubmitButton = function () {
+    const submitButton = document.createElement("button");
+    submitButton.setAttribute('type', 'submit')
+    submitButton.classList.add("submit-button");
+    submitButton.innerText = "Submit";
+    return submitButton;
+}
+
+let coordinates;
+
+const storePosition = function (position) {
+    console.log(""+position.coords.latitude+", "+position.coords.longitude);
+    coordinates = ""+position.coords.latitude+", "+position.coords.longitude;
+}
+
+const displayPatientForm = function (hospitals) {
+    navigator.geolocation.getCurrentPosition(storePosition);
+
     const body = document.querySelector("body");
     clearChildren(body);
     body.appendChild(createHeader());
@@ -278,31 +258,52 @@ const displayPatientForm = function () {
     hospitalLabel.innerText = "Select a Hospital";
     hospitalLabel.classList.add("hospital-label");
     patientForm.appendChild(hospitalLabel);
-    patientForm.appendChild(createHospitalSelect());
 
-    const submitButton = document.createElement("button");
-    submitButton.setAttribute('type', 'submit')
-    submitButton.classList.add("submit-button");
-    submitButton.innerText = "Submit";
+    patientForm.appendChild(createHospitalSelect(hospitals));
+    patientForm.appendChild(createSubmitButton());
 
-    patientForm.appendChild(submitButton);
+    // fetch(`http://localhost:8080/api/hospitals`)
+    //     .then(response => response.json())
+    //     .then(hospitals => patientForm.appendChild(createHospitalSelect(hospitals)))
+    //     .then(patientForm.appendChild(createSubmitButton()))
+    //     .catch(error => console.log(error));
+
     patientFormDiv.appendChild(patientForm);
     body.appendChild(patientFormDiv);
 
     let gender = whichGender();
 
-    const storePosition = function (position) {
-        console.log(""+position.coords.latitude+", "+position.coords.longitude);
-        return ""+position.coords.latitude+", "+position.coords.longitude;
-    }
+    const hospitalSelect = document.querySelector("#hospitals");
 
-    submitButton.addEventListener('click', (clickEvent) =>{
+    document.querySelector(".submit-button").addEventListener('click', (clickEvent) =>{
         clickEvent.preventDefault();
-        let location = navigator.geolocation.getCurrentPosition(storePosition);
+
+        let patientHospital = hospitals[0];
+        hospitals.forEach(hospital => {
+            if(hospitalSelect.value == hospital.id){
+                patientHospital = hospital;
+                console.log("Executed");
+            } 
+            console.log(hospitalSelect.value);
+        });
+    
+
+        // let location = 
+        console.log(coordinates);
+        const hospital = document.querySelector("#hospitals").value;
+        console.log(location);
         const patient = {
+
             "age":patientAgeInput.value,
             "sex":gender,
-            "location":location,
+            "hospital":{
+                "id": patientHospital.id,
+                "name": patientHospital.name,
+                "coordinates": {
+                    "longitude": patientHospital.coordinates.longitude,
+                    "latitude": patientHospital.coordinates.latitude
+                }
+            },
             "vitals":{
                 "bp": bloodPressureInput.value,
                 "hr": heartRateInput.value,
@@ -319,11 +320,12 @@ const displayPatientForm = function () {
             "drugsAndAlcoholHistory":"",
             "chiefComplaint":chiefComplaintInput.value,
             "summary":summaryInput.value,
+            "location":coordinates,
             "careGiver": {
                 "dateAndTime": "Nov 25, 2020"
               }
         }
-        fetch("http://localhost:8080/api/patients/", {
+        fetch("http://localhost:8080/api/patients/hospital/6", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -15,7 +15,10 @@ container.appendChild(createLoginModal());
 
 const addPatientIcon = document.querySelector(".add-pt-button");
 addPatientIcon.addEventListener('click', () => {
-    displayPatientForm();
+    fetch(`http://localhost:8080/api/hospitals`)
+    .then(response => response.json())
+    .then(hospitals => displayPatientForm(hospitals))
+    .catch(error => console.log(error));
 });
 
 const modal = document.querySelector(".modal");
