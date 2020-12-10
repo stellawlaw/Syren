@@ -10,8 +10,11 @@ import {
 import {
     createHeader
   } from "./header.js"
-  
 
+import {
+    footer
+} from "./footer.js" 
+  
 
 let hospitalToRender;
 const displayHospitalView = function (patients) {
@@ -74,6 +77,7 @@ const displayHospitalView = function (patients) {
         clearPtButtonElement.appendChild(ptButton);
         patientCardElement.appendChild(clearPtButtonElement);
         patientListElement.appendChild(patientCardElement);
+        patientListElement.appendChild(footer);
 
     });
     return patientListElement;

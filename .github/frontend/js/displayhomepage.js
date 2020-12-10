@@ -6,6 +6,10 @@ import{
     createHospitalView
 }from "./displayHospitalView.js"
 
+import{
+    footer
+}from "./footer.js"
+
 const displayHomePageView = function (hospital) {
     const container = document.querySelector(".container");
     clearChildren(container);
@@ -74,6 +78,7 @@ const displayHomePageView = function (hospital) {
     form.appendChild(homeLogoutButton);
     inputUserName.appendChild(breakBR1);
     inputPassword.appendChild(breakBR2);
+    container.appendChild(footer);
 
     loginButton.addEventListener('click', ()=> {
         myModal.append(modalContent)

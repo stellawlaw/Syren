@@ -1,14 +1,15 @@
 const createHeader = function(hospital) {
-    const h1 = document.createElement("h1")
-    h1.classList.add("main-header")
+    const header = document.createElement("header");
+    const h1 = document.createElement("h1");
+    h1.classList.add("main-header");
     h1.innerText = hospital.name;
-    const h3 = document.createElement("h3")
-    h3.innerText = "Patient Intake List";
-    h3.prepend(h1);
+    const h2 = document.createElement("h2");
+    h2.classList.add("subheader-header");
+    h2.innerText = "Patient Intake List";
+    header.appendChild(h1);
+    header.appendChild(h2);
 
-    console.log(hospital.name);
-
-    return h3;
+    return header;
 }
 
 export {
