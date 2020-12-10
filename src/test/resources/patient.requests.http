@@ -2,6 +2,10 @@
 GET http://localhost:8080/api/patients
 Accept: application/json
 
+### Get all hospitals
+GET http://localhost:8080/api/hospitals
+Accept: application/json
+
 ### Get a patient with a given id.
 GET http://localhost:8080/api/patients/24
 

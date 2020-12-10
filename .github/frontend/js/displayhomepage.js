@@ -100,7 +100,7 @@ const displayHomePageView = function (hospital) {
         let hospitalId = 0;
         let input = inputUserName.value;
         
-        if (input === "Mt. Carmel West Hospital"){
+        if (input === "m"){
             hospitalId = 6;
         }else if(input === "Grant Hospital"){
             hospitalId = 2;

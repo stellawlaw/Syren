@@ -28,6 +28,11 @@ public class PatientController {
     public Iterable<Patient> retrieveAllPatients() {
         return patientStorage.retrieveAllPatients();
     }
+
+    @GetMapping("/api/hospitals")
+    public Iterable<Hospital> retrieveAllHospitals() {
+        return hospitalRepo.findAll();
+    }
     
     @GetMapping("/api/patients/{id}")
     public Patient retrievePatientById(@PathVariable Long id){
@@ -39,13 +44,14 @@ public class PatientController {
         return patientStorage.retrievePatientsFromHospitalById(id);
     }
 
-    @PostMapping("/api/patients")
-    public  Iterable<Patient> addPatient(@RequestBody Patient patientToAdd){
+    @PostMapping("/api/patients/hospital/{id}")
+    public  Iterable<Patient> addPatient(@RequestBody Patient patientToAdd, @PathVariable Long id){
         hospitalRepo.save(patientToAdd.getHospital());
         careGiverRepo.save(patientToAdd.getCareGiver());
         vitalRepo.save(patientToAdd.getVitals());
         patientStorage.savePatient(patientToAdd);
-        return patientStorage.retrieveAllPatients();
+        System.out.println(id);
+        return patientStorage.retrievePatientsFromHospitalById(id);
     }
     @PutMapping("/api/patients")
     public Iterable<Patient> editPatient(@RequestBody Patient patientToEdit){
