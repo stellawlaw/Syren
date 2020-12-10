@@ -231,6 +231,7 @@ const editPatientPriority = function(patient, color){
 
 }
 const clearChildren = function (element) {
+    console.log(element)
     while (element.firstChild) {
         element.removeChild(element.lastChild);
     }

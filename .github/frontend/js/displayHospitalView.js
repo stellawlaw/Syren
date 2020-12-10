@@ -21,9 +21,9 @@ let time = 20000
 let hospitalToRender;
 const patientListElement = document.createElement("div");
 patientListElement.classList.add("patient-intake-list");
-const container = document.querySelector('.container');
+
 const displayHospitalView = function (patients) {
-    
+    const container = document.querySelector('.container');
     const directionService = new google.maps.DirectionsService();
     const hospitalLocation = new google.maps.LatLng(hospitalToRender.coordinates.latitude, hospitalToRender.coordinates.longitude);
     // const refresh = setInterval(()=>reloadPatientList(patients,patientListElement), time);
@@ -70,14 +70,13 @@ const displayHospitalView = function (patients) {
 
         function closeModal() {
             clearChildren(container)
+            clearChildren(patientListElement)
             container.prepend(createHeader(hospitalToRender));
             fetch(`http://localhost:8080/api/patients/hospital/${hospitalToRender.id}`)
                 .then(response => response.json())
                 .then(patients => displayHospitalView(patients))
                 .then(patientsElement => container.appendChild(patientsElement))
                 .catch(error => console.log(error));
-            
-
             patientModal.style.display = "none";
 
         }
@@ -110,10 +109,8 @@ const displayHospitalView = function (patients) {
         patientListElement.appendChild(patientCardElement);
         patientListElement.appendChild(footer);
 
-
-        
-
     });
+
     return patientListElement;
 }
 let refresh ;
