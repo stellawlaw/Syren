@@ -16,15 +16,18 @@ import{
 }from "./displaySinglePatient.js"
 
 
-
+let time = 5000
 let hospitalToRender;
+const patientListElement = document.createElement("div");
+patientListElement.classList.add("patient-intake-list");
+const container = document.querySelector('.container');
 const displayHospitalView = function (patients) {
-    const patientListElement = document.createElement("div");
-    patientListElement.classList.add("patient-intake-list");
-    const container = document.querySelector('.container');
     
     const directionService = new google.maps.DirectionsService();
     const hospitalLocation = new google.maps.LatLng(hospitalToRender.coordinates.latitude, hospitalToRender.coordinates.longitude);
+    // const refresh = setInterval(()=>reloadPatientList(patients,patientListElement), time);
+    stopRefresh();
+    startRefresh(patients);
     
     patients.forEach(patient => {
         let etaElement = document.createElement("div");
@@ -60,6 +63,7 @@ const displayHospitalView = function (patients) {
         let patientModal = displaySinglePatient(patient);
         patientListElement.appendChild(patientModal);
         patientCardElement.addEventListener('click', () => {
+            stopRefresh();
             patientModal.style.display = "block";
         });
 
@@ -74,6 +78,7 @@ const displayHospitalView = function (patients) {
             
 
             patientModal.style.display = "none";
+
         }
         patientModal.addEventListener('click', closeModal);
 
@@ -104,19 +109,30 @@ const displayHospitalView = function (patients) {
         patientListElement.appendChild(patientCardElement);
         
     });
-    setInterval(reloadPatientList(patients), time);
     return patientListElement;
-    
 }
-
-let time = 300
+let refresh ;
+const startRefresh = function(patients){
+    if(refresh == undefined){
+        refresh = setInterval(()=>reloadPatientList(patients), time);
+    }
+}
+const stopRefresh = function(){
+    clearInterval(refresh);
+    if(refresh != undefined){
+        refresh = undefined;
+    }
+}
 let reloadPatientList = function(patients){
-    let patientList = document.querySelector('.patient-intake-list')
-    clearChildren(patientList);
-    displayHospitalView(patients);
-    time = 300;
-    console.log(time)
-}
+        console.log(patients)
+        clearChildren(patientListElement);
+        fetch(`http://localhost:8080/api/patients/hospital/${hospitalToRender.id}`)
+            .then(response => response.json())
+            .then(patients => displayHospitalView(patients))
+            .then(patientsElement => container.appendChild(patientsElement))
+            .catch(error => console.log(error));
+    }
+
 const createHospitalView = function (hospital) {
     const container = document.querySelector('.container');
     hospitalToRender = hospital;
