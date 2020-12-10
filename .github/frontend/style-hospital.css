@@ -1,19 +1,25 @@
 :root {
     --light-gray: #f0f7ee;
     --yellow: #fff07c;
-    --dark-blue: #5d737e;
+    --dark-blue: #64471e;
     --green: #87bba2;
     --black: #000000;
 }
 
 html {
-    background: radial-gradient(circle, rgba(240,247,238,1) 0%, rgba(93,115,126,1) 35%, rgba(0,0,0,1) 100%);
+    /* background: radial-gradient(circle, rgba(240,247,238,1) 0%, rgba(93,115,126,1) 35%, rgba(0,0,0,1) 100%); */
     min-height: 100%;
+    background-image:url("./imgs/polygons.jpg"); 
 
     overflow: hidden;
 }
 
 h1 {
+    color: var(--light-gray);
+   
+}
+
+.copyright{
     color: var(--light-gray);
 }
 
@@ -156,6 +162,8 @@ input[type=text]::placeholder {
 .login-button:hover {
     cursor: pointer;
     background-color: green;
+    border-radius: 25px;
+
 }
 
 .logout-button:hover {
@@ -184,7 +192,7 @@ input[type=text]::placeholder {
 }
 
 .home-login-button {
-    background-color: var(--yellow);
+    background-color: none;
     padding: 10px;
     margin: 10px;
     width: 250px;
@@ -192,13 +200,18 @@ input[type=text]::placeholder {
     border-width: 2px;
     border-radius: 25px;
     font-family: PT Sans;
-    font-size: large;
+    font-size: x-large;
+    box-shadow: 2px 2px 3px 1px black;
 }
 
 .home-login-button:hover {
     cursor: pointer;
-    background-color: yellow;
-    box-shadow: 4px 4px 7px 3px grey;
+    background-color: var(--dark-blue);
+    box-shadow: 4px 4px 7px 3px black;
+}
+
+.homepage-header{
+    height: 1vh;
 }
 
 .home-login-button,

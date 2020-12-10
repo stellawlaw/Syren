@@ -11,6 +11,7 @@
     justify-content: center;
     align-items: center;
     padding: 2rem;
+    font-size: 72px;
    
 }
 
@@ -18,6 +19,7 @@
     display: flex;
     justify-content: center;
     color: var(--light-gray);
+  
 }
 
 .subheader-header {
@@ -45,6 +47,7 @@ bottom: 0px;
     position: absolute;
     left: 0px;
     bottom: 0px;
+    
    
 }
 
@@ -52,14 +55,22 @@ bottom: 0px;
     grid-column-start: 3;
     justify-self: center;
     align-self: center;
-
   
 }
 
 
-
-.github-logo, .fb-logo, .twitter-logo, .linkedin-logo{
+.github-logo, .fb-logo, .twitter-logo{
     width: 50px;
+    padding: 1rem;
+
+}
+
+.github-logo:hover, .fb-logo:hover, .twitter-logo:hover{
+    width: 51px;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px 1px grey;
+    cursor: pointer;
 
 }
 
