@@ -21,9 +21,9 @@ const createLoginModal = function () {
     const loginButton = document.createElement("button");
     loginButton.classList.add("login-button");
     loginButton.innerText = 'Login';
-    const logoutButton = document.createElement("button");
-    logoutButton.classList.add("logout-button");
-    logoutButton.innerText = 'Logout';
+    // const logoutButton = document.createElement("button");
+    // logoutButton.classList.add("logout-button");
+    // logoutButton.innerText = 'Logout';
 
     const br1 = document.createElement("br");
     const br2 = document.createElement("br");
@@ -33,7 +33,7 @@ const createLoginModal = function () {
     loginForm.appendChild(passwordField);
     loginForm.appendChild(br2);
     loginForm.appendChild(loginButton);
-    loginForm.appendChild(logoutButton);
+    // loginForm.appendChild(logoutButton);
 
     loginModalContent.appendChild(x);
     loginModalContent.appendChild(loginForm);

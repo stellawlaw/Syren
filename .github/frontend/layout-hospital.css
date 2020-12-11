@@ -37,7 +37,6 @@ position: absolute;
 left: 0px;
 bottom: 0px;
 
-
 }
 
 .copyright{  
@@ -48,7 +47,6 @@ bottom: 0px;
     left: 0px;
     bottom: 0px;
     
-   
 }
 
 .social-stack{
@@ -57,7 +55,6 @@ bottom: 0px;
     align-self: center;
   
 }
-
 
 .github-logo, .fb-logo, .twitter-logo{
     width: 50px;
@@ -73,7 +70,6 @@ bottom: 0px;
     cursor: pointer;
 
 }
-
 
 
 .container {
@@ -182,40 +178,4 @@ form {
     display: grid;
     max-width: 800px;
     justify-items: center;
-}
-
-input[type=number] {
-    border: none;
-    background-color: var(--dark-blue);
-    border-bottom: 2px solid var(--light-gray);
-    width: 75%;
-    margin-bottom: 3rem;
-}
-
-input[type=number]:focus {
-    background-color: lightgray;
-    height: 30px;
-}
-
-input[type=number]::placeholder {
-    color: var(--light-gray);
-    font-size: medium;
-}
-
-.pt-submit-form input[type=text] {
-    border: none;
-    background-color: var(--dark-blue);
-    border-bottom: 2px solid var(--light-gray);
-    width: 75%;
-    margin-bottom: 3rem;
-}
-
-.pt-submit-form input[type=text]:focus {
-    background-color: lightgray;
-    height: 30px;
-}
-
-.pt-submit-form input[type=text]::placeholder {
-    color: var(--light-gray);
-    font-size: medium;
 }

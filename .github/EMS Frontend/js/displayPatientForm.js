@@ -2,6 +2,10 @@ import{
     createHeader
 }from "./createHeader.js"
 
+import{
+    footer
+}from "./footer.js"
+
 const clearChildren = function (element) {
     while (element.firstChild) {
         element.removeChild(element.lastChild);
@@ -16,6 +20,7 @@ const createRadioButtons = function () {
     maleRadio.setAttribute('type', 'radio');
     maleRadio.id = "male";
     maleRadio.value = "male";
+    maleRadio.name = "gender_buttons";
     const maleRadioLabel = document.createElement("label");
     maleRadioLabel.htmlFor = "male";
     maleRadioLabel.innerText = "Male";
@@ -23,6 +28,7 @@ const createRadioButtons = function () {
     femaleRadio.setAttribute('type', 'radio');
     femaleRadio.id = "female";
     femaleRadio.value = "female";
+    femaleRadio.name = "gender_buttons";
     const femaleRadioLabel = document.createElement("label");
     femaleRadioLabel.htmlFor = "female";
     femaleRadioLabel.innerText = "Female";
@@ -30,6 +36,7 @@ const createRadioButtons = function () {
     otherRadio.setAttribute('type', 'radio');
     otherRadio.id = "other";
     otherRadio.value = "other";
+    otherRadio.name = "gender_buttons";
     const otherRadioLabel = document.createElement("label");
     otherRadioLabel.htmlFor = "other";
     otherRadioLabel.innerText = "Other";
@@ -244,13 +251,14 @@ const displayPatientForm = function (hospitals) {
     summaryInput.placeholder = "Write Up";
     patientForm.appendChild(patientAgeInput);
     patientForm.appendChild(chiefComplaintInput);
-    patientForm.appendChild(medicalHistoryInput);
-    patientForm.appendChild(allergiesInput);
     patientForm.appendChild(medicationsInput);
+    patientForm.appendChild(allergiesInput);
     patientForm.appendChild(heartRateInput);
-    patientForm.appendChild(respiratoryRateInput);
     patientForm.appendChild(bloodPressureInput);
+    patientForm.appendChild(respiratoryRateInput);
     patientForm.appendChild(ekgInput);
+    
+    patientForm.appendChild(medicalHistoryInput);
     patientForm.appendChild(summaryInput);
 
     const hospitalLabel = document.createElement("label");
@@ -270,6 +278,7 @@ const displayPatientForm = function (hospitals) {
 
     patientFormDiv.appendChild(patientForm);
     body.appendChild(patientFormDiv);
+    body.appendChild(footer);
 
     let gender = whichGender();
 
@@ -277,7 +286,7 @@ const displayPatientForm = function (hospitals) {
 
     document.querySelector(".submit-button").addEventListener('click', (clickEvent) =>{
         clickEvent.preventDefault();
-
+        alert("Patient has been submitted!");
         let patientHospital = hospitals[0];
         hospitals.forEach(hospital => {
             if(hospitalSelect.value == hospital.id){
@@ -335,6 +344,7 @@ const displayPatientForm = function (hospitals) {
         .then(response => response.json())
         .catch((err)=>console.log(err))
     })
+ 
 }
 
 export {

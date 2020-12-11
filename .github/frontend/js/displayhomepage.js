@@ -52,30 +52,27 @@ const displayHomePageView = function (hospital) {
     const inputUserName = document.createElement("input");
     inputUserName.classList.add("username");
     inputUserName.setAttribute("type", "text");
-    inputUserName.setAttribute("placeholder", "UserName");
+    inputUserName.setAttribute("placeholder", "Username");
 
     const breakBR1 = document.createElement("br");
     const breakBR2 = document.createElement("br");
     
     const inputPassword = document.createElement("input");
     inputPassword.classList.add("password");
-    inputPassword.setAttribute("type", "text");
+    inputPassword.setAttribute("type", "password");
     inputPassword.setAttribute("placeholder", "Password");
 
     const homeLoginButton = document.createElement("button");
     homeLoginButton.classList.add("login-button");
     homeLoginButton.innerText = "Login";
 
-    const homeLogoutButton = document.createElement("button");
-    homeLogoutButton.classList.add("logout-button");
-    homeLogoutButton.innerText = "Logout";
+  
 
     modalContent.appendChild(span);
     modalContent.appendChild(form);
     form.appendChild(inputUserName);
     form.appendChild(inputPassword);
     form.appendChild(homeLoginButton);
-    form.appendChild(homeLogoutButton);
     inputUserName.appendChild(breakBR1);
     inputPassword.appendChild(breakBR2);
     container.appendChild(footer);
@@ -100,7 +97,7 @@ const displayHomePageView = function (hospital) {
         let hospitalId = 0;
         let input = inputUserName.value;
         
-        if (input === "m"){
+        if (input === "Mt Carmel West"){
             hospitalId = 6;
         }else if(input === "Grant Hospital"){
             hospitalId = 2;

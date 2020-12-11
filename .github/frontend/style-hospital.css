@@ -1,16 +1,17 @@
 :root {
     --light-gray: #f0f7ee;
     --yellow: #fff07c;
-    --dark-blue: #64471e;
+    --dark-blue: #5d737e;
+    --transparent: ;
     --green: #87bba2;
     --black: #000000;
 }
 
 html {
-    /* background: radial-gradient(circle, rgba(240,247,238,1) 0%, rgba(93,115,126,1) 35%, rgba(0,0,0,1) 100%); */
-    min-height: 100%;
-    background-image:url("./imgs/polygons.jpg"); 
 
+    min-height: 100%;
+    background-image:url("./imgs/SyrenBGV1.png"); 
+    background-size: 100%;
     overflow: hidden;
 }
 
@@ -71,7 +72,7 @@ h1 {
     border-color: #049c04;
     box-shadow: 5px 5px 50px 5px rgb(4, 156, 4);
     opacity: 100%;
-    transform: rotate(45deg);
+   
 }
 
 .priority-red:hover {
@@ -108,6 +109,10 @@ h1 {
     box-shadow: 3px 3px 10px 3px gray;
 }
 
+button{
+outline: none;
+}
+
 .patient-title {
     color: #000000;
     text-decoration: underline;
@@ -125,6 +130,23 @@ input[type=text]:focus {
 }
 
 input[type=text]::placeholder {
+    color: var(--dark-blue);
+    font-family: PT Sans;
+    font-size: large;
+}
+
+input[type=password] {
+    width: 80%;
+    border: none;
+    background-color: var(--light-gray);
+    border-bottom: 2px solid var(--dark-blue);
+}
+
+input[type=password]:focus {
+    background-color: lightgray;
+}
+
+input[type=password]::placeholder {
     color: var(--dark-blue);
     font-family: PT Sans;
     font-size: large;
@@ -196,7 +218,7 @@ input[type=text]::placeholder {
     padding: 10px;
     margin: 10px;
     width: 250px;
-    border: solid var(--dark-blue);
+    border: solid var(--light-gray);
     border-width: 2px;
     border-radius: 25px;
     font-family: PT Sans;
@@ -206,8 +228,9 @@ input[type=text]::placeholder {
 
 .home-login-button:hover {
     cursor: pointer;
-    background-color: var(--dark-blue);
-    box-shadow: 4px 4px 7px 3px black;
+    background-color: var(--transparent);
+    box-shadow: 6px 6px 9px 5px black;
+    color: var(--light-gray);
 }
 
 .homepage-header{
@@ -321,62 +344,5 @@ input[type=text]::placeholder {
         opacity: 1;
     }
 }
-/* 
-.patient-card {
-    animation: leftSlide ease 1s;
-    -webkit-animation: leftSlide ease 1s;
-    -moz-animation: leftSlide ease 1s;
-    -o-animation: leftSlide ease 1s;
-    -ms-animation: leftSlide ease 1s;
-}
 
-@keyframes leftSlide {
-    0% {
-        margin-left: 100%;
-        display: none;
-    }
-    100% {
-        margin-left: 0%;
-    }
-}
-
-@-moz-keyframes leftSlide {
-    0% {
-        margin-left: 100%;
-        display: none;
-    }
-    100% {
-        margin-left: 0%;
-    }
-}
-
-@-webkit-keyframes leftSlide {
-    0% {
-        margin-left: 100%;
-        display: none;
-    }
-    100% {
-        margin-left: 0%;
-    }
-}
-
-@-o-keyframes leftSlide {
-    0% {
-        margin-left: 100%;
-        display: none;
-    }
-    100% {
-        margin-left: 0%;
-    }
-}
-
-@-ms-keyframes leftSlide {
-    0% {
-        margin-left: 100%;
-        display: none;
-    }
-    100% {
-        margin-left: 0%;
-    }
-} */
 

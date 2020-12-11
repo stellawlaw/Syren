@@ -6,9 +6,26 @@
     --black: #000000;
 }
 
+
 html {
-    background-color: var(--dark-blue);
     font-family: PT Sans;
+    min-height: 100%;
+    background-image:url("../imgs/SyrenBGV1.png"); 
+    background-size: 100%;
+    overflow: hidden;
+}
+
+.submit-form{
+background-color: gray;
+/* opacity: .9; */
+border: none;
+border-radius: 10px;
+padding: 2rem;
+margin-top: 1.5rem;
+}
+
+.new-patient{
+    color: var(--light-gray);
 }
 
 input[type=text] {
@@ -34,7 +51,7 @@ input[type=text]::placeholder {
     padding: 10px;
     margin: 10px;
     border: solid var(--dark-blue);
-    border-radius: 5px;
+    border-radius: 25px;
     font-family: PT Sans;
     font-size: large;
 }
@@ -52,7 +69,7 @@ input[type=text]::placeholder {
     padding: 10px;
     margin: 10px;
     border: solid var(--dark-blue);
-    border-radius: 5px;
+    border-radius: 25px;
     font-family: PT Sans;
     font-size: large;
 }
@@ -60,6 +77,7 @@ input[type=text]::placeholder {
 .login-button:hover {
     cursor: pointer;
     background-color: green;
+    border-radius: 25px;
 }
 
 .logout-button:hover {
@@ -85,4 +103,73 @@ input[type=text]::placeholder {
 
 .login-icon-button :hover {
     cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px 4px black;
 }
+
+.add-pt-button:hover{
+
+    border: none; 
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px 4px black;
+    cursor: pointer;
+}
+
+
+.ems-page-header-h1, .add-pt-button, .login-icon-button, .submit-form,  .modal-content{
+    color: var(--light-gray);
+    animation: fadeIn ease 2s;
+    -webkit-animation: fadeIn ease 2s;
+    -moz-animation: fadeIn ease 2s;
+    -o-animation: fadeIn ease 2s;
+    -ms-animation: fadeIn ease 2s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-ms-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+

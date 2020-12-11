@@ -12,29 +12,19 @@
     box-sizing: border-box;
 }
 
+
 .icons {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    justify-items: center;
-    margin: 2rem;
-    padding: 2rem;
+    padding: 3rem;
+    max-width: 30%;
 }
+
 
 .icons img {
-    width: 300px;
+    width: 150px;
 }
 
-.login-icon-button {
-    display: grid;
-    grid-column-start: 1;
-    grid-column-end: 3;
-    justify-items: center;
-}
-
-.login-icon-button img {
-    width: 200px;
-}
 
 .modal {
     display: none;
@@ -58,6 +48,14 @@
     margin: 1rem;
 }
 
+.ems-page-header-h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    font-size: 72px;
+}
+
 h1 {
     display: flex;
     justify-content: center;
@@ -66,44 +64,53 @@ h1 {
 
 form {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     max-width: 800px;
     justify-items: center;
 }
 
+#write-up{
+    grid-column-start: 0;
+    grid-column-end: 3;
+    height: 50px;
+
+}
+
 input[type=number] {
     border: none;
-    background-color: var(--dark-blue);
-    border-bottom: 2px solid var(--light-gray);
+    background-color: gray;
+    border-bottom: 2px solid #e86060;
     width: 75%;
     margin-bottom: 3rem;
+
 }
 
 input[type=number]:focus {
-    background-color: lightgray;
-    height: 30px;
+    background-color: gray;
+    outline: none;
+    
 }
 
 input[type=number]::placeholder {
-    color: var(--light-gray);
+    color: black;
     font-size: medium;
 }
 
 .pt-submit-form input[type=text] {
     border: none;
-    background-color: var(--dark-blue);
-    border-bottom: 2px solid var(--light-gray);
+    background-color: gray;
+    border-bottom: 2px solid #e86060;
     width: 75%;
     margin-bottom: 3rem;
 }
 
 .pt-submit-form input[type=text]:focus {
-    background-color: lightgray;
-    height: 30px;
+    background-color: gray;
+    outline: none;
+
 }
 
 .pt-submit-form input[type=text]::placeholder {
-    color: var(--light-gray);
+    color: black;
     font-size: medium;
 }
 
@@ -129,21 +136,21 @@ input[type=radio] {
 .submit-button {
     display: grid;
     grid-column-start: 1;
-    grid-column-end: -1;
+    grid-column-end: 3;
     width: 50%;
     justify-self: center;
-    background-color: var(--light-gray);
+    background-color: #60e870;
     border: solid;
     border-radius: 7px;
-    border-color: var(--dark-blue);
+    border-color: #2a2a2a;
     font-family: PT Sans;
     font-size: large;
 }
 
 .submit-button:hover {
-    background-color: var(--light-gray);
+    background-color: #3cdf4f;
     cursor: pointer;
-    box-shadow: 3px 5px 70px 3px var(--light-gray);
+    box-shadow: 1px 1px 3px 1px black;
 }
 
 option {
@@ -160,7 +167,7 @@ select {
 
 label {
     font-family: PT Sans;
-    color: var(--light-gray);
+    color: black;
     font-size: medium;
 }
 
@@ -173,3 +180,48 @@ label {
     grid-row: 7 / 8;
     grid-column: 2 / 3;
 }
+
+footer{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 100px;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    
+    }
+    
+.copyright{  
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    color: var(--light-gray);
+    margin:1rem;
+        
+    }
+    
+.social-stack{
+    grid-column-start: 3;
+    justify-self: center;
+    align-self: center;
+      
+    }
+    
+.github-logo, .fb-logo, .twitter-logo{
+    width: 75px;
+    padding: 1rem;
+    
+}
+    
+.github-logo:hover, .fb-logo:hover, .twitter-logo:hover{
+    width: 76px;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px 1px grey;
+    cursor: pointer;
+    
+    }

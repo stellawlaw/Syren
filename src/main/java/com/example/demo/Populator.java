@@ -100,7 +100,7 @@ public class Populator implements CommandLineRunner {
 
         Patient patient1 = new Patient(12, 22, "Male", vital1, "Not Available", "Peanuts", "Penicillin", "green", "Heavy alcohol use","Under the influence","Flipped a car while driving under the influence","43.022835199999996, -82.98496", caregiver1, hospital5 );
         patientStorage.savePatient(patient1);
-        Patient patient2 = new Patient(13, 23, "Female", vital2, "Not Available", "Penicillin", "Fluids", "yellow", "None","Back is hurting","Fell over and couldn't get up","39.022835199999996, -82.98496", caregiver2, hospital6 );
+        Patient patient2 = new Patient(13, 23, "Female", vital2, "Not Available", "Penicillin", "Fluids", "yellow", "None","Back is hurting","Fell over and couldn't get up","39.022835199999996, -82.98496", caregiver2, hospital5 );
         patientStorage.savePatient(patient2);
         Patient patient3 = new Patient(14, 24, "Male", vital3, "Not Available", "Latex", "Insulin", "red", "none","Gun shot wound","Got in a bar fight","49.022835199999996, -82.98496", caregiver3, hospital6 );
         patientStorage.savePatient(patient3);
