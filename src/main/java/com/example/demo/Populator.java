@@ -26,7 +26,7 @@ public class Populator implements CommandLineRunner {
     public void run(String... args) throws Exception{
         Hospital hospital1 = new Hospital("Riverside Methodist Hospital", new Coordinates(12.1, 12.1));
         hospitalRepo.save(hospital1);
-        Hospital hospital2 = new Hospital("Grant Medical Center", new Coordinates(39.9600, 82.9911));
+        Hospital hospital2 = new Hospital("Grant Medical Center", new Coordinates(-82.9911,39.9600));
         hospitalRepo.save(hospital2);
         Hospital hospital3 = new Hospital("Nationwide Children's Hospital", new Coordinates(14.1, 14.1));
         hospitalRepo.save(hospital3);
